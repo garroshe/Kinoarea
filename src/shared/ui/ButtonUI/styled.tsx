@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {colors} from "../../../constants/style.ts";
+import {colors} from "../../constants/style.ts";
 
 export const StyledButtonUI = styled.button`
     background: ${colors.blue500};

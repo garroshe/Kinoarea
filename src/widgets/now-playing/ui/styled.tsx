@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {colors} from "../../../constants/style.ts";
+import {colors} from "../../../shared/constants/style.ts";
 
 export const StyledNowPlaying = styled.section`
     margin-top: 50px;
@@ -41,12 +41,4 @@ export const StyledNowPlayingWrapper = styled.div`
         width: 52px;
         background: ${colors.white50};
     }
-`;
-
-export const StyledNowPlayingTitle = styled.h2`
-    font-weight: 900;
-    font-size: 65px;
-    line-height: 100%;
-    letter-spacing: 0;
-    color: ${colors.white50};
 `;

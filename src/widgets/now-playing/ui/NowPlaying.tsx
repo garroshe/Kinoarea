@@ -1,7 +1,8 @@
-import {StyledNowPlaying, StyledNowPlayingTitle, StyledNowPlayingWrapper} from "./styled.tsx";
+import {StyledNowPlaying, StyledNowPlayingWrapper} from "./styled.tsx";
 import {GenreTabs} from "../../../features/movie-filter/ui/GenreTabs.tsx";
 import {MovieCard} from "../../../entities/movie-card/ui/MovieCard.tsx";
-import card from "../../../assets/atTheMoment/card1.jpg"
+import card from "../../../shared/assets/atTheMoment/card1.jpg"
+import {SectionTitles} from "../../../shared/ui/SectionTitles/SectionTitles.tsx";
 
 const arr = [
     {img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 1},
@@ -20,7 +21,7 @@ export const NowPlaying = () => {
             <div className="container">
                 <div className="bg-main"/>
                 <StyledNowPlayingWrapper>
-                    <StyledNowPlayingTitle>Зараз у кіно</StyledNowPlayingTitle>
+                    <SectionTitles title="Зараз у кіно"/>
                     <div className="divider"/>
                     <GenreTabs/>
                 </StyledNowPlayingWrapper>
