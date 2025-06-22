@@ -1,5 +1,5 @@
-import { StyledMovieCard } from './styled.tsx';
-import type { IMovieCard } from '../model/types.ts';
+import type { IMovieCard } from "../model/types.ts";
+import { StyledMovieCard } from "./styled.tsx";
 
 export const MovieCard = ({ title, genre, img, rating }: IMovieCard) => {
   return (

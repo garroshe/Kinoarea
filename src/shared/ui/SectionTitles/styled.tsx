@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { colors } from '../../constants/style.ts';
+import styled from "styled-components";
+
+import { colors } from "../../constants/style.ts";
 
 export const StyledSectionTitle = styled.h2`
   font-weight: 900;

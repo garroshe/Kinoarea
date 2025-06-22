@@ -1,4 +1,4 @@
-import { StyledGenreTabs } from './styled.tsx';
+import { StyledGenreTabs } from "./styled.tsx";
 
 export const GenreTabs = () => {
   return (

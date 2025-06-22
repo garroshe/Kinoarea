@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { colors } from '../../../shared/constants/style.ts';
+import styled from "styled-components";
+
+import { colors } from "../../../shared/constants/style.ts";
 
 export const StyledNewTrailer = styled.section`
   margin-bottom: 75px;

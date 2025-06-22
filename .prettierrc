@@ -1,4 +1,16 @@
 {
-  "singleQuote": true,
-  "semi": true
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "singleQuote": false,
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 120,
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/(?!.*\\/(styled)$).*",
+    "",
+    "^\\.(?!.*\\/styled$).",
+    "^(.*)/styled"
+  ]
 }
