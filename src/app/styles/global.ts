@@ -1,7 +1,7 @@
-import {createGlobalStyle} from "styled-components";
-import {colors} from "../../shared/constants/style.ts";
+import { createGlobalStyle } from 'styled-components';
+import { colors } from '../../shared/constants/style.ts';
 
-import bgMain from "../../shared/assets/atTheMoment/bg.png";
+import bgMain from '../../shared/assets/atTheMoment/bg.png';
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -40,4 +40,4 @@ export const GlobalStyles = createGlobalStyle`
         background: url(${bgMain}) no-repeat;
         z-index: -5;
     }
-`
+`;

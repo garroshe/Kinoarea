@@ -1,3 +1,3 @@
 export interface SectionTitlesProps {
-    title: string;
+  title: string;
 }
