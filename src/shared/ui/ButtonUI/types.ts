@@ -1,5 +1,5 @@
 import React from "react";
 
 export interface ButtonUIProps {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 }

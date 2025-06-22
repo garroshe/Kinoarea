@@ -47,12 +47,7 @@ export const NewTrailer = () => {
         </div>
         <div className="slider">
           <Progress percent={25} showInfo={false} style={{ marginBottom: "24px" }} />
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={3}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+          <Swiper spaceBetween={50} slidesPerView={3} onSlideChange={() => {}} onSwiper={() => {}}>
             <SwiperSlide>
               <img src={image1} alt="img" />
               <div className="slider-title">Мулан </div>

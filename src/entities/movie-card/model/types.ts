@@ -1,6 +1,6 @@
 export interface IMovieCard {
-    title: string;
-    rating: number;
-    img: string;
-    genre: string;
+  title: string;
+  rating: number;
+  img: string;
+  genre: string;
 }

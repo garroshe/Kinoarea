@@ -1,7 +1,5 @@
-import arrow from '../../../assets/NewTrailer/arrow.svg';
+import arrow from "../../../assets/NewTrailer/arrow.svg";
 
 export const ArrowUI = () => {
-    return (
-        <img src={arrow} alt="arrow" />
-    )
-}
+  return <img src={arrow} alt="arrow" />;
+};
