@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 import bgMain from "../../shared/assets/atTheMoment/bg.png";
-import { colors } from "../../shared/constants/style.ts";
+import { colors } from "../../shared/constants/style";
 
 export const GlobalStyles = createGlobalStyle`
     * {

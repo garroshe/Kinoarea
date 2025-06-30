@@ -5,10 +5,10 @@ import bg from "../../../shared/assets/NewTrailer/image.jpg";
 import image1 from "../../../shared/assets/NewTrailer/image1.jpg";
 import like from "../../../shared/assets/NewTrailer/like.svg";
 import play from "../../../shared/assets/NewTrailer/play.svg";
-import { ArrowUI } from "../../../shared/ui/icons/ArrowUI/ArrowUI.tsx";
-import { SectionTitles } from "../../../shared/ui/SectionTitles/SectionTitles.tsx";
-import { Social } from "../../../shared/ui/Social/Social.tsx";
-import { StyledNewTrailer } from "./styled.tsx";
+import { ArrowUI } from "../../../shared/ui/icons/ArrowUI/ArrowUI";
+import { SectionTitles } from "../../../shared/ui/SectionTitles/SectionTitles";
+import { Social } from "../../../shared/ui/Social/Social";
+import { StyledNewTrailer } from "./styled";
 
 export const NewTrailer = () => {
   return (
