@@ -115,7 +115,7 @@ export const useAuth = () => {
   const signInWithTwitter = async () => {
     try {
       setLoading(true);
-      const provider = new GithubAuthProvider();
+      const provider = new TwitterAuthProvider();
       const userCred = await signInWithPopup(auth, provider);
       await afterLogin(userCred);
       closeModal();
@@ -132,7 +132,7 @@ export const useAuth = () => {
   const signInWithGitHub = async () => {
     try {
       setLoading(true);
-      const provider = new TwitterAuthProvider();
+      const provider = new GithubAuthProvider();
       const userCred = await signInWithPopup(auth, provider);
       await afterLogin(userCred);
       closeModal();
