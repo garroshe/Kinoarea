@@ -53,8 +53,6 @@ export const LoginModalContent = () => {
     }
   }, [error]);
 
-  console.log(error);
-
   return (
     <StyledLoginForm onSubmit={handleSubmit(onSubmit)}>
       <TitleUI title="Увійти" fontSize={40} fontWeight={800} color={colors.white50} marginBottom={34} marginTop={0} />
