@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import { StyledNavBar } from "./styled.tsx";
+import { StyledNavBar } from "./styled";
 
 export const NavBar = () => {
   return (

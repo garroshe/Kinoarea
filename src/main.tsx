@@ -4,4 +4,14 @@ import { App } from "./app/App.tsx";
 
 import "swiper/css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+import { Provider } from "react-redux";
+
+import { store } from "./app/store";
+
+import "./shared/config/firebase";
+
+createRoot(document.getElementById("root")!).render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+);
