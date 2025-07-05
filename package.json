@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "vite build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
@@ -27,7 +28,6 @@
     "react-router-dom": "^7.6.1",
     "react-toastify": "^11.0.5",
     "redux": "^5.0.1",
-    "styled-component": "^2.8.0",
     "styled-components": "^6.1.18",
     "swiper": "^11.2.8",
     "uuid": "^11.1.0",
