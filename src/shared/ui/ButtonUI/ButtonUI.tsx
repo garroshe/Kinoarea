@@ -1,6 +1,10 @@
-import { StyledButtonUI } from "./styled.tsx";
-import type { ButtonUIProps } from "./types.ts";
+import type { ButtonUIProps } from "./types";
+import { StyledButtonUI } from "./styled";
 
-export const ButtonUI = ({ children }: ButtonUIProps) => {
-  return <StyledButtonUI>{children}</StyledButtonUI>;
+export const ButtonUI = ({ children, type = "button", onClick, disabled }: ButtonUIProps) => {
+  return (
+    <StyledButtonUI onClick={onClick} type={type} disabled={disabled} $disabled={disabled}>
+      {children}
+    </StyledButtonUI>
+  );
 };

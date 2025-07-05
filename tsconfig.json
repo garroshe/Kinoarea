@@ -5,10 +5,16 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["vite/client"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "jsx": "react-jsx",
+    "types": ["vite/client", "jest", "node", "@testing-library/jest-dom"],
+    "typeRoots": ["./node_modules/@types",
+      "./src/shared/types"
+    ],
+    "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

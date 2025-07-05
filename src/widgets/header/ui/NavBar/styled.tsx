@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../../../shared/constants/style.ts";
+import { colors } from "../../../../shared/constants/style";
 
 export const StyledNavBar = styled.nav`
   display: flex;

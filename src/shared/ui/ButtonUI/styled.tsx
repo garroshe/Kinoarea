@@ -1,17 +1,23 @@
 import styled from "styled-components";
 
-import { colors } from "../../constants/style.ts";
+import { colors } from "../../constants/style";
+import type { IStyledButtonProps } from "./types";
 
-export const StyledButtonUI = styled.button`
-  background: ${colors.blue500};
-  width: 138px;
-  height: 52px;
+export const StyledButtonUI = styled.button<IStyledButtonProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: ${(props) => (props.$disabled ? colors.yellow800 : colors.yellow500)};
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 0px ${colors.blue400};
   border: none;
   font-weight: 700;
   font-size: 16px;
   line-height: 167%;
-  color: ${colors.white50};
-  cursor: pointer;
+  width: 422px;
+  height: 55px;
+  padding: 0 13px;
+  text-align: center;
+  color: ${colors.blue700};
+  cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
 `;

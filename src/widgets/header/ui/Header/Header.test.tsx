@@ -1,0 +1,46 @@
+import { render, screen } from "@testing-library/react";
+import * as redux from "react-redux";
+import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router-dom";
+
+import { store } from "../../../../app/store";
+import { ModalContextProvider } from "../../../Modal/context/modalContext";
+import { Header } from "./Header";
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useSelector: jest.fn(),
+}));
+
+const mockedUseSelector = redux.useSelector as unknown as jest.Mock;
+
+describe("Header", () => {
+  beforeEach(() => {
+    mockedUseSelector.mockReset();
+  });
+
+  it("render header users, when user !== null", () => {
+    mockedUseSelector.mockImplementation((selector) =>
+      selector({
+        auth: {
+          user: {
+            username: "test",
+            avatar: "https://example.com/avatar.png",
+          },
+        },
+      }),
+    );
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <ModalContextProvider>
+            <Header />
+          </ModalContextProvider>
+        </MemoryRouter>
+      </Provider>,
+    );
+
+    expect(screen.getByTestId("headerUser")).toBeInTheDocument();
+  });
+});
