@@ -134,9 +134,11 @@ export const useAuth = () => {
       setLoading(true);
       const provider = new GithubAuthProvider();
       const userCred = await signInWithPopup(auth, provider);
+      console.log(userCred);
       await afterLogin(userCred);
       closeModal();
     } catch (error: unknown) {
+      console.log(error);
       if (error instanceof FirebaseError) {
         const message = getFirebaseErrorMessage(error.code);
         setError(message);
