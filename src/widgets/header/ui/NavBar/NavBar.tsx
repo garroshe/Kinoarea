@@ -1,17 +1,25 @@
 import { NavLink } from "react-router-dom";
 
+import { colors } from "../../../../shared/constants/style";
+import { NAVBAR_PATH } from "./constants";
 import { StyledNavBar } from "./styled";
 
 export const NavBar = () => {
   return (
     <StyledNavBar>
-      <NavLink to="/posters">Афіша</NavLink>
-      <NavLink to="/media">Медіа</NavLink>
-      <NavLink to="/films">Фільми</NavLink>
-      <NavLink to="/actors"> Актори</NavLink>
-      <NavLink to="/news">Новини</NavLink>
-      <NavLink to="/colections">Добірки</NavLink>
-      <NavLink to="/categories">Категорії</NavLink>
+      {NAVBAR_PATH.map((item, i) => {
+        return (
+          <NavLink
+            key={i}
+            to={item.to}
+            style={({ isActive }) => ({
+              color: isActive ? colors.white50 : colors.white400,
+            })}
+          >
+            {item.label}
+          </NavLink>
+        );
+      })}
     </StyledNavBar>
   );
 };

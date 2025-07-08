@@ -1,7 +1,7 @@
 import { NowPlaying } from "../../widgets/now-playing/ui/NowPlaying.tsx";
 import { NewTrailer } from "../../widgets/now-trailer/ui/NowTrailer.tsx";
 
-export const MainPage = () => {
+const MainPage = () => {
   return (
     <>
       <NowPlaying />
@@ -9,3 +9,5 @@ export const MainPage = () => {
     </>
   );
 };
+
+export default MainPage;

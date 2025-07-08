@@ -6,7 +6,7 @@
   ],
   "compilerOptions": {
     "jsx": "react-jsx",
-    "types": [ "jest", "node", "@testing-library/jest-dom"],
+    "types": [ "jest", "cypress", "node", "@testing-library/jest-dom"],
     "typeRoots": ["./node_modules/@types",
       "./src/shared/types"
     ],
