@@ -62,7 +62,7 @@ export const LoginModalContent = () => {
       <InputUI placeholder={INPUTS_PLACEHOLDER.password} {...register("password")} type="password" />
       {errors.password?.message && <ErrorsMessageUI error={errors.password.message} />}
       <ButtonUI disabled={loading} type="submit">
-        Увійти {loading && <SpinnerUI size="large" />}
+        Увійти {loading && <SpinnerUI size="default" />}
       </ButtonUI>
 
       <StyledRegisterButton type="button" onClick={handleOpenModalRegister}>
@@ -71,17 +71,17 @@ export const LoginModalContent = () => {
       <StyledResetPassword onClick={handleOpenModalResetPassword}>Відновити пароль</StyledResetPassword>
 
       <StyledSocial>
-        <StyledSocialItems>
-          <GitHubUI onClick={signInWithGitHub} />
+        <StyledSocialItems onClick={signInWithGitHub}>
+          <GitHubUI />
         </StyledSocialItems>
-        <StyledSocialItems>
-          <FacebookUI onClick={signInWithFacebook} />
+        <StyledSocialItems onClick={signInWithFacebook}>
+          <FacebookUI />
         </StyledSocialItems>
-        <StyledSocialItems>
-          <GoogleUI onClick={signInWithGoogle} />
+        <StyledSocialItems onClick={signInWithGoogle}>
+          <GoogleUI />
         </StyledSocialItems>
-        <StyledSocialItems>
-          <TwitterUI onClick={signInWithTwitter} />
+        <StyledSocialItems onClick={signInWithTwitter}>
+          <TwitterUI />
         </StyledSocialItems>
       </StyledSocial>
     </StyledLoginForm>

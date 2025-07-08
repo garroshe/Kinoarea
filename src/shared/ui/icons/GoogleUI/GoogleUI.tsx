@@ -1,10 +1,7 @@
-import type { onClickUIProps } from "../../../types";
-
-export const GoogleUI = ({ onClick }: onClickUIProps) => {
+export const GoogleUI = () => {
   return (
     <svg
       data-testid="google-test-id"
-      onClick={onClick}
       width="18"
       height="18"
       viewBox="0 0 18 18"
