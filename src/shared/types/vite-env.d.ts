@@ -1,14 +1,16 @@
 /// <reference types="vite/client" />
-interface ImportMetaEnv {
-  readonly VITE_FIREBASE_API_KEY: string;
-  readonly VITE_FIREBASE_AUTH_DOMAIN: string;
-  readonly VITE_FIREBASE_PROJECT_ID: string;
-  readonly VITE_FIREBASE_STORAGE_BUCKET: string;
-  readonly VITE_FIREBASE_MESSAGING_SENDER: string;
-  readonly VITE_FIREBASE_APP_ID: string;
-  // додай інші змінні, які потрібні
-}
 
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
+declare namespace NodeJS {
+  interface ProcessEnv {
+    VITE_FIREBASE_API_KEY: string;
+    VITE_FIREBASE_AUTH_DOMAIN: string;
+    VITE_FIREBASE_PROJECT_ID: string;
+    VITE_STORAGE_FIREBASE_BUCKET: string;
+    VITE_MESSAGING_FIREBASE_SENDER_ID: string;
+    VITE_APP_FIREBASE_ID: string;
+    VITE_FIREBASE_DATABASE_URL: string;
+    VITE_API_URL: string;
+    VITE_BEARER_TOKEN: string;
+    VITE_API_KEY: string;
+  }
 }

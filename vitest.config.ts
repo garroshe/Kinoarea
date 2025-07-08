@@ -1,11 +1,12 @@
-export default {
-  collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
-  coverageDirectory: "coverage",
-  testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/vitest-setup.ts"],
-  transform: {
-    "^.+\\.(ts|tsx)$": "babel-jest",
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vitest/config";
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./vitest.setup.ts",
+    include: ["src/**/*.test.{ts,tsx}"],
   },
-  moduleFileExtensions: ["ts", "tsx"],
-};
+});

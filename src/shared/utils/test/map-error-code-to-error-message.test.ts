@@ -1,4 +1,4 @@
-import { getFirebaseErrorMessage } from "./map-error-code-to-error-message";
+import { getFirebaseErrorMessage } from "../map-error-code-to-error-message";
 
 describe("getFirebaseErrorMessage", () => {
   it("Return 'Користувача з таким email не знайдено' for auth/user-not-found", () => {

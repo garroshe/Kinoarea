@@ -1,14 +1,31 @@
-import type { IMovieCard } from "../model/types.ts";
-import { StyledMovieCard } from "./styled.tsx";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
-export const MovieCard = ({ title, genre, img, rating }: IMovieCard) => {
+import { mapGenreCodeToGenre } from "../../../shared/utils/map-genre-code-to-genre";
+import type { IMovieCard } from "../model/types";
+import { getRatingColor } from "../model/utils/getRatingColor";
+import { StyledActiveBlock, StyledDescription, StyledMovieCard, StyledRating, StyledTitle } from "./styled";
+
+export const MovieCard = ({ title, genre, img, rating, originalTitle }: IMovieCard) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const genreString = useMemo(() => genre.map(mapGenreCodeToGenre).join(", "), [genre]);
+
+  const handleOpenBlock = () => {
+    setIsVisible((prev) => !prev);
+  };
+
   return (
-    <StyledMovieCard>
-      <div className="rating">{rating}</div>
+    <StyledMovieCard data-testid="movie-card" onClick={handleOpenBlock}>
+      <StyledRating $bg={getRatingColor(rating)}>{rating}</StyledRating>
       <img src={img} alt={title} />
+      {isVisible && (
+        <StyledActiveBlock data-testid="active-block">
+          <Link to={`/films/${encodeURIComponent(originalTitle)}`}>Картка фільма</Link>
+        </StyledActiveBlock>
+      )}
       <div>
-        <h3 className="title">{title}</h3>
-        <p className="description">{genre}</p>
+        <StyledTitle>{title}</StyledTitle>
+        <StyledDescription>{genreString}</StyledDescription>
       </div>
     </StyledMovieCard>
   );

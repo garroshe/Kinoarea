@@ -1,4 +1,4 @@
-import { mapModalName } from "./map-modal-name";
+import { mapModalName } from "../map-modal-name";
 
 describe("mapModalName", () => {
   it("Return 'login' for login", () => {

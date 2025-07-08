@@ -1,38 +1,51 @@
-import { MovieCard } from "../../../entities/movie-card/ui/MovieCard.tsx";
-import { GenreTabs } from "../../../features/movie-filter/ui/GenreTabs.tsx";
-import card from "../../../shared/assets/atTheMoment/card1.jpg";
-import { SectionTitles } from "../../../shared/ui/SectionTitles/SectionTitles.tsx";
-import { StyledNowPlaying, StyledNowPlayingWrapper } from "./styled.tsx";
-
-const arr = [
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 1 },
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 2 },
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 3 },
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 4 },
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 5 },
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 6 },
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 7 },
-  { img: card, title: "Втеча з Преторії", genre: "Трилер", rating: 6.1, id: 8 },
-];
+import { GenreTabs } from "../../../features/movie-filter/ui/GenreTabs";
+import { MovieCard } from "../../../features/movieCard/ui/MovieCard";
+import { imageUrl } from "../../../shared/constants";
+import { NavigateButtonUI } from "../../../shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
+import { SpinnerUI } from "../../../shared/ui/SpinnerUI/SpinnerUI";
+import { TitleUI } from "../../../shared/ui/TitleUI/TitleUI";
+import { useInitNowPlayingMovies } from "../hooks/useInitNowPlayingMovies";
+import { StyledCards, StyledCentered, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
+  const { movies, loading, handleGenreChange } = useInitNowPlayingMovies();
+
   return (
     <StyledNowPlaying>
       <div className="container">
         <div className="bg-main" />
         <StyledNowPlayingWrapper>
-          <SectionTitles title="Зараз у кіно" />
-          <div className="divider" />
-          <GenreTabs />
+          <TitleUI fontWeight={900} fontSize={65} title="Зараз у кіно" />
+          <StyledDivider />
+          <GenreTabs onChangeMovies={handleGenreChange} />
         </StyledNowPlayingWrapper>
-        <div className="cards">
-          {arr.map((item) => {
-            return (
-              <MovieCard title={item.title} genre={item.genre} img={item.img} rating={item.rating} key={item.id} />
-            );
-          })}
-        </div>
-        <button>Усі новинки</button>
+
+        {!loading && movies.length === 0 && (
+          <StyledCentered data-testid="now-playing-not-found">Фільми не знайдено.</StyledCentered>
+        )}
+
+        {loading ? (
+          <StyledCentered data-testid="now-playing-spinner">
+            <SpinnerUI size="large" />
+          </StyledCentered>
+        ) : (
+          <StyledCards>
+            {movies.map((item) => {
+              return (
+                <MovieCard
+                  title={item.title}
+                  genre={item.genre_ids}
+                  img={`${imageUrl}w500${item.poster_path}`}
+                  rating={Number(item.vote_average.toFixed(1))}
+                  key={item.id}
+                  originalTitle={item.original_title}
+                />
+              );
+            })}
+          </StyledCards>
+        )}
+
+        <NavigateButtonUI to="/posters" title="Всі новинки" />
       </div>
     </StyledNowPlaying>
   );

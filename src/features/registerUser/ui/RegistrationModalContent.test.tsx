@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { describe, expect, it, vi } from "vitest";
 
 import * as useAuthModule from "../../../shared/hooks/useAuth";
 import { mapModalName } from "../../../shared/utils/map-modal-name";
@@ -7,29 +8,29 @@ import * as useModalModule from "../../../widgets/Modal/context/modalContext";
 import { MESSAGE_MODAL } from "../../loginWithEmail/model/constants";
 import { RegistrationModalContent } from "./RegistrationModalContent";
 
-jest.mock("../../../shared/config/firebase", () => ({
+vi.mock("../../../shared/config/firebase", () => ({
   database: {},
-  ref: jest.fn(),
-  onValue: jest.fn(),
-  set: jest.fn(),
-  get: jest.fn(),
-  push: jest.fn(),
-  FirebaseError: jest.fn(),
+  ref: vi.fn(),
+  onValue: vi.fn(),
+  set: vi.fn(),
+  get: vi.fn(),
+  push: vi.fn(),
+  FirebaseError: vi.fn(),
   auth: {},
 }));
 
-const mockUseAuth = useAuthModule.useAuth as jest.Mock;
-const mockUseModal = useModalModule.useModal as jest.Mock;
+const mockUseAuth = useAuthModule.useAuth as unknown as jest.Mock;
+const mockUseModal = useModalModule.useModal as unknown as jest.Mock;
 
-jest.mock("../../../shared/hooks/useAuth");
-jest.mock("../../../widgets/Modal/context/modalContext");
+vi.mock("../../../shared/hooks/useAuth");
+vi.mock("../../../widgets/Modal/context/modalContext");
 
-const mockOpenModal = jest.fn();
-const mockSignUpWithEmail = jest.fn();
+const mockOpenModal = vi.fn();
+const mockSignUpWithEmail = vi.fn();
 
 describe("RegistrationModalContent", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
 
     mockUseAuth.mockReturnValue({
       signUp: mockSignUpWithEmail,

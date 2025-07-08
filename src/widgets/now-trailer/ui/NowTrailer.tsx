@@ -7,7 +7,7 @@ import like from "../../../shared/assets/NewTrailer/like.svg";
 import play from "../../../shared/assets/NewTrailer/play.svg";
 import { ArrowUI } from "../../../shared/ui/icons/ArrowUI/ArrowUI";
 import { SocialUI } from "../../../shared/ui/icons/SocialUI/SocialUI";
-import { SectionTitles } from "../../../shared/ui/SectionTitles/SectionTitles";
+import { TitleUI } from "../../../shared/ui/TitleUI/TitleUI";
 import { StyledNewTrailer } from "./styled";
 
 export const NewTrailer = () => {
@@ -15,7 +15,7 @@ export const NewTrailer = () => {
     <StyledNewTrailer>
       <div className="container">
         <div className="header">
-          <SectionTitles title="Нові трейлери" />
+          <TitleUI fontWeight={900} fontSize={65} title="Нові трейлери" />
           <div className="header-wrapper">
             <div>Усі трейлери</div>
             <ArrowUI />

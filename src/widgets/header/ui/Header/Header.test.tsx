@@ -2,15 +2,20 @@ import { render, screen } from "@testing-library/react";
 import * as redux from "react-redux";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { store } from "../../../../app/store";
 import { ModalContextProvider } from "../../../Modal/context/modalContext";
 import { Header } from "./Header";
 
-jest.mock("react-redux", () => ({
-  ...jest.requireActual("react-redux"),
-  useSelector: jest.fn(),
-}));
+// 🧪 Мокаємо useSelector
+vi.mock("react-redux", async () => {
+  const actual = await vi.importActual<typeof redux>("react-redux");
+  return {
+    ...actual,
+    useSelector: vi.fn(),
+  };
+});
 
 const mockedUseSelector = redux.useSelector as unknown as jest.Mock;
 
