@@ -15,12 +15,14 @@ export const MovieCard = ({ title, genre, img, rating, originalTitle }: IMovieCa
   };
 
   return (
-    <StyledMovieCard data-testid="movie-card" onClick={handleOpenBlock}>
+    <StyledMovieCard data-cy="movie-card" data-testid="movie-card" onClick={handleOpenBlock}>
       <StyledRating $bg={getRatingColor(rating)}>{rating}</StyledRating>
       <img src={img} alt={title} />
       {isVisible && (
         <StyledActiveBlock data-testid="active-block">
-          <Link to={`/films/${encodeURIComponent(originalTitle)}`}>Картка фільма</Link>
+          <Link data-cy="movie-card-btn" to={`/films/${encodeURIComponent(originalTitle)}`}>
+            Картка фільма
+          </Link>
         </StyledActiveBlock>
       )}
       <div>

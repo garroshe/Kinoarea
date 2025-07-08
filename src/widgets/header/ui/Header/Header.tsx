@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import type { RootState } from "../../../../app/store";
 import { LogotypeUI } from "../../../../shared/ui/icons/LogotypeUI/LogotypeUI";
@@ -22,7 +23,9 @@ export const Header = () => {
     <div className="container">
       <StyledHeader>
         <StyledLeftBlock>
-          <LogotypeUI />
+          <Link to="/">
+            <LogotypeUI />
+          </Link>
           <SocialUI />
         </StyledLeftBlock>
         <NavBar />

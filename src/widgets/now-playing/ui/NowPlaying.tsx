@@ -1,11 +1,13 @@
 import { GenreTabs } from "../../../features/movie-filter/ui/GenreTabs";
 import { MovieCard } from "../../../features/movieCard/ui/MovieCard";
+import { colors } from "../../../shared/constants/style";
+import { CenteredContentUI } from "../../../shared/ui/CenteredContentUI/CenteredContentUI";
 import { NavigateButtonUI } from "../../../shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
 import { SpinnerUI } from "../../../shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "../../../shared/ui/TitleUI/TitleUI";
 import { getPathToImg } from "../../../shared/utils/get-path-to-img";
 import { useInitNowPlayingMovies } from "../hooks/useInitNowPlayingMovies";
-import { StyledCards, StyledCentered, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
+import { StyledCards, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
   const { movies, loading, handleGenreChange } = useInitNowPlayingMovies();
@@ -21,13 +23,15 @@ export const NowPlaying = () => {
         </StyledNowPlayingWrapper>
 
         {!loading && movies.length === 0 && (
-          <StyledCentered data-testid="now-playing-not-found">Фільми не знайдено.</StyledCentered>
+          <CenteredContentUI testId="now-playing-not-found">
+            <p style={{ color: colors.white50 }}>Фільми не знайдено.</p>
+          </CenteredContentUI>
         )}
 
         {loading ? (
-          <StyledCentered data-testid="now-playing-spinner">
+          <CenteredContentUI testId="now-playing-spinner">
             <SpinnerUI size="large" />
-          </StyledCentered>
+          </CenteredContentUI>
         ) : (
           <StyledCards>
             {movies.map((item) => {
