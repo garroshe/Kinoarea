@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { axiosInstance } from "../../../shared/api/axiosInstance";
+import { searchParams } from "../../../shared/utils/search-params";
 import { API_KEY } from "./constants";
 import type { IMovie } from "./types";
 
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async (page: number): Promise<IMovie[]> => {
-  const res = await axiosInstance.get(`/movie/now_playing?api_key=${API_KEY}&language=uk-UA`, {
+  const res = await axiosInstance.get(`/movie/now_playing?api_key=${API_KEY}&${searchParams.language}`, {
     params: { page },
   });
   return res.data.results;
@@ -15,7 +16,7 @@ export const fetchMoviesByGenre = createAsyncThunk(
   "movies/fetchMoviesByGenre",
   async (genreId: number): Promise<IMovie[]> => {
     const res = await axiosInstance.get(
-      `/discover/movie?with_genres=${genreId}&api_key=${API_KEY}&language=uk-UA&primary_release_date.lte=2025-07-06`,
+      `/discover/movie?with_genres=${genreId}&api_key=${API_KEY}&${searchParams.language}&${searchParams.releaseGTE}&${searchParams.releaseLTE}`,
     );
     return res.data.results;
   },

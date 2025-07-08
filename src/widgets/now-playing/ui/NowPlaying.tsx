@@ -1,9 +1,9 @@
 import { GenreTabs } from "../../../features/movie-filter/ui/GenreTabs";
 import { MovieCard } from "../../../features/movieCard/ui/MovieCard";
-import { imageUrl } from "../../../shared/constants";
 import { NavigateButtonUI } from "../../../shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
 import { SpinnerUI } from "../../../shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "../../../shared/ui/TitleUI/TitleUI";
+import { getPathToImg } from "../../../shared/utils/get-path-to-img";
 import { useInitNowPlayingMovies } from "../hooks/useInitNowPlayingMovies";
 import { StyledCards, StyledCentered, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
@@ -35,7 +35,7 @@ export const NowPlaying = () => {
                 <MovieCard
                   title={item.title}
                   genre={item.genre_ids}
-                  img={`${imageUrl}w500${item.poster_path}`}
+                  img={getPathToImg(item.poster_path, 500)}
                   rating={Number(item.vote_average.toFixed(1))}
                   key={item.id}
                   originalTitle={item.original_title}
