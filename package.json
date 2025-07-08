@@ -11,6 +11,7 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "cypress": "cypress open",
+    "postinstall": "vite build",
     "commit": "cz"
   },
   "dependencies": {
