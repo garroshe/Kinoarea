@@ -1,54 +1,37 @@
-# React + TypeScript + Vite
+# Kinoarea
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Kinoarea — це онлайн-кінотеатр, де користувачі можуть шукати та переглядати фільми, зберігати улюблені, знаходити акторів та персонажів, а також переглядати фільми за участю обраних акторів. Проєкт постійно розвивається та планує додати ще більше корисних функцій для кіноманів.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Технології
 
-## Expanding the ESLint configuration
+- React 18 + TypeScript  
+- Vite (швидкий збірник з підтримкою HMR)  
+- Redux Toolkit (управління станом)  
+- React Router DOM (роутінг)  
+- React Query (запити на сервер)  
+- Styled Components (стилі)  
+- Vitest + React Testing Library (юнiт-тести)  
+- Cypress (E2E тести)  
+- Firebase (автентифікація, база даних)  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Основні можливості
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Пошук фільмів та акторів  
+- Перегляд детальної інформації про фільми  
+- Збереження улюблених фільмів в особистий список  
+- Перегляд фільмів за обраними акторами  
+- Аутентифікація користувачів  
+- В майбутньому — рекомендації, рейтинги та відгуки  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Початок роботи
+
+### Встановлення залежностей
+
+```bash
+npm install
