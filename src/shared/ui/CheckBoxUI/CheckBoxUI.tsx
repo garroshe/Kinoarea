@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
-import { icons, SvgIcon } from "../../SvgIcon/SvgIcon";
-import type { ICheckBoxUIProps } from "../model/type";
+import { icons, SvgIcon } from "../SvgIcon/SvgIcon";
+import type { ICheckBoxUIProps } from "./type";
 import { StyledCheckBoxContainer, StyledCheckBoxUI, StyledHideCheckBox, StyledLabel } from "./styled";
 
 export const CheckBoxUI = forwardRef<HTMLInputElement, ICheckBoxUIProps>(

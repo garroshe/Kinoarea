@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../../shared/constants/style";
+import { colors } from "@/shared/constants/style";
 
 export const StyledNowPlaying = styled.section`
   margin-top: 50px;

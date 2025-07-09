@@ -1,10 +1,11 @@
 import { Progress } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import bg from "../../../shared/assets/image.jpg";
-import image1 from "../../../shared/assets/image1.jpg";
-import { icons, SvgIcon } from "../../../shared/ui/SvgIcon/SvgIcon";
-import { TitleUI } from "../../../shared/ui/TitleUI/TitleUI";
+import bg from "@/shared/assets/image.jpg";
+import image1 from "@/shared/assets/image1.jpg";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
+
 import { StyledNewTrailer } from "./styled";
 
 export const NewTrailer = () => {

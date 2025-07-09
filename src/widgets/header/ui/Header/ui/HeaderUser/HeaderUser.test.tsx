@@ -2,10 +2,11 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import { logout } from "../../../../../../features/auth/model/slice";
+import { logout } from "@/features/auth/model/slice";
+
 import { HeaderUser } from "./HeaderUser";
 
-const mockDispatch = vi.fn(); // <-- замінили jest.fn() на vi.fn()
+const mockDispatch = vi.fn();
 
 vi.mock("react-redux", async () => {
   const actual = await vi.importActual("react-redux");
@@ -15,7 +16,7 @@ vi.mock("react-redux", async () => {
   };
 });
 
-vi.mock("../../../../../../features/auth/model/slice", () => ({
+vi.mock("@/features/auth/model/slice", () => ({
   logout: vi.fn(() => ({ type: "auth/logout" })),
 }));
 

@@ -1,11 +1,12 @@
-import { GenreTabs } from "../../../features/movie-filter/ui/GenreTabs";
-import { MovieCard } from "../../../features/movieCard/ui/MovieCard";
-import { colors } from "../../../shared/constants/style";
-import { CenteredContentUI } from "../../../shared/ui/CenteredContentUI/CenteredContentUI";
-import { NavigateButtonUI } from "../../../shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
-import { SpinnerUI } from "../../../shared/ui/SpinnerUI/SpinnerUI";
-import { TitleUI } from "../../../shared/ui/TitleUI/TitleUI";
-import { getPathToImg } from "../../../shared/utils/get-path-to-img";
+import { GenreTabs } from "@/features/movie-filter/ui/GenreTabs";
+import { MovieCard } from "@/features/movieCard/ui/MovieCard";
+import { colors } from "@/shared/constants/style";
+import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import { NavigateButtonUI } from "@/shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
+import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
+import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
+import { getPathToImg } from "@/shared/utils/get-path-to-img";
+
 import { useInitNowPlayingMovies } from "../hooks/useInitNowPlayingMovies";
 import { StyledCards, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
