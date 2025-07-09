@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-import bgMain from "../../shared/assets/atTheMoment/bg.png";
+import bgMain from "../../shared/assets/bg.png";
 import { colors } from "../../shared/constants/style";
 
 export const GlobalStyles = createGlobalStyle`

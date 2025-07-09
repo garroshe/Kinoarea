@@ -1,10 +1,11 @@
-import type { IDaggerUIProps } from "./types";
+import type { IIconsProps } from "../types";
 
-export const DaggerUI = ({ onClose }: IDaggerUIProps) => {
+export const Dagger = ({ onClick, className }: IIconsProps) => {
   return (
     <svg
+      className={className}
       style={{ cursor: "pointer" }}
-      onClick={onClose}
+      onClick={onClick}
       width="24"
       height="24"
       viewBox="0 0 24 24"

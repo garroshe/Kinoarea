@@ -3,9 +3,7 @@ import { useDispatch } from "react-redux";
 
 import type { AppDispatch } from "../../../../../../app/store";
 import { logout } from "../../../../../../features/auth/model/slice";
-import { AvatarMaleUI } from "../../../../../../shared/ui/icons/AvatarMaleUI/AvatarMaleUI";
-import { CollapseIconUI } from "../../../../../../shared/ui/icons/CollapseIconUI/ColapseIconUI";
-import { DaggerUI } from "../../../../../../shared/ui/icons/DaggerUI/DaggerUI";
+import { icons, SvgIcon } from "../../../../../../shared/ui/SvgIcon/SvgIcon";
 import { OPTION_DROPDOWN_LIST } from "./constants";
 import type { IHeaderUserProps } from "./types";
 import {
@@ -53,9 +51,9 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
   return (
     <StyledHeaderUserContainer>
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
-        <CollapseIconUI />
+        <SvgIcon icon={icons.collapseIcon} />
         <StyledHeaderUserName>{userName}</StyledHeaderUserName>
-        {avatar ? <StyledAvatar src={avatar} alt="avatar" /> : <AvatarMaleUI />}
+        {avatar ? <StyledAvatar src={avatar} alt="avatar" /> : <SvgIcon icon={icons.avatarMale} />}
       </StyledHeaderUser>
 
       {isOpen && (
@@ -67,7 +65,7 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
           </StyledDropdownList>
 
           <span data-testid="exit-test-id" onClick={handleLogout}>
-            <DaggerUI />
+            <SvgIcon icon={icons.dagger} />
             Вихід
           </span>
         </StyledHeaderUserDropdown>

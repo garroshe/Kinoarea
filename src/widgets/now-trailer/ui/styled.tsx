@@ -90,4 +90,8 @@ export const StyledNewTrailer = styled.section`
     color: ${colors.white50};
     margin-top: 11px;
   }
+
+  .dislike-icon {
+    transform: rotate(180deg);
+  }
 `;

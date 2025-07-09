@@ -2,9 +2,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import type { RootState } from "../../../../app/store";
-import { LogotypeUI } from "../../../../shared/ui/icons/LogotypeUI/LogotypeUI";
-import { SocialUI } from "../../../../shared/ui/icons/SocialUI/SocialUI";
 import { SearchBlockUI } from "../../../../shared/ui/SearchBlockUI/SearchBlockUI";
+import { icons, SvgIcon } from "../../../../shared/ui/SvgIcon/SvgIcon";
 import { mapModalName } from "../../../../shared/utils/map-modal-name";
 import { useModal } from "../../../Modal/context/modalContext";
 import { NavBar } from "../NavBar/NavBar";
@@ -24,9 +23,9 @@ export const Header = () => {
       <StyledHeader>
         <StyledLeftBlock>
           <Link to="/">
-            <LogotypeUI />
+            <SvgIcon icon={icons.logotype} />
           </Link>
-          <SocialUI />
+          <SvgIcon icon={icons.social} />
         </StyledLeftBlock>
         <NavBar />
         <StyledRightBlock>
