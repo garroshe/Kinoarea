@@ -12,9 +12,10 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 
-import type { AppDispatch } from "../../app/store";
-import { fetchUser } from "../../features/auth/model/slice";
-import { useModal } from "../../widgets/Modal/context/modalContext";
+import type { AppDispatch } from "@/app/store";
+import { fetchUser } from "@/features/auth/model/slice";
+import { useModal } from "@/widgets/Modal/context/modalContext";
+
 import { auth, database, FirebaseError, get, ref, set } from "../config/firebase";
 import { getFirebaseErrorMessage } from "../utils/map-error-code-to-error-message";
 

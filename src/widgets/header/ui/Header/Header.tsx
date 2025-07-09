@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import type { RootState } from "../../../../app/store";
-import { SearchBlockUI } from "../../../../shared/ui/SearchBlockUI/SearchBlockUI";
-import { icons, SvgIcon } from "../../../../shared/ui/SvgIcon/SvgIcon";
-import { mapModalName } from "../../../../shared/utils/map-modal-name";
-import { useModal } from "../../../Modal/context/modalContext";
+import type { RootState } from "@/app/store";
+import { SearchBlockUI } from "@/shared/ui/SearchBlockUI/SearchBlockUI";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { mapModalName } from "@/shared/utils/map-modal-name";
+import { useModal } from "@/widgets/Modal/context/modalContext";
+
 import { NavBar } from "../NavBar/NavBar";
 import { HeaderUser } from "./ui/HeaderUser/HeaderUser";
 import { StyledButton, StyledHeader, StyledLeftBlock, StyledRightBlock } from "./styled";

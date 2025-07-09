@@ -2,9 +2,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import * as useAuthModule from "../../../shared/hooks/useAuth";
-import { mapModalName } from "../../../shared/utils/map-modal-name";
-import * as useModalModule from "../../../widgets/Modal/context/modalContext";
+import * as useAuthModule from "@/shared/hooks/useAuth";
+import { mapModalName } from "@/shared/utils/map-modal-name";
+import * as useModalModule from "@/widgets/Modal/context/modalContext";
+
 import { MESSAGE_MODAL } from "../../loginWithEmail/model/constants";
 import { RegistrationModalContent } from "./RegistrationModalContent";
 
@@ -22,8 +23,8 @@ vi.mock("../../../shared/config/firebase", () => ({
 const mockUseAuth = useAuthModule.useAuth as unknown as jest.Mock;
 const mockUseModal = useModalModule.useModal as unknown as jest.Mock;
 
-vi.mock("../../../shared/hooks/useAuth");
-vi.mock("../../../widgets/Modal/context/modalContext");
+vi.mock("@/shared/hooks/useAuth");
+vi.mock("@/widgets/Modal/context/modalContext");
 
 const mockOpenModal = vi.fn();
 const mockSignUpWithEmail = vi.fn();

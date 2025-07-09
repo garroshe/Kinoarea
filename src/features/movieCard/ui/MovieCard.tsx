@@ -1,7 +1,8 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { mapGenreCodeToGenre } from "../../../shared/utils/map-genre-code-to-genre";
+import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
+
 import type { IMovieCard } from "../model/types";
 import { getRatingColor } from "../model/utils/getRatingColor";
 import { StyledActiveBlock, StyledDescription, StyledMovieCard, StyledRating, StyledTitle } from "./styled";

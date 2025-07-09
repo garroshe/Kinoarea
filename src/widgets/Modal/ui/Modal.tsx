@@ -1,4 +1,5 @@
-import { ModalUI } from "../../../shared/ui/ModalUI/ModalUI";
+import { ModalUI } from "@/shared/ui/ModalUI/ModalUI";
+
 import { modalMap } from "../model/modal-map";
 import type { IModalProps } from "../model/types";
 

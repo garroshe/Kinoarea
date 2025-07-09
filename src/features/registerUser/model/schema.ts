@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import { emailRegex } from "../../../shared/constants";
+import { emailRegex } from "@/shared/constants";
 
 export const schema = yup.object({
   name: yup.string().required("Обов'язкове поле").min(2, "Мін. 2 символи"),

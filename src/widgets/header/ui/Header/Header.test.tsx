@@ -4,11 +4,11 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { store } from "../../../../app/store";
+import { store } from "@/app/store";
+
 import { ModalContextProvider } from "../../../Modal/context/modalContext";
 import { Header } from "./Header";
 
-// 🧪 Мокаємо useSelector
 vi.mock("react-redux", async () => {
   const actual = await vi.importActual<typeof redux>("react-redux");
   return {

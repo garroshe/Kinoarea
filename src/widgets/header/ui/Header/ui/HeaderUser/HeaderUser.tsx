@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import type { AppDispatch } from "../../../../../../app/store";
-import { logout } from "../../../../../../features/auth/model/slice";
-import { icons, SvgIcon } from "../../../../../../shared/ui/SvgIcon/SvgIcon";
+import type { AppDispatch } from "@/app/store";
+import { logout } from "@/features/auth/model/slice";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+
 import { OPTION_DROPDOWN_LIST } from "./constants";
 import type { IHeaderUserProps } from "./types";
 import {

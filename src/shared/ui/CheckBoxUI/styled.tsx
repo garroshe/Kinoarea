@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../../constants/style";
+import { colors } from "../../constants/style";
 
 export const StyledCheckBoxUI = styled.div<{ $checked: boolean }>`
   display: flex;

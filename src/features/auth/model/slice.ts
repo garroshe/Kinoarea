@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { database, get, ref } from "../../../shared/config/firebase";
+import { database, get, ref } from "@/shared/config/firebase";
+
 import type { IUser } from "./types";
 
 export const fetchUser = createAsyncThunk("auth/fetchUser", async (uid: string): Promise<IUser> => {

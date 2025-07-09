@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { axiosInstance } from "../../../shared/api/axiosInstance";
-import { searchParams } from "../../../shared/utils/search-params";
+import { axiosInstance } from "@/shared/api/axiosInstance";
+import { searchParams } from "@/shared/utils/search-params";
+
 import { API_KEY } from "./constants";
 import type { IMovie } from "./types";
 

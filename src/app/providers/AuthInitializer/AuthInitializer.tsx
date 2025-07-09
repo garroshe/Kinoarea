@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { fetchUser } from "../../../features/auth/model/slice";
+import { fetchUser } from "@/features/auth/model/slice";
+
 import type { AppDispatch } from "../../store";
 
 export const AuthInitializer = () => {
