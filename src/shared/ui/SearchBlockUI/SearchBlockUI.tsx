@@ -1,10 +1,10 @@
-import { SearchUI } from "../icons/SearchUI/SearchUI";
+import { icons, SvgIcon } from "../SvgIcon/SvgIcon";
 import { StyledSearch } from "./styled";
 
 export const SearchBlockUI = () => {
   return (
     <StyledSearch>
-      <SearchUI />
+      <SvgIcon icon={icons.search} />
     </StyledSearch>
   );
 };

@@ -6,12 +6,9 @@ import { colors } from "../../../shared/constants/style";
 import { useAuth } from "../../../shared/hooks/useAuth";
 import { ButtonUI } from "../../../shared/ui/ButtonUI/ButtonUI";
 import { ErrorsMessageUI } from "../../../shared/ui/ErrorsMessageUI/ErrorsMessageUI";
-import { FacebookUI } from "../../../shared/ui/icons/FacebookUI/FacebookUI";
-import { GitHubUI } from "../../../shared/ui/icons/GitHubUI/GitHubUI";
-import { GoogleUI } from "../../../shared/ui/icons/GoogleUI/GoogleUI";
-import { TwitterUI } from "../../../shared/ui/icons/TwitterUI/TwitterUI";
 import { InputUI } from "../../../shared/ui/InputUI/InputUI";
 import { SpinnerUI } from "../../../shared/ui/SpinnerUI/SpinnerUI";
+import { icons, SvgIcon } from "../../../shared/ui/SvgIcon/SvgIcon";
 import { TitleUI } from "../../../shared/ui/TitleUI/TitleUI";
 import { mapModalName } from "../../../shared/utils/map-modal-name";
 import { useModal } from "../../../widgets/Modal/context/modalContext";
@@ -72,16 +69,16 @@ export const LoginModalContent = () => {
 
       <StyledSocial>
         <StyledSocialItems onClick={signInWithGitHub}>
-          <GitHubUI />
+          <SvgIcon icon={icons.github} />
         </StyledSocialItems>
         <StyledSocialItems onClick={signInWithFacebook}>
-          <FacebookUI />
+          <SvgIcon icon={icons.facebook} />
         </StyledSocialItems>
         <StyledSocialItems onClick={signInWithGoogle}>
-          <GoogleUI />
+          <SvgIcon icon={icons.google} />
         </StyledSocialItems>
         <StyledSocialItems onClick={signInWithTwitter}>
-          <TwitterUI />
+          <SvgIcon icon={icons.twitter} />
         </StyledSocialItems>
       </StyledSocial>
     </StyledLoginForm>

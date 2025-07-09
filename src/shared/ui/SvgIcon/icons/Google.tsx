@@ -1,6 +1,9 @@
-export const GoogleUI = () => {
+import type { IIconsProps } from "../types";
+
+export const Google = ({ className }: IIconsProps) => {
   return (
     <svg
+      className={className}
       data-testid="google-test-id"
       width="18"
       height="18"
