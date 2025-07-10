@@ -9,7 +9,7 @@ import * as useModalModule from "@/widgets/Modal/context/modalContext";
 import { MESSAGE_MODAL } from "../../loginWithEmail/model/constants";
 import { RegistrationModalContent } from "./RegistrationModalContent";
 
-vi.mock("../../../shared/config/firebase", () => ({
+vi.mock("@/shared/config/firebase", () => ({
   database: {},
   ref: vi.fn(),
   onValue: vi.fn(),
