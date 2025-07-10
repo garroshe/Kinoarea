@@ -17,6 +17,17 @@ vi.mock("react-redux", async () => {
   };
 });
 
+vi.mock("@/shared/config/firebase", () => ({
+  database: {},
+  ref: vi.fn(),
+  onValue: vi.fn(),
+  set: vi.fn(),
+  get: vi.fn(),
+  push: vi.fn(),
+  FirebaseError: vi.fn(),
+  auth: {},
+}));
+
 const mockedUseSelector = redux.useSelector as unknown as jest.Mock;
 
 describe("Header", () => {
