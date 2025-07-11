@@ -1,0 +1,48 @@
+name: CI
+
+on: [push, pull_request]
+
+env:
+  VITE_API_URL: ${{ secrets.VITE_API_URL }}
+  VITE_BEARER_TOKEN: ${{ secrets.VITE_BEARER_TOKEN }}
+  VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+
+  VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+  VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+  VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+  VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
+  VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+  VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+  VITE_FIREBASE_DATABASE_URL: ${{ secrets.VITE_FIREBASE_DATABASE_URL }}
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    environment: Production
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: npm ci
+        name: "Install modules"
+      - run: npm install
+        name: "Run build"
+      - run: npm run build
+        name: "Run linter"
+      - run: npm run lint:fix
+        name: "Run Unit test"
+      - run: npm run test
+
+      - run: echo "FIREBASE DB URL $VITE_FIREBASE_DATABASE_URL"
+
+      - name: "Run dev server + Cypress"
+        run: npx start-server-and-test 'npm run dev' http://localhost:5173 'npx cypress run'
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots

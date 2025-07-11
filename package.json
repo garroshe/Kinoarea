@@ -66,6 +66,7 @@
     "globals": "^16.2.0",
     "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
+    "start-server-and-test": "^2.0.12",
     "ts-node": "^10.9.2",
     "typescript": "~5.8.3",
     "vite": "^5.2.10",
