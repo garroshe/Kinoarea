@@ -18,6 +18,7 @@ env:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    environment: Production
 
     steps:
       - uses: actions/checkout@v3
@@ -34,6 +35,9 @@ jobs:
       - run: npm run lint:fix
         name: "Run Unit test"
       - run: npm run test
+
+      - run: echo "FIREBASE DB URL $VITE_FIREBASE_DATABASE_URL"
+
       - name: "Run dev server + Cypress"
         run: npx start-server-and-test 'npm run dev' http://localhost:5173 'npx cypress run'
       - name: Upload screenshots
