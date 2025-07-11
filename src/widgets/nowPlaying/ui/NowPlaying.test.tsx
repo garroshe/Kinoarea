@@ -2,7 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 
-import * as useInitNowPlayingMoviesModule from "../hooks/useInitNowPlayingMovies";
+import * as useInitNowPlayingMoviesModule from "@/widgets/nowPlaying/model/hooks/useInitNowPlayingMovies";
+
 import { NowPlaying } from "./NowPlaying";
 
 vi.mock("../hooks/useInitNowPlayingMovies", () => ({

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
+import { useAuth } from "@/entities/auth/useAuth";
 import { colors } from "@/shared/constants/style";
-import { useAuth } from "@/shared/hooks/useAuth";
 import { ButtonUI } from "@/shared/ui/ButtonUI/ButtonUI";
 import { CheckBoxUI } from "@/shared/ui/CheckBoxUI/CheckBoxUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI/ErrorsMessageUI";

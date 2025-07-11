@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import { logout } from "@/features/auth/model/slice";
+import { logout } from "@/entities/auth/slice";
 
 import { HeaderUser } from "./HeaderUser";
 

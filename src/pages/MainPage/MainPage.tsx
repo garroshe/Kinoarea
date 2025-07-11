@@ -1,5 +1,5 @@
-import { NowPlaying } from "@/widgets/now-playing/ui/NowPlaying";
-import { NewTrailer } from "@/widgets/now-trailer/ui/NowTrailer";
+import { NowPlaying } from "@/widgets/nowPlaying/ui/NowPlaying";
+import { NewTrailer } from "@/widgets/nowTrailer/ui/NowTrailer";
 
 const MainPage = () => {
   return (

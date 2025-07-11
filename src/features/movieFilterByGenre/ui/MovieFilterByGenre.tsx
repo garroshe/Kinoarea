@@ -1,11 +1,12 @@
 import { useState } from "react";
 import classnames from "classnames";
 
-import { GENRES_TABS } from "../model/constants";
-import type { IGenreTabsProps } from "../model/types";
+import { GENRES_TABS } from "@/features/movieFilterByGenre/model/constants";
+import type { IGenreTabsProps } from "@/features/movieFilterByGenre/model/types";
+
 import { StyledGenreTabs } from "./styled";
 
-export const GenreTabs = ({ onChangeMovies }: IGenreTabsProps) => {
+export const MovieFilterByGenre = ({ onChangeMovies }: IGenreTabsProps) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleChangeMovies = (genre: number, tab: number) => {

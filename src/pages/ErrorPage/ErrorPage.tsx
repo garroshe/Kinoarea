@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { routesBook } from "@/shared/config/routesBook";
+import { routesBook } from "@/shared/routing/routesBook";
 
 import { StyledBackBtn, StyledBtnWrapper, StyledErrorPage, StyledSearchBtn } from "./styled";
 
