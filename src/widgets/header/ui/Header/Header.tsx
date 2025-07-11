@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import type { RootState } from "@/app/store";
+import { routesBook } from "@/shared/routing/routesBook";
 import { SearchBlockUI } from "@/shared/ui/SearchBlockUI/SearchBlockUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { mapModalName } from "@/shared/utils/map-modal-name";
@@ -23,7 +24,7 @@ export const Header = () => {
     <div className="container">
       <StyledHeader>
         <StyledLeftBlock>
-          <Link to="/">
+          <Link to={routesBook.main()}>
             <SvgIcon icon={icons.logotype} />
           </Link>
           <SvgIcon icon={icons.social} />

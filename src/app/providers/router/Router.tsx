@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { routesBook } from "@/shared/config/routesBook";
+import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 

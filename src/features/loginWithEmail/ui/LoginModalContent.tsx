@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
+import type { ILoginFields } from "@/entities/auth/types";
+import { useAuth } from "@/entities/auth/useAuth";
 import { colors } from "@/shared/constants/style";
-import { useAuth } from "@/shared/hooks/useAuth";
 import { ButtonUI } from "@/shared/ui/ButtonUI/ButtonUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI/ErrorsMessageUI";
 import { InputUI } from "@/shared/ui/InputUI/InputUI";
@@ -13,7 +14,6 @@ import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 import { useModal } from "@/widgets/Modal/context/modalContext";
 
-import type { ILoginFields } from "../../auth/model/types";
 import { INPUTS_PLACEHOLDER, MESSAGE_MODAL } from "../model/constants";
 import { schema } from "../model/schema";
 import { StyledLoginForm, StyledRegisterButton, StyledResetPassword, StyledSocial, StyledSocialItems } from "./styled";

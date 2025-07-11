@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { routesBook } from "@/shared/routing/routesBook";
 import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
 
 import type { IMovieCard } from "../model/types";
@@ -21,7 +22,7 @@ export const MovieCard = ({ title, genre, img, rating, originalTitle }: IMovieCa
       <img src={img} alt={title} />
       {isVisible && (
         <StyledActiveBlock data-testid="active-block">
-          <Link data-cy="movie-card-btn" to={`/films/${encodeURIComponent(originalTitle)}`}>
+          <Link data-cy="movie-card-btn" to={`${routesBook.films()}/${encodeURIComponent(originalTitle)}`}>
             Картка фільма
           </Link>
         </StyledActiveBlock>

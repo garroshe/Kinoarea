@@ -13,11 +13,10 @@ import {
 import { useDispatch } from "react-redux";
 
 import type { AppDispatch } from "@/app/store";
-import { fetchUser } from "@/features/auth/model/slice";
+import { fetchUser } from "@/entities/auth/slice";
+import { auth, database, FirebaseError, get, ref, set } from "@/shared/config/firebase";
+import { getFirebaseErrorMessage } from "@/shared/utils/map-error-code-to-error-message";
 import { useModal } from "@/widgets/Modal/context/modalContext";
-
-import { auth, database, FirebaseError, get, ref, set } from "../config/firebase";
-import { getFirebaseErrorMessage } from "../utils/map-error-code-to-error-message";
 
 export const useAuth = () => {
   const [loading, setLoading] = useState(false);

@@ -1,13 +1,14 @@
-import { GenreTabs } from "@/features/movie-filter/ui/GenreTabs";
 import { MovieCard } from "@/features/movieCard/ui/MovieCard";
+import { MovieFilterByGenre } from "@/features/movieFilterByGenre/ui/MovieFilterByGenre";
 import { colors } from "@/shared/constants/style";
+import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { NavigateButtonUI } from "@/shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
+import { useInitNowPlayingMovies } from "@/widgets/nowPlaying/model/hooks/useInitNowPlayingMovies";
 
-import { useInitNowPlayingMovies } from "../hooks/useInitNowPlayingMovies";
 import { StyledCards, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
@@ -20,7 +21,7 @@ export const NowPlaying = () => {
         <StyledNowPlayingWrapper>
           <TitleUI fontWeight={900} fontSize={65} title="Зараз у кіно" />
           <StyledDivider />
-          <GenreTabs onChangeMovies={handleGenreChange} />
+          <MovieFilterByGenre onChangeMovies={handleGenreChange} />
         </StyledNowPlayingWrapper>
 
         {!loading && movies.length === 0 && (
@@ -50,7 +51,7 @@ export const NowPlaying = () => {
           </StyledCards>
         )}
 
-        <NavigateButtonUI to="/posters" title="Всі новинки" />
+        <NavigateButtonUI to={routesBook.posters()} title="Всі новинки" />
       </div>
     </StyledNowPlaying>
   );

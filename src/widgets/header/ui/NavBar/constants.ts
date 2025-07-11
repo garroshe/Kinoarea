@@ -1,9 +1,11 @@
+import { routesBook } from "@/shared/routing/routesBook";
+
 export const NAVBAR_PATH = [
-  { to: "/posters", label: "Афіша" },
-  { to: "/media", label: "Медіа" },
-  { to: "/films", label: "Фільми" },
-  { to: "/actors", label: "Актори" },
-  { to: "/news", label: "Новини" },
-  { to: "/colections", label: "Добірки" },
-  { to: "/categories", label: "Категорії" },
+  { to: routesBook.posters(), label: "Афіша" },
+  { to: routesBook.media(), label: "Медіа" },
+  { to: routesBook.films(), label: "Фільми" },
+  { to: routesBook.actors(), label: "Актори" },
+  { to: routesBook.news(), label: "Новини" },
+  { to: routesBook.collections(), label: "Добірки" },
+  { to: routesBook.categories(), label: "Категорії" },
 ];

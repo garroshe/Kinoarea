@@ -2,13 +2,14 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import { GENRES_TABS } from "../model/constants";
-import { GenreTabs } from "./GenreTabs";
+import { GENRES_TABS } from "@/features/movieFilterByGenre/model/constants";
 
-describe("GenreTabs", () => {
+import { MovieFilterByGenre } from "./MovieFilterByGenre";
+
+describe("Movies Tabs Filters", () => {
   const mockFn = vi.fn();
   it("render genres tabs and all genres", () => {
-    render(<GenreTabs onChangeMovies={mockFn} />);
+    render(<MovieFilterByGenre onChangeMovies={mockFn} />);
 
     expect(screen.getByTestId("genres-tabs")).toBeInTheDocument();
 
@@ -18,7 +19,7 @@ describe("GenreTabs", () => {
   });
 
   it("on click call onChangeMovies with correct genres", async () => {
-    render(<GenreTabs onChangeMovies={mockFn} />);
+    render(<MovieFilterByGenre onChangeMovies={mockFn} />);
 
     const secondTab = screen.getByText(GENRES_TABS[1].label);
     await userEvent.click(secondTab);
@@ -27,7 +28,7 @@ describe("GenreTabs", () => {
   });
 
   it("change active tab on click", async () => {
-    render(<GenreTabs onChangeMovies={mockFn} />);
+    render(<MovieFilterByGenre onChangeMovies={mockFn} />);
 
     const allTabs = screen.getAllByRole("listitem");
 
