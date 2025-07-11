@@ -16,7 +16,7 @@ vi.mock("react-redux", async () => {
   };
 });
 
-vi.mock("@/features/auth/model/slice", () => ({
+vi.mock("@/entities/auth/slice", () => ({
   logout: vi.fn(() => ({ type: "auth/logout" })),
 }));
 

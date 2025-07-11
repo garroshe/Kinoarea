@@ -6,7 +6,7 @@ import * as useInitNowPlayingMoviesModule from "@/widgets/nowPlaying/model/hooks
 
 import { NowPlaying } from "./NowPlaying";
 
-vi.mock("../hooks/useInitNowPlayingMovies", () => ({
+vi.mock("@/widgets/nowPlaying/model/hooks/useInitNowPlayingMovies", () => ({
   useInitNowPlayingMovies: vi.fn(),
 }));
 

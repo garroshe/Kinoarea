@@ -23,7 +23,7 @@ vi.mock("@/shared/config/firebase", () => ({
 const mockUseAuth = useAuthModule.useAuth as unknown as jest.Mock;
 const mockUseModal = useModalModule.useModal as unknown as jest.Mock;
 
-vi.mock("@/shared/hooks/useAuth");
+vi.mock("@/entities/auth/useAuth");
 vi.mock("@/widgets/Modal/context/modalContext");
 
 const mockOpenModal = vi.fn();
