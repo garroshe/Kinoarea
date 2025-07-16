@@ -9,6 +9,7 @@ const MainPage = lazy(() => import("@/pages/MainPage/MainPage"));
 const ErrorPage = lazy(() => import("@/pages/ErrorPage/ErrorPage"));
 
 export const Router = () => {
+  console.log("test");
   return (
     <Suspense
       fallback={

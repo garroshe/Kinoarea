@@ -13,5 +13,7 @@ export const AuthInitializer = () => {
     if (uid) dispatch(fetchUser(uid));
   }, []);
 
+  console.log("test");
+
   return null;
 };
