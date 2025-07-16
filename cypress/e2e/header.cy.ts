@@ -35,9 +35,9 @@ describe("Header", () => {
       cy.url().should("include", "/news");
     });
 
-    it("redirect to colections", () => {
-      cy.get("a[href='/colections']").click();
-      cy.url().should("include", "/colections");
+    it("redirect to collections", () => {
+      cy.get("a[href='/collections']").click();
+      cy.url().should("include", "/collections");
     });
 
     it("redirect to categories", () => {

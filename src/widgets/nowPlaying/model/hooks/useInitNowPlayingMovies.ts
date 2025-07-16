@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import type { AppDispatch, RootState } from "@/app/store";
-import { fetchMovies, fetchMoviesByGenre } from "@/entities/movie/model/slice";
+import { fetchMovies, fetchMoviesByGenre } from "@/entities/movie/slice";
 
 export const useInitNowPlayingMovies = () => {
   const dispatch = useDispatch<AppDispatch>();
