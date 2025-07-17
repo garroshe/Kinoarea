@@ -7,4 +7,6 @@ export const routesBook = {
   news: () => "/news",
   collections: () => "/collections",
   categories: () => "/categories",
+  privacyPolicy: () => "/privacyPolicy",
+  dataDeletion: () => "/dataDeletion",
 };

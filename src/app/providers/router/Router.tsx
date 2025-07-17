@@ -7,6 +7,8 @@ import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 
 const MainPage = lazy(() => import("@/pages/MainPage/MainPage"));
 const ErrorPage = lazy(() => import("@/pages/ErrorPage/ErrorPage"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy/PrivacyPolicy"));
+const DataDeletion = lazy(() => import("@/pages/DataDeletion/DataDeletion"));
 
 export const Router = () => {
   return (
@@ -19,6 +21,8 @@ export const Router = () => {
     >
       <Routes>
         <Route path={routesBook.main()} element={<MainPage />} />
+        <Route path={routesBook.privacyPolicy()} element={<PrivacyPolicy />} />
+        <Route path={routesBook.dataDeletion()} element={<DataDeletion />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Suspense>
