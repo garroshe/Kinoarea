@@ -15,8 +15,8 @@ describe("Home page", () => {
   });
 
   it("redirect to films when click to card film", () => {
-    cy.get('[data-cy="movie-card"]', { timeout: 10000 }).first().click();
-    cy.get('[data-cy="movie-card-btn"]', { timeout: 10000 }).first().click();
+    cy.get('[data-cy="movie-card"]').first().click();
+    cy.get('[data-cy="movie-card-btn"]').first().click();
     cy.url().should("include", "/films/");
   });
 
@@ -26,7 +26,7 @@ describe("Home page", () => {
   });
 
   it("add trailerID to url params", () => {
-    cy.get('[data-cy="slide-in-new-trailer-slide"]', { timeout: 10000 }).first().click();
+    cy.get('[data-cy="slide-in-new-trailer-slide"]').first().click();
     cy.location("search").should("include", "trailerId=");
   });
 });
