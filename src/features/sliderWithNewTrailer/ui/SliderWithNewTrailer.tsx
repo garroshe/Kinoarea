@@ -48,7 +48,7 @@ export const SliderWithNewTrailer = () => {
             {dataFetchTrailers?.map((trailer) => {
               return (
                 <SwiperSlide
-                  data-cy={`slide-in-new-trailer-slide-${trailer.id}`}
+                  data-cy={"slide-in-new-trailer-slide"}
                   onClick={() => handleActionsSlider(trailer.id)}
                   key={trailer.id}
                 >
