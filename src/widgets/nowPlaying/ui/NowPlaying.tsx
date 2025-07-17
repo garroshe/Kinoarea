@@ -7,12 +7,12 @@ import { NavigateButtonUI } from "@/shared/ui/NavigateButtonUI/ui/NavigateButton
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
-import { useInitNowPlayingMovies } from "@/widgets/nowPlaying/model/hooks/useInitNowPlayingMovies";
 
+import { useMoviesNowPlayingFetch } from "../model/use-movies-now-playing-fetch";
 import { StyledCards, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
-  const { movies, loading, handleGenreChange } = useInitNowPlayingMovies();
+  const { movies, loading, handleGenreChange } = useMoviesNowPlayingFetch();
 
   return (
     <StyledNowPlaying>

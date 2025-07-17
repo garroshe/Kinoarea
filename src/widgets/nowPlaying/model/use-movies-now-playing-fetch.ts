@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "@/app/store";
 import { fetchMovies, fetchMoviesByGenre } from "@/entities/movie/slice";
 
-export const useInitNowPlayingMovies = () => {
+export const useMoviesNowPlayingFetch = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { movies, loading } = useSelector((state: RootState) => state.movies);
 
