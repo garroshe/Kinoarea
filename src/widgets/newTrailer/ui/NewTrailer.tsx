@@ -1,69 +1,85 @@
-import { Progress } from "antd";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Link, useSearchParams } from "react-router-dom";
 
-import bg from "@/shared/assets/image.jpg";
-import image1 from "@/shared/assets/image1.jpg";
+import { LikeOrDislike } from "@/features/likeOrDislike/ui/LikeOrDislike";
+import { SliderWithNewTrailer } from "@/features/sliderWithNewTrailer/ui/SliderWithNewTrailer";
+import { routesBook } from "@/shared/routing/routesBook";
+import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
+import { getPathToYouTubeVideo } from "@/shared/utils/get-path-to-you-tube-video";
 
-import { StyledNewTrailer } from "./styled";
+import { DEFAULT_TRAILER_ID, IFRAME_ALLOW, VIDEO_TYPE } from "../model/constants";
+import { useMovieFetchQuery } from "../model/hooks/use-movie-fetch-query";
+import { useTrailerFetchQuery } from "../model/hooks/use-trailer-fetch-query";
+import {
+  StyledHeader,
+  StyledLeftBlock,
+  StyledMarks,
+  StyledNewTrailer,
+  StyledTrailer,
+  StyledTrailerInfo,
+  StyledTrailerTitle,
+} from "./styled";
 
 export const NewTrailer = () => {
+  const [searchParams] = useSearchParams();
+  const rawTrailerId = searchParams.get("trailerId");
+  const trailerId = rawTrailerId ?? DEFAULT_TRAILER_ID;
+
+  const { dataTrailer, loadingTrailerFetch } = useTrailerFetchQuery({ trailerId });
+  const { dataMovieFetch, loadingMovieFetch } = useMovieFetchQuery({ trailerId });
+
+  const loading = loadingTrailerFetch || loadingMovieFetch;
+  const voteCount = dataMovieFetch?.vote_count ?? 0;
+  const dislikeCount = Math.floor(voteCount / 2);
+
+  const trailers = (dataTrailer ?? []).filter(
+    (video) => video.type === VIDEO_TYPE.trailer && video.site === VIDEO_TYPE.youtube,
+  );
+  const firstTrailer = trailers[0];
+
   return (
     <StyledNewTrailer>
       <div className="container">
-        <div className="header">
+        <StyledHeader>
           <TitleUI fontWeight={900} fontSize={65} title="Нові трейлери" />
-          <div className="header-wrapper">
-            <div>Усі трейлери</div>
+          <Link to={routesBook.news()}>
+            <span>Усі трейлери</span>
             <SvgIcon icon={icons.arrow} />
-          </div>
-        </div>
-        <div className="trailer">
-          <img src={bg} alt="img" />
-          <SvgIcon icon={icons.play} className="position" />
-        </div>
-        <div className="trailer-info">
-          <div className="left-block">
-            <h3 className="trailer-name">Форсаж 9</h3>
+          </Link>
+        </StyledHeader>
+
+        <StyledTrailer>
+          {loading ? (
+            <CenteredContentUI testId="new-trailer-loader">
+              <SpinnerUI size="large" />
+            </CenteredContentUI>
+          ) : (
+            <iframe
+              width="100%"
+              height="765"
+              src={getPathToYouTubeVideo(firstTrailer?.key)}
+              title={firstTrailer?.name}
+              allow={IFRAME_ALLOW}
+              allowFullScreen
+            />
+          )}
+        </StyledTrailer>
+
+        <StyledTrailerInfo>
+          <StyledLeftBlock>
+            <StyledTrailerTitle>{dataMovieFetch?.title}</StyledTrailerTitle>
             <SvgIcon icon={icons.social} />
-          </div>
-          <div className="marks">
-            <div className="like">
-              <div className="block">
-                <SvgIcon icon={icons.like} />
-              </div>
-              <div className="rating">3 245</div>
-            </div>
-            <div className="dislike">
-              <div className="block">
-                <SvgIcon className="dislike-icon" icon={icons.like} />
-              </div>
-              <div className="rating">245</div>
-            </div>
-          </div>
-        </div>
-        <div className="slider">
-          <Progress percent={25} showInfo={false} style={{ marginBottom: "24px" }} />
-          <Swiper spaceBetween={50} slidesPerView={3} onSlideChange={() => {}} onSwiper={() => {}}>
-            <SwiperSlide>
-              <img src={image1} alt="img" />
-              <div className="slider-title">Мулан </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={image1} alt="img" />
-              <div className="slider-title">Мулан </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={image1} alt="img" />
-              <div className="slider-title">Мулан </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={image1} alt="img" />
-              <div className="slider-title">Мулан </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
+          </StyledLeftBlock>
+
+          <StyledMarks>
+            <LikeOrDislike rating={voteCount} />
+            <LikeOrDislike rating={dislikeCount} type="dislike" />
+          </StyledMarks>
+        </StyledTrailerInfo>
+
+        <SliderWithNewTrailer />
       </div>
     </StyledNewTrailer>
   );

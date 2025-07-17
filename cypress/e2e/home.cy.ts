@@ -19,4 +19,14 @@ describe("Home page", () => {
     cy.get('[data-cy="movie-card-btn"]').first().click();
     cy.url().should("include", "/films/");
   });
+
+  it("redirect to news", () => {
+    cy.get("a[href='/news']").click();
+    cy.url().should("include", "/news");
+  });
+
+  it("add trailerID to url params", () => {
+    cy.get('[data-cy="slide-in-new-trailer-slide-1071585"]').click();
+    cy.location("search").should("include", "trailerId=1071585");
+  });
 });

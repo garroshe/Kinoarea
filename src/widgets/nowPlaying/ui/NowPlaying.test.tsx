@@ -2,15 +2,15 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 
-import * as useInitNowPlayingMoviesModule from "@/widgets/nowPlaying/model/hooks/useInitNowPlayingMovies";
+import * as useInitNowPlayingMoviesModule from "@/widgets/nowPlaying/model/use-movies-now-playing-fetch";
 
 import { NowPlaying } from "./NowPlaying";
 
-vi.mock("@/widgets/nowPlaying/model/hooks/useInitNowPlayingMovies", () => ({
-  useInitNowPlayingMovies: vi.fn(),
+vi.mock("@/widgets/nowPlaying/model/use-movies-now-playing-fetch", () => ({
+  useMoviesNowPlayingFetch: vi.fn(),
 }));
 
-const mockUseInitNowPlayingMovies = useInitNowPlayingMoviesModule.useInitNowPlayingMovies as jest.Mock;
+const mockUseInitNowPlayingMovies = useInitNowPlayingMoviesModule.useMoviesNowPlayingFetch as jest.Mock;
 
 describe("Now playing", () => {
   it("shows loading spinner", () => {

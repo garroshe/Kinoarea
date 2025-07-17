@@ -31,7 +31,7 @@ export const icons = {
   play: "play",
 };
 
-export const SvgIcon = ({ icon, className, onClick }: ISvgIconProps) => {
+export const SvgIcon = ({ icon, className, onClick, color }: ISvgIconProps) => {
   const svgs = {
     [icons.arrow]: Arrow,
     [icons.collapseIcon]: CollapseIconUI,
@@ -53,5 +53,5 @@ export const SvgIcon = ({ icon, className, onClick }: ISvgIconProps) => {
 
   if (!IconJSX) return null;
 
-  return <IconJSX className={className} onClick={onClick} />;
+  return <IconJSX className={className} onClick={onClick} color={color} />;
 };

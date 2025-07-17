@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { movieService } from "@/bus/movie/api/movieService";
 import { movieQueryKeys } from "@/bus/movie/store/queryKeys";
 
-export const useNewTrailerFetch = () => {
+export const useNewTrailersFetchQuery = () => {
   const {
     data: response,
     isFetching,
@@ -26,7 +26,7 @@ export const useNewTrailerFetch = () => {
   }
 
   return {
-    dataFetchMovies: data || [],
-    loadingFetchMovies: isFetching || isLoading,
+    dataFetchTrailers: data,
+    loadingFetchTrailers: isFetching || isLoading,
   };
 };
