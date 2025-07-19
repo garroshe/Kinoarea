@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-import { icons, SvgIcon } from "../SvgIcon/SvgIcon";
+import { SvgIcon } from "../SvgIcon/SvgIcon";
 import type { ICheckBoxUIProps } from "./type";
 import { StyledCheckBoxContainer, StyledCheckBoxUI, StyledHideCheckBox, StyledLabel } from "./styled";
 
@@ -21,7 +21,7 @@ export const CheckBoxUI = forwardRef<HTMLInputElement, ICheckBoxUIProps>(
           onChange={(e) => onHandleChange(e.target.checked)}
         />
         <StyledCheckBoxUI $checked={checked}>
-          <SvgIcon icon={icons.check} />
+          <SvgIcon icon="check" />
         </StyledCheckBoxUI>
         <StyledLabel>{label}</StyledLabel>
       </StyledCheckBoxContainer>

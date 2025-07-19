@@ -1,6 +1,6 @@
 import { useEffect, type MouseEvent } from "react";
 
-import { icons, SvgIcon } from "../SvgIcon/SvgIcon";
+import { SvgIcon } from "../SvgIcon/SvgIcon";
 import type { ModalProps } from "./types";
 import { StyledModalContent, StyledModalOverlay, StyledModalPosition } from "./styled";
 
@@ -23,7 +23,7 @@ export const ModalUI = ({ onClose, children }: ModalProps) => {
     <StyledModalOverlay onClick={handleCloseModal}>
       <StyledModalContent>
         <StyledModalPosition>
-          <SvgIcon icon={icons.dagger} onClick={onClose} />
+          <SvgIcon icon="dagger" onClick={onClose} />
         </StyledModalPosition>
         {children}
       </StyledModalContent>

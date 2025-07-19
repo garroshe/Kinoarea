@@ -1,3 +1,4 @@
+import { icons } from "./constants";
 import { Arrow } from "./icons/Arrow";
 import { AvatarMale } from "./icons/AvatarMale";
 import { Check } from "./icons/Check";
@@ -6,30 +7,15 @@ import { Dagger } from "./icons/Dagger";
 import { Facebook } from "./icons/Facebook";
 import { GitHub } from "./icons/GitHub";
 import { Google } from "./icons/Google";
+import { Instagram } from "./icons/Instagram";
 import { Like } from "./icons/Like";
 import { Logotype } from "./icons/Logotype";
 import { Play } from "./icons/Play";
 import { SearchIcon } from "./icons/Search";
 import { Social } from "./icons/Social";
 import { Twitter } from "./icons/Twitter";
+import { YouTube } from "./icons/YouTube";
 import type { ISvgIconProps } from "./types";
-
-export const icons = {
-  arrow: "arrow",
-  avatarMale: "avatarMale",
-  check: "check",
-  collapseIcon: "collapseIcon",
-  dagger: "dagger",
-  facebook: "facebook",
-  github: "github",
-  google: "google",
-  logotype: "logotype",
-  search: "search",
-  social: "social",
-  twitter: "twitter",
-  like: "like",
-  play: "play",
-};
 
 export const SvgIcon = ({ icon, className, onClick, color }: ISvgIconProps) => {
   const svgs = {
@@ -47,6 +33,8 @@ export const SvgIcon = ({ icon, className, onClick, color }: ISvgIconProps) => {
     [icons.check]: Check,
     [icons.like]: Like,
     [icons.play]: Play,
+    [icons.instagram]: Instagram,
+    [icons.youtube]: YouTube,
   };
 
   const IconJSX = svgs[icon];

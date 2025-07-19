@@ -11,7 +11,7 @@ describe("Header", () => {
     });
 
     it("redirect to posters", () => {
-      cy.get("a[href='/posters']").click();
+      cy.get("a[href='/posters']").first().click();
       cy.url().should("include", "/posters");
     });
 
@@ -21,17 +21,17 @@ describe("Header", () => {
     });
 
     it("redirect to films", () => {
-      cy.get("a[href='/films']").click();
+      cy.get("a[href='/films']").first().click();
       cy.url().should("include", "/films");
     });
 
     it("redirect to actors", () => {
-      cy.get("a[href='/actors']").click();
+      cy.get("a[href='/actors']").first().click();
       cy.url().should("include", "/actors");
     });
 
     it("redirect to news", () => {
-      cy.get("a[href='/news']").click();
+      cy.get("a[href='/news']").first().click();
       cy.url().should("include", "/news");
     });
 

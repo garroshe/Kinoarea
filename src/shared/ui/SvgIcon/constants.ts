@@ -1,0 +1,18 @@
+export const icons = {
+  arrow: "arrow",
+  avatarMale: "avatarMale",
+  check: "check",
+  collapseIcon: "collapseIcon",
+  dagger: "dagger",
+  facebook: "facebook",
+  github: "github",
+  google: "google",
+  logotype: "logotype",
+  search: "search",
+  social: "social",
+  twitter: "twitter",
+  like: "like",
+  play: "play",
+  instagram: "instagram",
+  youtube: "youtube",
+};

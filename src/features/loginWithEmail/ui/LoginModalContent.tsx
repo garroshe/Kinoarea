@@ -9,7 +9,7 @@ import { ButtonUI } from "@/shared/ui/ButtonUI/ButtonUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI/ErrorsMessageUI";
 import { InputUI } from "@/shared/ui/InputUI/InputUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
-import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 import { useModal } from "@/widgets/Modal/context/modalContext";
@@ -70,16 +70,16 @@ export const LoginModalContent = () => {
 
       <StyledSocial>
         <StyledSocialItems onClick={signInWithGitHub}>
-          <SvgIcon icon={icons.github} />
+          <SvgIcon icon="github" />
         </StyledSocialItems>
         <StyledSocialItems onClick={signInWithFacebook}>
-          <SvgIcon icon={icons.facebook} />
+          <SvgIcon icon="facebook" />
         </StyledSocialItems>
         <StyledSocialItems onClick={signInWithGoogle}>
-          <SvgIcon icon={icons.google} />
+          <SvgIcon icon="google" />
         </StyledSocialItems>
         <StyledSocialItems onClick={signInWithTwitter}>
-          <SvgIcon icon={icons.twitter} />
+          <SvgIcon icon="twitter" />
         </StyledSocialItems>
       </StyledSocial>
     </StyledLoginForm>

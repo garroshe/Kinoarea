@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import type { AppDispatch } from "@/app/store";
 import { logout } from "@/entities/auth/slice";
-import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 
 import { OPTION_DROPDOWN_LIST } from "./constants";
 import type { IHeaderUserProps } from "./types";
@@ -52,9 +52,9 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
   return (
     <StyledHeaderUserContainer>
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
-        <SvgIcon icon={icons.collapseIcon} />
+        <SvgIcon icon="collapseIcon" />
         <StyledHeaderUserName>{userName}</StyledHeaderUserName>
-        {avatar ? <StyledAvatar src={avatar} alt="avatar" /> : <SvgIcon icon={icons.avatarMale} />}
+        {avatar ? <StyledAvatar src={avatar} alt="avatar" /> : <SvgIcon icon="avatarMale" />}
       </StyledHeaderUser>
 
       {isOpen && (
@@ -66,7 +66,7 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
           </StyledDropdownList>
 
           <span data-testid="exit-test-id" onClick={handleLogout}>
-            <SvgIcon icon={icons.dagger} />
+            <SvgIcon icon="dagger" />
             Вихід
           </span>
         </StyledHeaderUserDropdown>

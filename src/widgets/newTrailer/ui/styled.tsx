@@ -57,6 +57,11 @@ export const StyledTrailerTitle = styled.h3`
   line-height: 100%;
   letter-spacing: 0;
   color: ${colors.white50};
+
+  iframe {
+    width: 100% !important;
+    height: 400px !important;
+  }
 `;
 
 export const StyledTrailer = styled.div`

@@ -21,7 +21,7 @@ describe("Home page", () => {
   });
 
   it("redirect to news", () => {
-    cy.get("a[href='/news']").click();
+    cy.get("a[href='/news']").first().click();
     cy.url().should("include", "/news");
   });
 
