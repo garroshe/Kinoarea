@@ -13,3 +13,9 @@ export const colors = {
   green500: "#4BCB36",
   red500: "#E04141",
 };
+
+export const breakpoints = {
+  mobile: "480px",
+  tablet: "768px",
+  desktop: "1280px",
+};

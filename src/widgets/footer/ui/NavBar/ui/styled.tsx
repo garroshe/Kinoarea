@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { colors } from "@/shared/constants/style";
 
-export const StyledNavBar = styled.nav`
+export const StyledNavBar = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;

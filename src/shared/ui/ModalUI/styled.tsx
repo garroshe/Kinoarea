@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../constants/style";
+import { breakpoints, colors } from "@/shared/constants/style";
 
 export const StyledModalOverlay = styled.div`
   position: absolute;
@@ -24,10 +24,27 @@ export const StyledModalContent = styled.div`
   background: ${colors.blue800};
   padding: 42px;
   border-radius: 10px;
+  box-shadow: 0 0 15px 0 ${colors.blue400};
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 650px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 350px;
+    padding: 20px;
+  }
 `;
 
 export const StyledModalPosition = styled.div`
   position: absolute;
   top: 20px;
   right: 24px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    .modal-dagger {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;

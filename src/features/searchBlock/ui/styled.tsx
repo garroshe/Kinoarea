@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../constants/style";
+import { breakpoints, colors } from "@/shared/constants/style";
 
 export const StyledSearch = styled.div`
   display: flex;
@@ -12,4 +12,15 @@ export const StyledSearch = styled.div`
   animation-duration: 300ms;
   background: ${colors.white50};
   border-radius: 10px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 43px;
+    height: 41px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 28px;
+    height: 27px;
+    border-radius: 5px;
+  }
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "@/shared/constants/style";
+import { breakpoints, colors } from "@/shared/constants/style";
 
 export const StyledNavBar = styled.nav`
   display: flex;
@@ -12,5 +12,11 @@ export const StyledNavBar = styled.nav`
     font-size: 16px;
     line-height: 100%;
     color: ${colors.white50};
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    a {
+      font-size: 12px;
+    }
   }
 `;
