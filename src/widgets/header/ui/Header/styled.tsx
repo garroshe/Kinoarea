@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
 export const StyledLeftBlock = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
 `;
 
 export const StyledRightBlock = styled.div`

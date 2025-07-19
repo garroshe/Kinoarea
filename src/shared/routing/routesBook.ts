@@ -9,4 +9,6 @@ export const routesBook = {
   categories: () => "/categories",
   privacyPolicy: () => "/privacyPolicy",
   dataDeletion: () => "/dataDeletion",
+  ratings: () => "/ratings",
+  reviews: () => "/reviews",
 };

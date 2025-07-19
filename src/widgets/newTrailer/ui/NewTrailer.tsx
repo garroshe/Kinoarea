@@ -4,8 +4,9 @@ import { LikeOrDislike } from "@/features/likeOrDislike/ui/LikeOrDislike";
 import { SliderWithNewTrailer } from "@/features/sliderWithNewTrailer/ui/SliderWithNewTrailer";
 import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import { SocialUI } from "@/shared/ui/SocialUI/Social";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
-import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
 import { getPathToYouTubeVideo } from "@/shared/utils/get-path-to-you-tube-video";
 
@@ -46,7 +47,7 @@ export const NewTrailer = () => {
           <TitleUI fontWeight={900} fontSize={65} title="Нові трейлери" />
           <Link to={routesBook.news()}>
             <span>Усі трейлери</span>
-            <SvgIcon icon={icons.arrow} />
+            <SvgIcon icon="arrow" />
           </Link>
         </StyledHeader>
 
@@ -70,7 +71,7 @@ export const NewTrailer = () => {
         <StyledTrailerInfo>
           <StyledLeftBlock>
             <StyledTrailerTitle>{dataMovieFetch?.title}</StyledTrailerTitle>
-            <SvgIcon icon={icons.social} />
+            <SocialUI />
           </StyledLeftBlock>
 
           <StyledMarks>

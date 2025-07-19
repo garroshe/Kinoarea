@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import type { RootState } from "@/app/store";
 import { routesBook } from "@/shared/routing/routesBook";
 import { SearchBlockUI } from "@/shared/ui/SearchBlockUI/SearchBlockUI";
-import { icons, SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { SocialUI } from "@/shared/ui/SocialUI/Social";
+import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 import { useModal } from "@/widgets/Modal/context/modalContext";
 
@@ -25,9 +26,9 @@ export const Header = () => {
       <StyledHeader>
         <StyledLeftBlock>
           <Link to={routesBook.main()}>
-            <SvgIcon icon={icons.logotype} />
+            <SvgIcon icon="logotype" />
           </Link>
-          <SvgIcon icon={icons.social} />
+          <SocialUI />
         </StyledLeftBlock>
         <NavBar />
         <StyledRightBlock>

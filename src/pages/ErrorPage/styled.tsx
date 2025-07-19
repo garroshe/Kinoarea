@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "@/shared/constants/style";
 
 export const StyledErrorPage = styled.section`
-  padding: 106px 0 134px 0;
+  padding: 140px 0 130px 0;
   color: ${colors.white50};
   height: 100%;
 
