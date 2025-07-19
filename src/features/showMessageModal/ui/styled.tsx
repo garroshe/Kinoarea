@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-import { colors } from "@/shared/constants/style";
+import { breakpoints, colors } from "@/shared/constants/style";
 
 export const StyledMessageModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+
+  h2 {
+    font-size: 24px;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -23,6 +27,12 @@ export const StyledButton = styled.button`
   border: none;
   color: ${colors.white50};
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 180px;
+    height: 55px;
+    font-size: 14px;
+  }
 `;
 
 export const StyledMessage = styled.p`
@@ -31,4 +41,8 @@ export const StyledMessage = styled.p`
   line-height: 169%;
   color: ${colors.white50};
   text-align: center;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 16px;
+  }
 `;

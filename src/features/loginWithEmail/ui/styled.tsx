@@ -1,12 +1,31 @@
 import styled from "styled-components";
 
-import { colors } from "@/shared/constants/style";
+import { breakpoints, colors } from "@/shared/constants/style";
 
 export const StyledLoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 422px;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 300px;
+
+    input {
+      height: 55px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 300px;
+      height: 55px;
+      font-size: 14px;
+    }
+
+    h2 {
+      font-size: 26px;
+    }
+  }
 `;
 
 export const StyledRegisterButton = styled.button`
@@ -41,6 +60,10 @@ export const StyledResetPassword = styled.a`
   color: ${colors.blue500};
   margin-bottom: 20px;
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 14px;
+  }
 `;
 
 export const StyledSocial = styled.div`
@@ -63,5 +86,10 @@ export const StyledSocialItems = styled.div`
 
   &:hover {
     background: ${colors.blue500};
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 38px;
+    height: 38px;
   }
 `;

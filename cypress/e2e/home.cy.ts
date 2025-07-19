@@ -17,7 +17,7 @@ describe("Home page", () => {
   it("redirect to films when click to card film", () => {
     cy.get('[data-cy="movie-card"]').first().click();
     cy.get('[data-cy="movie-card-btn"]').first().click();
-    cy.url().should("include", "/films/");
+    cy.url().should("include", "/films");
   });
 
   it("redirect to news", () => {

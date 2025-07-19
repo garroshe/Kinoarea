@@ -2,18 +2,19 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import type { RootState } from "@/app/store";
+import { SearchBlock } from "@/features/searchBlock/ui/SearchBlock";
 import { routesBook } from "@/shared/routing/routesBook";
-import { SearchBlockUI } from "@/shared/ui/SearchBlockUI/SearchBlockUI";
+import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI/Social";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 import { useModal } from "@/widgets/Modal/context/modalContext";
 
+import { HeaderUser } from "../HeaderUser/HeaderUser";
 import { NavBar } from "../NavBar/NavBar";
-import { HeaderUser } from "./ui/HeaderUser/HeaderUser";
 import { StyledButton, StyledHeader, StyledLeftBlock, StyledRightBlock } from "./styled";
 
-export const Header = () => {
+export const HeaderDesktop = () => {
   const auth = useSelector((state: RootState) => state.auth);
   const { openModal } = useModal();
 
@@ -22,7 +23,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="container">
+    <ContainerUI>
       <StyledHeader>
         <StyledLeftBlock>
           <Link to={routesBook.main()}>
@@ -32,7 +33,7 @@ export const Header = () => {
         </StyledLeftBlock>
         <NavBar />
         <StyledRightBlock>
-          <SearchBlockUI />
+          <SearchBlock />
           {auth.user ? (
             <HeaderUser userName={auth.user?.userName} avatar={auth.user?.avatar} />
           ) : (
@@ -40,6 +41,6 @@ export const Header = () => {
           )}
         </StyledRightBlock>
       </StyledHeader>
-    </div>
+    </ContainerUI>
   );
 };
