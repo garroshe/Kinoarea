@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { breakpoints, colors } from "@/shared/constants/style";
+import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -65,7 +66,7 @@ export const StyledButton = styled.button`
   color: ${colors.white50};
   cursor: pointer;
 
-  @media (max-width: ${breakpoints.tablet}) {
+  ${mapDeviceToMedia.tabletOnly} {
     width: 100px;
     height: 42px;
     font-size: 14px;
@@ -73,7 +74,7 @@ export const StyledButton = styled.button`
     box-shadow: 0 0 15px 0 ${colors.blue400};
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     width: 66px;
     height: 27px;
     border-radius: 5px;

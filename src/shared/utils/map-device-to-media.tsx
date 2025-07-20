@@ -1,7 +1,9 @@
 import { breakpoints } from "@/shared/constants/style";
 
 export const mapDeviceToMedia = {
-  mobile: `@media (max-width: ${breakpoints.mobile})`,
-  tablet: `@media (max-width: ${breakpoints.tablet})`,
-  desktop: `@media (min-width: ${breakpoints.desktop})`,
+  mobileOnly: `@media (max-width: ${breakpoints.tablet})`, // до 768px
+  tabletOnly: `@media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.laptop})`, // 768-1023
+  laptopOnly: `@media (min-width: ${breakpoints.laptop}) and (max-width: ${breakpoints.desktop})`, // 1024–1279
+  desktop: `@media (min-width: ${breakpoints.desktop})`, // 1280+
+  wide: `@media (min-width: ${breakpoints.wide})`, // 1440+
 };

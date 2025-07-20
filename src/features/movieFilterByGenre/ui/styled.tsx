@@ -1,10 +1,26 @@
 import styled from "styled-components";
 
 import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledGenreTabs = styled.ul`
   display: flex;
   gap: 15px;
+
+  ${mapDeviceToMedia.laptopOnly} {
+    gap: 35px;
+    margin-top: 10px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    justify-content: space-between;
+    margin-top: 10px;
+  }
 
   li {
     font-weight: 700;
@@ -13,6 +29,18 @@ export const StyledGenreTabs = styled.ul`
     letter-spacing: 0;
     color: ${colors.white400};
     cursor: pointer;
+
+    ${mapDeviceToMedia.laptopOnly} {
+      font-size: 15px;
+    }
+
+    ${mapDeviceToMedia.tabletOnly} {
+      font-size: 15px;
+    }
+
+    ${mapDeviceToMedia.mobileOnly} {
+      font-size: 15px;
+    }
 
     &:hover {
       color: ${colors.white50};

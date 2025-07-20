@@ -1,20 +1,29 @@
 import styled from "styled-components";
 
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
+
 export const StyledContainer = styled.div`
   margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 
-  @media (min-width: 992px) {
-    max-width: 1440px;
-    padding: 0;
-  }
-
-  @media (min-width: 768px) and (max-width: 991px) {
-    max-width: 720px;
-    padding: 0 20px;
-  }
-
-  @media (max-width: 768px) and (min-width: 320px) {
+  ${mapDeviceToMedia.mobileOnly} {
     max-width: 100%;
-    padding: 0 20px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    max-width: 720px;
+  }
+
+  ${mapDeviceToMedia.laptopOnly} {
+    max-width: 850px;
+  }
+
+  ${mapDeviceToMedia.desktop} {
+    max-width: 1280px;
+  }
+
+  ${mapDeviceToMedia.wide} {
+    max-width: 1440px;
   }
 `;
