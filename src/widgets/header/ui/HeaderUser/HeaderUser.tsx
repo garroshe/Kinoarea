@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import type { AppDispatch } from "@/app/store";
 import { logout } from "@/entities/auth/slice";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 
 import { OPTION_DROPDOWN_LIST } from "./constants";
@@ -21,6 +22,8 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const dropDownRef = useRef<HTMLDivElement | null>(null);
   const headerUserRef = useRef<HTMLDivElement | null>(null);
+
+  const isTabletOrSmaller = useMediaQuery("(max-width: 768px)");
 
   const handleOpenDropdown = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -52,8 +55,8 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
   return (
     <StyledHeaderUserContainer>
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
-        <SvgIcon icon="collapseIcon" />
-        <StyledHeaderUserName>{userName}</StyledHeaderUserName>
+        {!isTabletOrSmaller ? <SvgIcon icon="collapseIcon" /> : null}
+        {!isTabletOrSmaller ? <StyledHeaderUserName>{userName}</StyledHeaderUserName> : null}
         {avatar ? <StyledAvatar src={avatar} alt="avatar" /> : <SvgIcon icon="avatarMale" />}
       </StyledHeaderUser>
 

@@ -18,19 +18,69 @@ export const GlobalStyles = createGlobalStyle`
     ul, ol {
         list-style: none;
     }
-    
-    .container {
-        width: 1440px;
-        margin: 0 auto;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
     }
-    
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd {
+        margin: 0;
+    }
+
+    ul[role="list"],
+    ol[role="list"],
+    ul,
+    ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        line-height: 1.5;
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
+
     body {
         position: relative;
         padding-top: 20px;
         background-color: ${colors.blue900};
         font-family: 'Poppins', sans-serif;
     }
-    
+
     .bg-main {
         position: absolute;
         top: 0;

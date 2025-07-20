@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "@/shared/constants/style";
+import { breakpoints, colors } from "@/shared/constants/style";
 
 export const StyledHeaderUserContainer = styled.div`
   position: relative;
@@ -24,12 +24,17 @@ export const StyledHeaderUserDropdown = styled.div`
   position: absolute;
   top: 65px;
   left: 50%;
+  z-index: 20;
   transform: translateX(-50%);
   width: 134px;
   height: 143px;
   border-radius: 10px;
   background-color: ${colors.blue800};
   padding: 14px 18px 20px 20px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    left: -30%;
+  }
 
   span {
     display: flex;
@@ -68,4 +73,9 @@ export const StyledAvatar = styled.img`
   width: 51px;
   height: 51px;
   border-radius: 50%;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 45px;
+    height: 45px;
+  }
 `;

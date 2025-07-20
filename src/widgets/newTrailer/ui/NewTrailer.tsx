@@ -4,6 +4,7 @@ import { LikeOrDislike } from "@/features/likeOrDislike/ui/LikeOrDislike";
 import { SliderWithNewTrailer } from "@/features/sliderWithNewTrailer/ui/SliderWithNewTrailer";
 import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI/Social";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
@@ -42,7 +43,7 @@ export const NewTrailer = () => {
 
   return (
     <StyledNewTrailer>
-      <div className="container">
+      <ContainerUI>
         <StyledHeader>
           <TitleUI fontWeight={900} fontSize={65} title="Нові трейлери" />
           <Link to={routesBook.news()}>
@@ -59,7 +60,7 @@ export const NewTrailer = () => {
           ) : (
             <iframe
               width="100%"
-              height="765"
+              height="100%"
               src={getPathToYouTubeVideo(firstTrailer?.key)}
               title={firstTrailer?.name}
               allow={IFRAME_ALLOW}
@@ -81,7 +82,7 @@ export const NewTrailer = () => {
         </StyledTrailerInfo>
 
         <SliderWithNewTrailer />
-      </div>
+      </ContainerUI>
     </StyledNewTrailer>
   );
 };

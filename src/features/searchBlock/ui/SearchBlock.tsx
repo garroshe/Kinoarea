@@ -1,7 +1,8 @@
-import { SvgIcon } from "../SvgIcon/SvgIcon";
+import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+
 import { StyledSearch } from "./styled";
 
-export const SearchBlockUI = () => {
+export const SearchBlock = () => {
   return (
     <StyledSearch>
       <SvgIcon icon="search" />

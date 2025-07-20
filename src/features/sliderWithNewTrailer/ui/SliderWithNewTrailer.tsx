@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { colors } from "@/shared/constants/style";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
@@ -29,6 +30,13 @@ export const SliderWithNewTrailer = () => {
     setActiveSlide(id);
   };
 
+  const isLaptop = useMediaQuery("(max-width: 1279px)");
+  const isTablet = useMediaQuery("(max-width: 1023px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const progressStyle = { marginBottom: "16px" };
+  const swiperGapBetweenSlide = isLaptop ? 12 : isTablet ? 10 : 20;
+
   return (
     <StyledSlider data-testid="sliderWithNewTrailer">
       {loadingFetchTrailers ? (
@@ -37,9 +45,11 @@ export const SliderWithNewTrailer = () => {
         </CenteredContentUI>
       ) : (
         <>
-          <Progress percent={percent} showInfo={false} strokeColor={colors.blue500} style={{ marginBottom: "24px" }} />
+          {!isMobile && (
+            <Progress percent={percent} showInfo={false} strokeColor={colors.blue500} style={progressStyle} />
+          )}
           <Swiper
-            spaceBetween={20}
+            spaceBetween={swiperGapBetweenSlide}
             slidesPerView={4}
             speed={1200}
             loop={true}

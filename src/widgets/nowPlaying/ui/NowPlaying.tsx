@@ -1,8 +1,10 @@
 import { MovieCard } from "@/features/movieCard/ui/MovieCard";
 import { MovieFilterByGenre } from "@/features/movieFilterByGenre/ui/MovieFilterByGenre";
 import { colors } from "@/shared/constants/style";
+import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
 import { NavigateButtonUI } from "@/shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
@@ -13,15 +15,17 @@ import { StyledCards, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper }
 
 export const NowPlaying = () => {
   const { movies, loading, handleGenreChange } = useMoviesNowPlayingFetch();
+  const isDesktop = useMediaQuery("(max-width: 1024px)");
+  const isMobile = useMediaQuery("(max-width: 480px)");
 
   return (
     <StyledNowPlaying>
-      <div className="container">
+      <ContainerUI>
         <div className="bg-main" />
         <StyledNowPlayingWrapper>
           <TitleUI fontWeight={900} fontSize={65} title="Зараз у кіно" />
-          <StyledDivider />
-          <MovieFilterByGenre onChangeMovies={handleGenreChange} />
+          {!isDesktop ? <StyledDivider /> : null}
+          {!isMobile ? <MovieFilterByGenre onChangeMovies={handleGenreChange} /> : null}
         </StyledNowPlayingWrapper>
 
         {!loading && movies.length === 0 && (
@@ -52,7 +56,7 @@ export const NowPlaying = () => {
         )}
 
         <NavigateButtonUI to={routesBook.posters()} title="Всі новинки" />
-      </div>
+      </ContainerUI>
     </StyledNowPlaying>
   );
 };
