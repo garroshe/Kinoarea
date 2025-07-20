@@ -6,7 +6,7 @@ import { AuthInitializer } from "@/app/providers/authInitializer/AuthInitializer
 import { Router } from "@/app/providers/router/Router";
 import { store } from "@/app/store";
 import { queryClient } from "@/shared/config/queryConfig";
-// import { Footer } from "@/widgets/footer/ui/Footer/Footer";
+import { Footer } from "@/widgets/footer/ui/Footer/Footer";
 import { Header } from "@/widgets/header/Header";
 import { ModalContextProvider } from "@/widgets/Modal/context/modalContext";
 
@@ -22,7 +22,7 @@ export function App() {
             <AuthInitializer />
             <Header />
             <Router />
-            {/*<Footer />*/}
+            <Footer />
           </ModalContextProvider>
         </Provider>
       </QueryClientProvider>
