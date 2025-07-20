@@ -24,6 +24,7 @@ export const StyledHeaderUserDropdown = styled.div`
   position: absolute;
   top: 65px;
   left: 50%;
+  z-index: 20;
   transform: translateX(-50%);
   width: 134px;
   height: 143px;

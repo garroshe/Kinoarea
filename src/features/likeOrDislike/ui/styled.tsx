@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledLikeOrDislike = styled.div`
   display: flex;
@@ -15,6 +16,21 @@ export const StyledRating = styled.div`
   color: ${colors.white50};
   text-align: center;
   margin-top: 8px;
+
+  ${mapDeviceToMedia.laptopOnly} {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 9px;
+    margin-top: 2px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 9px;
+    margin-top: 2px;
+  }
 `;
 
 export const StyledBlock = styled.div`
@@ -27,6 +43,36 @@ export const StyledBlock = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  ${mapDeviceToMedia.laptopOnly} {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    width: 30px;
+    height: 30px;
+
+    svg {
+      width: 13px;
+      height: 13px;
+    }
+  }
 
   .icon-dislike {
     transform: rotate(180deg);
