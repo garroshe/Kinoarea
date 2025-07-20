@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledErrorPage = styled.section`
   padding: 140px 0 130px 0;
@@ -30,6 +31,21 @@ export const StyledErrorPage = styled.section`
     margin: 26px 0 32px 0;
     text-align: center;
   }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    h2 {
+      font-size: 100px;
+    }
+
+    h3 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 15px 0 28px 0;
+    }
+  }
 `;
 
 export const StyledBtnWrapper = styled.div`
@@ -37,6 +53,12 @@ export const StyledBtnWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
+
+  ${mapDeviceToMedia.mobileOnly} {
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
 `;
 
 export const StyledBackBtn = styled.button`
