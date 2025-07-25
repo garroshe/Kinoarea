@@ -48,12 +48,12 @@ export const SliderWithMovieByRelease = () => {
           {movieData.map((item) => (
             <SwiperSlide key={item.id}>
               <MovieCard
-                title={item.title || "Кіношка"}
-                genre={item.genre_ids || [12]}
+                title={item.title}
+                genre={item.genre_ids}
                 img={getPathToImg(item.poster_path, 500)}
-                rating={(item.vote_average && Number(item.vote_average.toFixed(1))) || 5}
+                rating={Number(item.vote_average?.toFixed(1))}
                 key={item.id}
-                originalTitle={item.original_title || "Movie"}
+                originalTitle={item.original_title}
               />
             </SwiperSlide>
           ))}

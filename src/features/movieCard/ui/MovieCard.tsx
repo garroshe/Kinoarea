@@ -8,9 +8,9 @@ import type { IMovieCard } from "../model/types";
 import { getRatingColor } from "../model/utils/getRatingColor";
 import { StyledActiveBlock, StyledDescription, StyledMovieCard, StyledRating, StyledTitle } from "./styled";
 
-export const MovieCard = ({ title, genre, img, rating, originalTitle }: IMovieCard) => {
+export const MovieCard = ({ title = "Фільм", genre, img, rating = 5, originalTitle = "movie" }: IMovieCard) => {
   const [isVisible, setIsVisible] = useState(false);
-  const genreString = useMemo(() => genre.map(mapGenreCodeToGenre).join(", "), [genre]);
+  const genreString = useMemo(() => genre?.map(mapGenreCodeToGenre).join(", "), [genre]);
 
   const handleOpenBlock = () => {
     setIsVisible((prev) => !prev);
