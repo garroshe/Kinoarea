@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { breakpoints, colors } from "@/shared/constants/style";
+import { breakpoints } from "@/shared/constants/style";
 import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledNowPlaying = styled.section`
@@ -92,10 +92,4 @@ export const StyledNowPlayingWrapper = styled.div`
       font-size: 32px;
     }
   }
-`;
-
-export const StyledDivider = styled.div`
-  height: 2px;
-  width: 52px;
-  background: ${colors.white50};
 `;

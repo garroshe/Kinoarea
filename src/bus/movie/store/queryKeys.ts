@@ -3,4 +3,5 @@ export const movieQueryKeys = {
   moviesNowPlayingFetch: "moviesNowPlayingFetch",
   trailerByIdFetch: "trailerByIdFetch",
   movieByIdFetch: "movieByIdFetch",
+  movieByReleaseDateFetch: "movieByReleaseDateFetch",
 };

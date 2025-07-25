@@ -24,7 +24,7 @@ import {
   StyledTrailerTitle,
 } from "./styled";
 
-export const NewTrailer = () => {
+const NewTrailer = () => {
   const [searchParams] = useSearchParams();
   const rawTrailerId = searchParams.get("trailerId");
   const trailerId = rawTrailerId ?? DEFAULT_TRAILER_ID;
@@ -86,3 +86,5 @@ export const NewTrailer = () => {
     </StyledNewTrailer>
   );
 };
+
+export default NewTrailer;

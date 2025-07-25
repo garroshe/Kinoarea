@@ -10,9 +10,10 @@ import { Google } from "./icons/Google";
 import { Instagram } from "./icons/Instagram";
 import { Like } from "./icons/Like";
 import { Logotype } from "./icons/Logotype";
+import { NextArrow } from "./icons/NextArrow";
 import { Play } from "./icons/Play";
+import { PrevArrow } from "./icons/PrevArrow";
 import { SearchIcon } from "./icons/Search";
-import { Social } from "./icons/Social";
 import { Twitter } from "./icons/Twitter";
 import { YouTube } from "./icons/YouTube";
 import type { ISvgIconProps } from "./types";
@@ -27,7 +28,6 @@ export const SvgIcon = ({ icon, className, onClick, color }: ISvgIconProps) => {
     [icons.google]: Google,
     [icons.logotype]: Logotype,
     [icons.search]: SearchIcon,
-    [icons.social]: Social,
     [icons.twitter]: Twitter,
     [icons.avatarMale]: AvatarMale,
     [icons.check]: Check,
@@ -35,6 +35,8 @@ export const SvgIcon = ({ icon, className, onClick, color }: ISvgIconProps) => {
     [icons.play]: Play,
     [icons.instagram]: Instagram,
     [icons.youtube]: YouTube,
+    [icons.nextArrow]: NextArrow,
+    [icons.prevArrow]: PrevArrow,
   };
 
   const IconJSX = svgs[icon];
