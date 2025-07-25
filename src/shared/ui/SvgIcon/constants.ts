@@ -9,10 +9,11 @@ export const icons = {
   google: "google",
   logotype: "logotype",
   search: "search",
-  social: "social",
   twitter: "twitter",
   like: "like",
   play: "play",
   instagram: "instagram",
   youtube: "youtube",
+  nextArrow: "nextArrow",
+  prevArrow: "prevArrow",
 };

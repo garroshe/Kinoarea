@@ -43,6 +43,7 @@ export type VideoResponse = {
 export interface IPayload {
   page?: number;
   id?: number | string | null;
+  date?: string;
 }
 
 export type MovieResponse = {

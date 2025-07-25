@@ -5,13 +5,14 @@ import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
+import { DividerUI } from "@/shared/ui/DividerUI/DividerUI";
 import { NavigateButtonUI } from "@/shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import { useMoviesNowPlayingFetch } from "../model/use-movies-now-playing-fetch";
-import { StyledCards, StyledDivider, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
+import { StyledCards, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
   const { movies, loading, handleGenreChange } = useMoviesNowPlayingFetch();
@@ -24,7 +25,7 @@ export const NowPlaying = () => {
         <div className="bg-main" />
         <StyledNowPlayingWrapper>
           <TitleUI fontWeight={900} fontSize={65} title="Зараз у кіно" />
-          {!isDesktop ? <StyledDivider /> : null}
+          {!isDesktop ? <DividerUI /> : null}
           {!isMobile ? <MovieFilterByGenre onChangeMovies={handleGenreChange} /> : null}
         </StyledNowPlayingWrapper>
 

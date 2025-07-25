@@ -6,7 +6,6 @@ import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 export const StyledMovieCard = styled.div`
   position: relative;
   width: 340px;
-  height: 520px;
   cursor: pointer;
 
   img {
@@ -17,7 +16,6 @@ export const StyledMovieCard = styled.div`
 
   ${mapDeviceToMedia.laptopOnly} {
     width: 202px;
-    height: 311px;
 
     img {
       width: 202px;
@@ -27,7 +25,6 @@ export const StyledMovieCard = styled.div`
 
   ${mapDeviceToMedia.tabletOnly} {
     width: 210px;
-    height: 323px;
 
     img {
       width: 210px;
@@ -37,7 +34,6 @@ export const StyledMovieCard = styled.div`
 
   ${mapDeviceToMedia.mobileOnly} {
     width: 178px;
-    height: 273px;
 
     img {
       width: 178px;

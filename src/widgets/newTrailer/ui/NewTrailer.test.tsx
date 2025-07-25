@@ -9,7 +9,7 @@ import { queryClient } from "@/shared/config/queryConfig";
 import { DEFAULT_TRAILER_ID } from "../model/constants";
 import * as movieQuery from "../model/hooks/use-movie-fetch-query";
 import * as trailerQuery from "../model/hooks/use-trailer-fetch-query";
-import { NewTrailer } from "./NewTrailer";
+import NewTrailer from "./NewTrailer";
 
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom");

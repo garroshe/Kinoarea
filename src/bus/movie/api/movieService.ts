@@ -69,4 +69,23 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
+  movieByDataReleaseFetch: async (payload: IPayload): Promise<MoviesResponse> => {
+    try {
+      const { date } = payload;
+
+      const res = await axiosInstance.get(`/discover/movie`, {
+        params: {
+          api_key: API_KEY,
+          language: "uk-UA",
+          sort_by: "popularity.desc",
+          primary_release_year: date,
+        },
+      });
+
+      return { error: null, data: res.data.results };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
+  },
 });
