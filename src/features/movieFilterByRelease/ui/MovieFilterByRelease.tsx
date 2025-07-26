@@ -6,11 +6,12 @@ import { LIST_ITEMS_BY_RELEASE } from "../model/constants";
 import { StyledFilters } from "./styled";
 
 export const MovieFilterByRelease = () => {
-  const [, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [activeFilter, setActiveFilter] = useState<number | null>(null);
 
   const handleAddUrlDate = (date: number | null) => {
-    setSearchParams({ releaseDate: String(date) });
+    const currentParams = Object.fromEntries(searchParams.entries());
+    setSearchParams({ ...currentParams, releaseDate: String(date) });
     setActiveFilter(date);
   };
 

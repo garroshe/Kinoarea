@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
-import { useAuth } from "@/entities/auth/useAuth";
+import { useModal } from "@/app/providers/modal/ui/ModalProvider";
 import { colors } from "@/shared/constants/style";
+import { useAuth } from "@/shared/hooks/use-auth";
 import { ButtonUI } from "@/shared/ui/ButtonUI/ButtonUI";
 import { CheckBoxUI } from "@/shared/ui/CheckBoxUI/CheckBoxUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI/ErrorsMessageUI";
@@ -11,7 +12,6 @@ import { InputUI } from "@/shared/ui/InputUI/InputUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
-import { useModal } from "@/widgets/Modal/context/modalContext";
 
 import { MESSAGE_MODAL } from "../model/constants";
 import { schema } from "../model/schema";

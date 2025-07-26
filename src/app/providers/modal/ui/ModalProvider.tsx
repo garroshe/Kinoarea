@@ -1,9 +1,10 @@
 import { createContext, useContext, useState } from "react";
 
-import { Modal } from "../ui/Modal";
-import type { IModalContext, IModalContextProps, ModalName } from "./types";
+import { Modal } from "@/widgets/Modal/ui/Modal";
 
-export const ModalContext = createContext<IModalContext | null>(null);
+import type { IModalContext, IModalContextProps, ModalName } from "../model/types";
+
+export const ModalProvider = createContext<IModalContext | null>(null);
 
 export const ModalContextProvider = ({ children }: IModalContextProps) => {
   const [open, setOpen] = useState(false);
@@ -24,15 +25,15 @@ export const ModalContextProvider = ({ children }: IModalContextProps) => {
   };
 
   return (
-    <ModalContext.Provider value={{ openModal, closeModal }}>
+    <ModalProvider.Provider value={{ openModal, closeModal }}>
       {children}
       <Modal onClose={closeModal} open={open} modalName={modalName} message={message} title={title} />
-    </ModalContext.Provider>
+    </ModalProvider.Provider>
   );
 };
 
 export const useModal = (): IModalContext => {
-  const context = useContext(ModalContext);
+  const context = useContext(ModalProvider);
 
   if (!context) {
     throw new Error("useModal must be used within a ModalContextProvider");

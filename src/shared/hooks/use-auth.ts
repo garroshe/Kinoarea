@@ -10,20 +10,18 @@ import {
   TwitterAuthProvider,
   type UserCredential,
 } from "firebase/auth";
-import { useDispatch } from "react-redux";
 
-import type { AppDispatch } from "@/app/store";
-import { fetchUser } from "@/entities/auth/slice";
+import { useModal } from "@/app/providers/modal/ui/ModalProvider";
 import { auth, database, FirebaseError, get, ref, set } from "@/shared/config/firebase";
+import { useUserFetchQuery } from "@/shared/hooks/use-user-fetch-query";
 import { getFirebaseErrorMessage } from "@/shared/utils/map-error-code-to-error-message";
-import { useModal } from "@/widgets/Modal/context/modalContext";
 
 export const useAuth = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const dispatch = useDispatch<AppDispatch>();
   const { closeModal } = useModal();
+  const { onFetch } = useUserFetchQuery();
 
   const afterLogin = async (userCred: UserCredential, name?: string, lastName?: string, loginName?: string) => {
     const uid = userCred.user.uid;
@@ -43,7 +41,7 @@ export const useAuth = () => {
       });
     }
 
-    dispatch(fetchUser(uid));
+    await onFetch();
   };
 
   const signInWithEmail = async (email: string, password: string) => {

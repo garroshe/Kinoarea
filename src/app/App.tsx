@@ -1,14 +1,12 @@
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
-import { AuthInitializer } from "@/app/providers/authInitializer/AuthInitializer";
+import { ModalContextProvider } from "@/app/providers/modal/ui/ModalProvider";
 import { Router } from "@/app/providers/router/Router";
-import { store } from "@/app/store";
+import { UserContextProvider } from "@/app/providers/user/ui/UserContextProvider";
 import { queryClient } from "@/shared/config/queryConfig";
 import { Footer } from "@/widgets/footer/ui/Footer/Footer";
 import { Header } from "@/widgets/header/Header";
-import { ModalContextProvider } from "@/widgets/Modal/context/modalContext";
 
 import { GlobalStyles } from "./styles/globalStyle";
 
@@ -16,15 +14,14 @@ export function App() {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
-          <ModalContextProvider>
+        <ModalContextProvider>
+          <UserContextProvider>
             <GlobalStyles />
-            <AuthInitializer />
             <Header />
             <Router />
             <Footer />
-          </ModalContextProvider>
-        </Provider>
+          </UserContextProvider>
+        </ModalContextProvider>
       </QueryClientProvider>
     </BrowserRouter>
   );

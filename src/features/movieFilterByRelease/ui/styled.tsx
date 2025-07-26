@@ -8,6 +8,11 @@ export const StyledFilters = styled.ul`
   gap: 10px;
   align-items: center;
 
+  ${mapDeviceToMedia.mobileOnly} {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
   .filter {
     font-weight: 700;
     font-size: 18px;
@@ -20,6 +25,10 @@ export const StyledFilters = styled.ul`
     }
 
     ${mapDeviceToMedia.tabletOnly} {
+      font-size: 15px;
+    }
+
+    ${mapDeviceToMedia.mobileOnly} {
       font-size: 15px;
     }
   }
