@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 
-import type { AppDispatch } from "@/app/store";
-import { logout } from "@/entities/auth/slice";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useUser } from "@/app/providers/user/ui/UserContextProvider";
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 
 import { OPTION_DROPDOWN_LIST } from "./constants";
@@ -19,18 +17,13 @@ import {
 
 export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch<AppDispatch>();
   const dropDownRef = useRef<HTMLDivElement | null>(null);
   const headerUserRef = useRef<HTMLDivElement | null>(null);
 
-  const isTabletOrSmaller = useMediaQuery("(max-width: 768px)");
+  const { logout } = useUser();
 
   const handleOpenDropdown = () => {
     setIsOpen((isOpen) => !isOpen);
-  };
-
-  const handleLogout = () => {
-    dispatch(logout());
   };
 
   useEffect(() => {
@@ -52,6 +45,8 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
     };
   }, []);
 
+  const isTabletOrSmaller = useMediaQuery("(max-width: 768px)");
+
   return (
     <StyledHeaderUserContainer>
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
@@ -68,7 +63,7 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
             })}
           </StyledDropdownList>
 
-          <span data-testid="exit-test-id" onClick={handleLogout}>
+          <span data-testid="exit-test-id" onClick={logout}>
             <SvgIcon icon="dagger" />
             Вихід
           </span>

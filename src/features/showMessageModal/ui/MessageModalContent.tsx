@@ -1,6 +1,6 @@
+import { useModal } from "@/app/providers/modal/ui/ModalProvider";
 import { colors } from "@/shared/constants/style";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
-import { useModal } from "@/widgets/Modal/context/modalContext";
 
 import type { IMessageModalProps } from "../model/types";
 import { StyledButton, StyledMessage, StyledMessageModal } from "./styled";

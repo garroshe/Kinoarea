@@ -1,11 +1,14 @@
+import { useState } from "react";
+
 import { MovieCard } from "@/features/movieCard/ui/MovieCard";
 import { MovieFilterByGenre } from "@/features/movieFilterByGenre/ui/MovieFilterByGenre";
-import { colors } from "@/shared/constants/style";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { routesBook } from "@/shared/routing/routesBook";
+import { BurgerFilterUI } from "@/shared/ui/BurgerFilterUI/BurgerFilterUI";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI/DividerUI";
+import { MovieNotFound } from "@/shared/ui/MovieNotFoundUI/MovieNotFound";
 import { NavigateButtonUI } from "@/shared/ui/NavigateButtonUI/ui/NavigateButtonUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI/TitleUI";
@@ -15,9 +18,14 @@ import { useMoviesNowPlayingFetch } from "../model/use-movies-now-playing-fetch"
 import { StyledCards, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
-  const { movies, loading, handleGenreChange } = useMoviesNowPlayingFetch();
+  const [activeFilters, setActiveFilters] = useState(false);
+  const { movieDataFetch, isMovieLoading } = useMoviesNowPlayingFetch();
   const isDesktop = useMediaQuery("(max-width: 1024px)");
   const isMobile = useMediaQuery("(max-width: 480px)");
+
+  const handleActiveFiltersChange = () => {
+    setActiveFilters(true);
+  };
 
   return (
     <StyledNowPlaying>
@@ -26,28 +34,26 @@ export const NowPlaying = () => {
         <StyledNowPlayingWrapper>
           <TitleUI fontWeight={900} fontSize={65} title="Зараз у кіно" />
           {!isDesktop ? <DividerUI /> : null}
-          {!isMobile ? <MovieFilterByGenre onChangeMovies={handleGenreChange} /> : null}
+          {isMobile && !activeFilters && <BurgerFilterUI onClick={handleActiveFiltersChange} />}
+          {!isMobile && <MovieFilterByGenre />}
         </StyledNowPlayingWrapper>
+        {activeFilters && <MovieFilterByGenre />}
 
-        {!loading && movies.length === 0 && (
-          <CenteredContentUI testId="now-playing-not-found">
-            <p style={{ color: colors.white50 }}>Фільми не знайдено.</p>
-          </CenteredContentUI>
-        )}
+        {!isMovieLoading && movieDataFetch?.length === 0 && <MovieNotFound />}
 
-        {loading ? (
+        {isMovieLoading ? (
           <CenteredContentUI testId="now-playing-spinner">
             <SpinnerUI size="large" />
           </CenteredContentUI>
         ) : (
           <StyledCards>
-            {movies.map((item) => {
+            {movieDataFetch?.map((item) => {
               return (
                 <MovieCard
                   title={item.title}
                   genre={item.genre_ids}
                   img={getPathToImg(item.poster_path, 500)}
-                  rating={Number(item.vote_average.toFixed(1))}
+                  rating={Number(item.vote_average?.toFixed(1))}
                   key={item.id}
                   originalTitle={item.original_title}
                 />

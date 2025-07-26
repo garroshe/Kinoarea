@@ -2,9 +2,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import * as useAuthModule from "@/entities/auth/useAuth";
+import * as useModalModule from "@/app/providers/modal/ui/ModalProvider";
+import * as useAuthModule from "@/shared/hooks/use-auth";
 import { mapModalName } from "@/shared/utils/map-modal-name";
-import * as useModalModule from "@/widgets/Modal/context/modalContext";
 
 import { MESSAGE_MODAL } from "../../loginWithEmail/model/constants";
 import { RegistrationModalContent } from "./RegistrationModalContent";

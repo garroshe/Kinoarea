@@ -86,7 +86,9 @@ export const StyledNowPlayingWrapper = styled.div`
   }
 
   @media (max-width: ${breakpoints.mobile}) {
-    display: block;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 
     h2 {
       font-size: 32px;

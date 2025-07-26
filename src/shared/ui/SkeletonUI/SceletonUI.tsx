@@ -3,7 +3,7 @@ import { Skeleton } from "antd";
 import { type } from "./constants";
 import type { ISkeletonUIProps } from "./types";
 
-export const SkeletonUI = ({ types, active = true }: ISkeletonUIProps) => {
+export const SkeletonUI = ({ types, active = true, size = "default" }: ISkeletonUIProps) => {
   const skeleton = {
     [type.node]: Skeleton.Node,
     [type.avatar]: Skeleton.Avatar,
@@ -16,5 +16,5 @@ export const SkeletonUI = ({ types, active = true }: ISkeletonUIProps) => {
 
   if (!SkeletonJSX) return null;
 
-  return <SkeletonJSX active={active} />;
+  return <SkeletonJSX active={active} size={size} />;
 };

@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperCore } from "swiper/types";
 
 import { MovieCard } from "@/features/movieCard/ui/MovieCard";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import { MovieNotFound } from "@/shared/ui/MovieNotFoundUI/MovieNotFound";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
@@ -16,7 +17,7 @@ import { StyledNavigationBtns, StyledSlider, StyledSlidesCount } from "./styled"
 export const SliderWithMovieByRelease = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const { movieData, isMovieLoading } = useMovieByReleaseFetchQuery();
+  const { movieDataFetch, isMovieLoading } = useMovieByReleaseFetchQuery();
 
   const handleChangeCurrentSlide = (swiper: SwiperCore) => {
     setCurrentSlide(swiper.activeIndex);
@@ -27,11 +28,13 @@ export const SliderWithMovieByRelease = () => {
 
   const slidePreView = isMobile ? 2 : isLaptop ? 3 : 4;
   const seenSlides = currentSlide + slidePreView;
-  const leftSlides = movieData.length;
+  const leftSlides = movieDataFetch.length;
   const spaceBetweenSlide = isLaptop ? 14 : 24;
 
   return (
     <StyledSlider>
+      {!isMovieLoading && movieDataFetch.length === 0 && <MovieNotFound />}
+
       {isMovieLoading ? (
         <CenteredContentUI>
           <SpinnerUI size="large" />
@@ -45,7 +48,7 @@ export const SliderWithMovieByRelease = () => {
           navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
           onSlideChange={handleChangeCurrentSlide}
         >
-          {movieData.map((item) => (
+          {movieDataFetch.map((item) => (
             <SwiperSlide key={item.id}>
               <MovieCard
                 title={item.title}

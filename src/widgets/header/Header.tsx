@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
 
 import { HeaderDesktop } from "./ui/HeaderDesktop/HeaderDesktop";
 import { HeaderMobile } from "./ui/HeaderMobile/HeaderMobile";

@@ -32,6 +32,6 @@ export const useMovieByReleaseFetchQuery = () => {
 
   return {
     isMovieLoading: isLoading || isFetching,
-    movieData: data || [],
+    movieDataFetch: data || [],
   };
 };

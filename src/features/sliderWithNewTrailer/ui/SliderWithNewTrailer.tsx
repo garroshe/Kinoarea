@@ -5,8 +5,9 @@ import { useSearchParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { colors } from "@/shared/constants/style";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import { MovieNotFound } from "@/shared/ui/MovieNotFoundUI/MovieNotFound";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
@@ -26,7 +27,8 @@ export const SliderWithNewTrailer = () => {
   const percent = dataFetchTrailers?.length ? Math.round(((realIndex + 1) / dataFetchTrailers.length) * 100) : 0;
 
   const handleActionsSlider = (id: number | undefined) => {
-    setSearchParams({ trailerId: String(id) });
+    const currentParams = Object.fromEntries(searchParams.entries());
+    setSearchParams({ ...currentParams, trailerId: String(id) });
     setActiveSlide(id);
   };
 
@@ -39,6 +41,8 @@ export const SliderWithNewTrailer = () => {
 
   return (
     <StyledSlider data-testid="sliderWithNewTrailer">
+      {!loadingFetchTrailers && dataFetchTrailers?.length === 0 && <MovieNotFound />}
+
       {loadingFetchTrailers ? (
         <CenteredContentUI testId="slider-with-new-trailer-spinner">
           <SpinnerUI />

@@ -1,24 +1,36 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useQuery } from "@tanstack/react-query";
+import { useSearchParams } from "react-router-dom";
 
-import type { AppDispatch, RootState } from "@/app/store";
-import { fetchMovies, fetchMoviesByGenre } from "@/entities/movie/slice";
+import { movieService } from "@/bus/movie/api/movieService";
+import { movieQueryKeys } from "@/bus/movie/store/queryKeys";
 
 export const useMoviesNowPlayingFetch = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { movies, loading } = useSelector((state: RootState) => state.movies);
+  const [searchParams] = useSearchParams();
+  const genre = searchParams.get("genre");
 
-  const handleGenreChange = (genreId: number) => {
-    if (genreId === 0) {
-      dispatch(fetchMovies(1));
-    } else {
-      dispatch(fetchMoviesByGenre(genreId));
+  const {
+    data: response,
+    isFetching,
+    isLoading,
+  } = useQuery({
+    queryFn: async () => {
+      return await movieService.movieNowPlayingFetch({ genre: genre ? genre : "" });
+    },
+    queryKey: [movieQueryKeys.movieByGenreFetch, genre],
+  });
+
+  const { data, error } = response || {};
+
+  try {
+    if (error) {
+      throw error;
     }
+  } catch (error) {
+    console.log(error);
+  }
+
+  return {
+    isMovieLoading: isLoading || isFetching,
+    movieDataFetch: data || [],
   };
-
-  useEffect(() => {
-    dispatch(fetchMovies(1));
-  }, [dispatch]);
-
-  return { movies, loading, handleGenreChange };
 };

@@ -1,17 +1,18 @@
 import { useState } from "react";
 import classnames from "classnames";
+import { useSearchParams } from "react-router-dom";
 
-import { GENRES_TABS } from "@/features/movieFilterByGenre/model/constants";
-import type { IGenreTabsProps } from "@/features/movieFilterByGenre/model/types";
-
+import { GENRES_TABS } from "../model/constants";
 import { StyledGenreTabs } from "./styled";
 
-export const MovieFilterByGenre = ({ onChangeMovies }: IGenreTabsProps) => {
+export const MovieFilterByGenre = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleChangeMovies = (genre: number, tab: number) => {
+    const currentParams = Object.fromEntries(searchParams.entries());
     setActiveTab(tab);
-    onChangeMovies(genre);
+    setSearchParams({ ...currentParams, genre: String(genre) });
   };
 
   return (

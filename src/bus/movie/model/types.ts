@@ -44,6 +44,7 @@ export interface IPayload {
   page?: number;
   id?: number | string | null;
   date?: string;
+  genre?: string;
 }
 
 export type MovieResponse = {

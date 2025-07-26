@@ -11,3 +11,12 @@ export interface IUser {
   userName?: string;
   avatar?: string;
 }
+
+export type IUserResponse = {
+  error: unknown | null;
+  data: IUser | null;
+};
+
+export interface IUserPayload {
+  uid: string | null;
+}

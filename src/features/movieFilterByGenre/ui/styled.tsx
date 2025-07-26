@@ -18,7 +18,9 @@ export const StyledGenreTabs = styled.ul`
   }
 
   ${mapDeviceToMedia.mobileOnly} {
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
     margin-top: 10px;
   }
 

@@ -44,9 +44,9 @@ export const StyledHeader = styled.div`
   }
 
   ${mapDeviceToMedia.mobileOnly} {
-    flex-direction: column;
-    align-items: start;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
 
     h2 {
       font-size: 32px;
