@@ -39,7 +39,7 @@ export const NowPlaying = () => {
         </StyledNowPlayingWrapper>
         {activeFilters && <MovieFilterByGenre />}
 
-        {!isMovieLoading && movieDataFetch.length === 0 && <MovieNotFound />}
+        {!isMovieLoading && movieDataFetch?.length === 0 && <MovieNotFound />}
 
         {isMovieLoading ? (
           <CenteredContentUI testId="now-playing-spinner">
@@ -47,7 +47,7 @@ export const NowPlaying = () => {
           </CenteredContentUI>
         ) : (
           <StyledCards>
-            {movieDataFetch.map((item) => {
+            {movieDataFetch?.map((item) => {
               return (
                 <MovieCard
                   title={item.title}
