@@ -1,17 +1,16 @@
-import { useState } from "react";
 import classnames from "classnames";
 import { useSearchParams } from "react-router-dom";
 
-import { GENRES_TABS } from "../model/constants";
+import { DEFAULT_TAB, GENRES_TABS } from "../model/constants";
 import { StyledGenreTabs } from "./styled";
 
 export const MovieFilterByGenre = () => {
-  const [activeTab, setActiveTab] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleChangeMovies = (genre: number, tab: number) => {
+  const genreSelect = searchParams.get("genre");
+
+  const handleChangeMovies = (genre: number) => {
     const currentParams = Object.fromEntries(searchParams.entries());
-    setActiveTab(tab);
     setSearchParams({ ...currentParams, genre: String(genre) });
   };
 
@@ -20,9 +19,9 @@ export const MovieFilterByGenre = () => {
       {GENRES_TABS.map((genre, index) => (
         <li
           className={classnames({
-            active: activeTab === index,
+            active: Number(genreSelect) === genre.id || DEFAULT_TAB === index,
           })}
-          onClick={() => handleChangeMovies(genre.id, index)}
+          onClick={() => handleChangeMovies(genre.id)}
           key={index}
         >
           {genre.label}

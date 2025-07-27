@@ -6,6 +6,7 @@ import { NowPlaying } from "@/widgets/nowPlaying/ui/NowPlaying";
 
 const NewTrailer = lazy(() => import("@/widgets/newTrailer/ui/NewTrailer"));
 const PopularMovie = lazy(() => import("@/widgets/popularMovie/ui/PopularMovie"));
+const MailingList = lazy(() => import("@/widgets/mailingList/ui/MailingList"));
 
 const MainPage = () => {
   return (
@@ -19,6 +20,7 @@ const MainPage = () => {
       <NowPlaying />
       <NewTrailer />
       <PopularMovie />
+      <MailingList />
     </Suspense>
   );
 };

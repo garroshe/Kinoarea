@@ -33,10 +33,10 @@ export const StyledMovieCard = styled.div`
   }
 
   ${mapDeviceToMedia.mobileOnly} {
-    width: 178px;
+    width: 170px;
 
     img {
-      width: 178px;
+      width: 170px;
       height: 242px;
     }
   }
