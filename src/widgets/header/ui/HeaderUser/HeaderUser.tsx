@@ -50,8 +50,8 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
   return (
     <StyledHeaderUserContainer>
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
-        {!isTabletOrSmaller ? <SvgIcon icon="collapseIcon" /> : null}
-        {!isTabletOrSmaller ? <StyledHeaderUserName>{userName}</StyledHeaderUserName> : null}
+        {!isTabletOrSmaller && <SvgIcon icon="collapseIcon" />}
+        {!isTabletOrSmaller && <StyledHeaderUserName>{userName}</StyledHeaderUserName>}
         {avatar ? (
           <StyledAvatarWrapper>
             <StyledAvatar src={avatar} alt="avatar" />
