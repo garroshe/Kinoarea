@@ -1,27 +1,18 @@
 import { Link } from "react-router-dom";
 
-import { useModal } from "@/app/providers/modal/ui/ModalProvider";
-import { useUser } from "@/app/providers/user/ui/UserContextProvider";
-import { SearchBlock } from "@/features/searchBlock/ui/SearchBlock";
+import { Search } from "@/features/search/Search";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI/Social";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
-import { mapModalName } from "@/shared/utils/map-modal-name";
+import type { HeaderDesktopProps } from "@/widgets/header/ui/HeaderDesktop/model/types";
 
 import { HeaderUser } from "../HeaderUser/HeaderUser";
 import { NavBar } from "../NavBar/NavBar";
 import { StyledButton, StyledHeader, StyledLeftBlock, StyledRightBlock } from "./styled";
 
-export const HeaderDesktop = () => {
-  const { openModal } = useModal();
-  const { user, isUserLoading } = useUser();
-
-  const handleOpenModal = () => {
-    openModal(mapModalName.login);
-  };
-
+export const HeaderDesktop = ({ user, isUserLoading, openModal }: HeaderDesktopProps) => {
   return (
     <ContainerUI>
       <StyledHeader>
@@ -33,13 +24,13 @@ export const HeaderDesktop = () => {
         </StyledLeftBlock>
         <NavBar />
         <StyledRightBlock>
-          <SearchBlock />
+          <Search />
           {user ? (
             <HeaderUser userName={user?.userName} avatar={user?.avatar} />
           ) : isUserLoading ? (
             <SpinnerUI size="large" />
           ) : (
-            <StyledButton onClick={handleOpenModal}>Увійти</StyledButton>
+            <StyledButton onClick={openModal}>Увійти</StyledButton>
           )}
         </StyledRightBlock>
       </StyledHeader>

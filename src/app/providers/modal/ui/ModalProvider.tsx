@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 
-import { Modal } from "@/widgets/Modal/ui/Modal";
+import { Modal } from "@/widgets/Modal/Modal";
 
 import type { IModalContext, IModalContextProps, ModalName } from "../model/types";
 
@@ -12,17 +12,17 @@ export const ModalContextProvider = ({ children }: IModalContextProps) => {
   const [title, setTitle] = useState<string | undefined>("");
   const [message, setMessage] = useState<string | undefined>("");
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setOpen(false);
     setModalName(null);
-  };
+  }, []);
 
-  const openModal = (modalName: ModalName, message?: string, title?: string) => {
+  const openModal = useCallback((modalName: ModalName, message?: string, title?: string) => {
     setModalName(modalName);
     setOpen(true);
     setTitle(title);
     setMessage(message);
-  };
+  }, []);
 
   return (
     <ModalProvider.Provider value={{ openModal, closeModal }}>

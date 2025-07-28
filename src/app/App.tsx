@@ -4,11 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import { ModalContextProvider } from "@/app/providers/modal/ui/ModalProvider";
 import { Router } from "@/app/providers/router/Router";
 import { UserContextProvider } from "@/app/providers/user/ui/UserContextProvider";
+import { GlobalStyles } from "@/app/styles/globalStyle";
 import { queryClient } from "@/shared/config/queryConfig";
-import { Footer } from "@/widgets/footer/ui/Footer/Footer";
+import { Footer } from "@/widgets/footer/Footer";
 import { Header } from "@/widgets/header/Header";
-
-import { GlobalStyles } from "./styles/globalStyle";
 
 export function App() {
   return (

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { MovieFilterByRelease } from "@/features/movieFilterByRelease/ui/MovieFilterByRelease";
-import { SliderWithMovieByRelease } from "@/features/sliderWithMovieByRelease/ui/SliderWithMovieByRelease";
+import { MovieFilterByRelease } from "@/features/movieFilterByRelease/MovieFilterByRelease";
+import { SliderWithMovieByRelease } from "@/features/sliderWithMovieByRelease/SliderWithMovieByRelease";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { BurgerFilterUI } from "@/shared/ui/BurgerFilterUI/BurgerFilterUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";

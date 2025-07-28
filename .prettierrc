@@ -4,6 +4,7 @@
   "semi": true,
   "tabWidth": 2,
   "printWidth": 120,
+  "endOfLine": "auto",
   "importOrder": [
     "^(react/(.*)$)|^(react$)",
     "<THIRD_PARTY_MODULES>",

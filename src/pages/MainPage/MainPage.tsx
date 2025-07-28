@@ -2,11 +2,11 @@ import { lazy, Suspense } from "react";
 
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
-import { NowPlaying } from "@/widgets/nowPlaying/ui/NowPlaying";
+import { NowPlaying } from "@/widgets/nowPlaying/NowPlaying";
 
-const NewTrailer = lazy(() => import("@/widgets/newTrailer/ui/NewTrailer"));
+const NewTrailer = lazy(() => import("@/widgets/newTrailer/NewTrailer"));
 const PopularMovie = lazy(() => import("@/widgets/popularMovie/ui/PopularMovie"));
-const MailingList = lazy(() => import("@/widgets/mailingList/ui/MailingList"));
+const MailingList = lazy(() => import("@/widgets/mailingList/MailingList"));
 
 const MainPage = () => {
   return (
