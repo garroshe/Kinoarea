@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
+import ErrorBoundary from "@/shared/ui/ErrorBoundaryUI/ErrorBoundaryUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
 import { NowPlaying } from "@/widgets/nowPlaying/NowPlaying";
 
@@ -17,10 +18,21 @@ const MainPage = () => {
         </CenteredContentUI>
       }
     >
-      <NowPlaying />
-      <NewTrailer />
-      <PopularMovie />
-      <MailingList />
+      <ErrorBoundary>
+        <NowPlaying />
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <NewTrailer />
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <PopularMovie />
+      </ErrorBoundary>
+
+      <ErrorBoundary>
+        <MailingList />
+      </ErrorBoundary>
     </Suspense>
   );
 };
