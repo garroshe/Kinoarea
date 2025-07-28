@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { routesBook } from "@/shared/routing/routesBook";
+import { routesBook } from "@/app/routing/routesBook";
 import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
 
 import type { IMovieCard } from "./model/types";

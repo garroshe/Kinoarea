@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { routesBook } from "@/app/routing/routesBook";
 import { Search } from "@/features/search/Search";
-import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI/Social";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";

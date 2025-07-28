@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { routesBook } from "@/shared/routing/routesBook";
+import { routesBook } from "@/app/routing/routesBook";
 
 import { NavBar } from "./ui/NavBar/NavBar";
 import { Social } from "./ui/Social/Social";

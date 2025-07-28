@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useState } from "react";
 
 import { Modal } from "@/widgets/Modal/Modal";
 
-import type { IModalContext, IModalContextProps, ModalName } from "../model/types";
+import type { IModalContext, IModalContextProps, ModalName } from "./types";
 
 export const ModalProvider = createContext<IModalContext | null>(null);
 

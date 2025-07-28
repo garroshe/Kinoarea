@@ -1,4 +1,4 @@
-import { routesBook } from "@/shared/routing/routesBook";
+import { routesBook } from "@/app/routing/routesBook";
 
 export const BURGER_MENU_PATH = [
   { to: routesBook.posters(), label: "Афіша" },

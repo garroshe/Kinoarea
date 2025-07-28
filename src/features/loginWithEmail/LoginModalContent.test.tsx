@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import * as useModalModule from "@/app/providers/modal/ui/ModalProvider";
+import * as useModalModule from "@/app/providers/modal/ModalProvider";
 import * as useAuthModule from "@/shared/hooks/use-auth";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 

@@ -1,4 +1,4 @@
-import { routesBook } from "@/shared/routing/routesBook";
+import { routesBook } from "@/app/routing/routesBook";
 
 export const NAV_BAR_LINK = [
   { title: "Афіша", to: routesBook.posters() },

@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 
-import { ModalContextProvider } from "@/app/providers/modal/ui/ModalProvider";
+import { ModalContextProvider } from "@/app/providers/modal/ModalProvider";
 import * as useAuthModule from "@/shared/hooks/use-auth";
 
 import { ResetPassword } from "./ResetPassword";
