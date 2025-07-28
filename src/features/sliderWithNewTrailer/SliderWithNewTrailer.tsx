@@ -76,7 +76,7 @@ export const SliderWithNewTrailer = () => {
                         active: activeSlide === trailer.id,
                       })}
                     />
-                    <img src={getPathToImg(trailer.backdrop_path, 400)} alt={trailer.original_title} />
+                    <img src={getPathToImg(trailer.backdrop_path, 400)} alt={trailer.original_title} loading="lazy" />
                   </StyledWrapper>
                   <StyledTitle>{trailer.title}</StyledTitle>
                 </SwiperSlide>
