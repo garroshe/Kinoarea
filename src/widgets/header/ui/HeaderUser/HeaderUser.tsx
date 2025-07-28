@@ -4,14 +4,14 @@ import { useUser } from "@/app/providers/user/ui/UserContextProvider";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 
-import { OPTION_DROPDOWN_LIST } from "./model/constants";
 import type { IHeaderUserProps } from "./model/types";
+import { HeaderUserDropDown } from "./ui/HeaderUserDropDown/HeaderUserDropDown";
 import {
   StyledAvatar,
-  StyledDropdownList,
+  StyledAvatarWrapper,
+  StyledCircleDisturb,
   StyledHeaderUser,
   StyledHeaderUserContainer,
-  StyledHeaderUserDropdown,
   StyledHeaderUserName,
 } from "./styled";
 
@@ -52,23 +52,20 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
         {!isTabletOrSmaller ? <SvgIcon icon="collapseIcon" /> : null}
         {!isTabletOrSmaller ? <StyledHeaderUserName>{userName}</StyledHeaderUserName> : null}
-        {avatar ? <StyledAvatar src={avatar} alt="avatar" /> : <SvgIcon icon="avatarMale" />}
+        {avatar ? (
+          <StyledAvatarWrapper>
+            <StyledAvatar src={avatar} alt="avatar" />
+            <StyledCircleDisturb />
+          </StyledAvatarWrapper>
+        ) : (
+          <StyledAvatarWrapper>
+            <SvgIcon icon="avatarMale" />
+            <StyledCircleDisturb />
+          </StyledAvatarWrapper>
+        )}
       </StyledHeaderUser>
 
-      {isOpen && (
-        <StyledHeaderUserDropdown data-testid="dropdown-test-id" ref={dropDownRef}>
-          <StyledDropdownList>
-            {OPTION_DROPDOWN_LIST.map((item) => {
-              return <li key={item.key}>{item.label}</li>;
-            })}
-          </StyledDropdownList>
-
-          <span data-testid="exit-test-id" onClick={logout}>
-            <SvgIcon icon="dagger" />
-            Вихід
-          </span>
-        </StyledHeaderUserDropdown>
-      )}
+      {isOpen && <HeaderUserDropDown logout={logout} ref={dropDownRef} />}
     </StyledHeaderUserContainer>
   );
 };
