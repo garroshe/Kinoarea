@@ -6,7 +6,7 @@ import * as useUserModule from "@/app/providers/user/UserContextProvider";
 
 import { HeaderUser } from "./HeaderUser";
 
-vi.mock("@/app/providers/user/ui/UserContextProvider");
+vi.mock("@/app/providers/user/UserContextProvider");
 
 const mockUseUserModule = useUserModule.useUser as unknown as jest.Mock;
 

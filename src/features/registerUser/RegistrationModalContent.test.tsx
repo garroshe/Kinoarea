@@ -13,7 +13,7 @@ const mockUseAuth = useAuthModule.useAuth as unknown as jest.Mock;
 const mockUseModal = useModalModule.useModal as unknown as jest.Mock;
 
 vi.mock("@/shared/hooks/use-auth");
-vi.mock("@/app/providers/modal/ui/ModalProvider");
+vi.mock("@/app/providers/modal/ModalProvider");
 
 const mockOpenModal = vi.fn();
 const mockSignUpWithEmail = vi.fn();
