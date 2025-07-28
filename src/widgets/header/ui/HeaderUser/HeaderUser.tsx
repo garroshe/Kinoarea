@@ -4,8 +4,8 @@ import { useUser } from "@/app/providers/user/ui/UserContextProvider";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 
-import { OPTION_DROPDOWN_LIST } from "./constants";
-import type { IHeaderUserProps } from "./types";
+import { OPTION_DROPDOWN_LIST } from "./model/constants";
+import type { IHeaderUserProps } from "./model/types";
 import {
   StyledAvatar,
   StyledDropdownList,

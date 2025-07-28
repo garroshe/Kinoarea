@@ -27,5 +27,5 @@ export const useTrailerFetchQuery = ({ trailerId }: HooksProps) => {
     console.log(error);
   }
 
-  return { dataTrailer: data, loadingTrailerFetch: isFetching || isLoading };
+  return { dataTrailer: data || [], loadingTrailerFetch: isFetching || isLoading };
 };

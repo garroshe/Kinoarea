@@ -7,3 +7,5 @@ export const GENRES_TABS = [
   { id: 53, label: "Трилери" },
   { id: 18, label: "Драма" },
 ];
+
+export const DEFAULT_TAB = 0;

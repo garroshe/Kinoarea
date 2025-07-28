@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { colors } from "../../constants/style";
+import { colors } from "@/shared/constants/style";
+
 import type { IStyledButtonProps } from "./types";
 
 export const StyledButtonUI = styled.button<IStyledButtonProps>`
@@ -14,8 +15,8 @@ export const StyledButtonUI = styled.button<IStyledButtonProps>`
   font-weight: 700;
   font-size: 16px;
   line-height: 167%;
-  width: 422px;
-  height: 55px;
+  width: ${(props) => props.$width}px;
+  height: ${(props) => props.$height}px;
   padding: 0 13px;
   text-align: center;
   color: ${colors.blue700};

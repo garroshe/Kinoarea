@@ -1,4 +1,4 @@
-import notFound from "../../assets/image-not-found.png";
+import notFound from "../../assets/image/image-not-found.png";
 import { getPathToImg } from "../get-path-to-img";
 
 describe("getPathToImg", () => {

@@ -1,34 +1,32 @@
-// import { render, screen } from "@testing-library/react";
-// import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, vi } from "vitest";
 
-// import { HeaderUser } from "./HeaderUser";
+import * as useUserModule from "@/app/providers/user/ui/UserContextProvider";
 
-const mockDispatch = vi.fn();
+import { HeaderUser } from "./HeaderUser";
 
-vi.mock("react-redux", async () => {
-  const actual = await vi.importActual("react-redux");
-  return {
-    ...actual,
-    useDispatch: () => mockDispatch,
-  };
-});
+vi.mock("@/app/providers/user/ui/UserContextProvider");
 
-vi.mock("@/entities/auth/slice", () => ({
-  logout: vi.fn(() => ({ type: "auth/logout" })),
-}));
+const mockUseUserModule = useUserModule.useUser as unknown as jest.Mock;
+
+const mockLogout = vi.fn();
 
 describe("HeaderUser", () => {
-  // it("show component when user auth", async () => {
-  //   render(<HeaderUser userName="test" avatar="test" />);
-  //
-  //   expect(screen.queryByTestId("dropdown-test-id")).not.toBeInTheDocument();
-  //
-  //   await userEvent.click(screen.getByTestId("headerUser"));
-  //
-  //   expect(screen.queryByTestId("dropdown-test-id")).toBeInTheDocument();
-  //
-  //   await userEvent.click(screen.getByTestId("exit-test-id"));
-  //   expect(mockDispatch).toHaveBeenCalledWith({ type: "auth/logout" });
-  // });
+  it("show component when user auth", async () => {
+    mockUseUserModule.mockReturnValue({
+      logout: mockLogout,
+    });
+
+    render(<HeaderUser userName="test" avatar="test" />);
+
+    expect(screen.queryByTestId("dropdown-test-id")).not.toBeInTheDocument();
+
+    await userEvent.click(screen.getByTestId("headerUser"));
+
+    expect(screen.queryByTestId("dropdown-test-id")).toBeInTheDocument();
+
+    await userEvent.click(screen.getByTestId("exit-test-id"));
+    expect(mockLogout).toHaveBeenCalled();
+  });
 });
