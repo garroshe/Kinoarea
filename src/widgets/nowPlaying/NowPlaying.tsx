@@ -1,9 +1,9 @@
 import { useState } from "react";
 
+import { routesBook } from "@/app/routing/routesBook";
 import { MovieCard } from "@/features/movieCard/MovieCard";
 import { MovieFilterByGenre } from "@/features/movieFilterByGenre/MovieFilterByGenre";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
-import { routesBook } from "@/shared/routing/routesBook";
 import { BurgerFilterUI } from "@/shared/ui/BurgerFilterUI/BurgerFilterUI";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";

@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import * as useModalModule from "@/app/providers/modal/ui/ModalProvider";
+import * as useModalModule from "@/app/providers/modal/ModalProvider";
 import * as useAuthModule from "@/shared/hooks/use-auth";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 
@@ -13,7 +13,7 @@ const mockUseAuth = useAuthModule.useAuth as unknown as jest.Mock;
 const mockUseModal = useModalModule.useModal as unknown as jest.Mock;
 
 vi.mock("@/shared/hooks/use-auth");
-vi.mock("@/app/providers/modal/ui/ModalProvider");
+vi.mock("@/app/providers/modal/ModalProvider");
 
 const mockOpenModal = vi.fn();
 const mockSignInWithEmail = vi.fn();

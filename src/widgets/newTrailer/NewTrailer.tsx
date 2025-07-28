@@ -1,8 +1,8 @@
 import { Link, useSearchParams } from "react-router-dom";
 
+import { routesBook } from "@/app/routing/routesBook";
 import { LikeOrDislike } from "@/features/likeOrDislike/LikeOrDislike";
 import { SliderWithNewTrailer } from "@/features/sliderWithNewTrailer/SliderWithNewTrailer";
-import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI/Social";

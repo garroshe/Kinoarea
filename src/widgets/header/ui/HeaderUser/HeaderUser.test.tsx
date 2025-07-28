@@ -2,11 +2,11 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, vi } from "vitest";
 
-import * as useUserModule from "@/app/providers/user/ui/UserContextProvider";
+import * as useUserModule from "@/app/providers/user/UserContextProvider";
 
 import { HeaderUser } from "./HeaderUser";
 
-vi.mock("@/app/providers/user/ui/UserContextProvider");
+vi.mock("@/app/providers/user/UserContextProvider");
 
 const mockUseUserModule = useUserModule.useUser as unknown as jest.Mock;
 

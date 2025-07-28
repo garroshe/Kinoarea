@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { useUser } from "@/app/providers/user/ui/UserContextProvider";
+import { useUser } from "@/app/providers/user/UserContextProvider";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
 

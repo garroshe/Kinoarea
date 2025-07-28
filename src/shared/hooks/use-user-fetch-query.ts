@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import type { IUser } from "@/app/providers/user/model/types";
+import type { IUser } from "@/app/providers/user/types";
 import { userService } from "@/bus/user/api/userService";
 import { usersQueryKeys } from "@/bus/user/store/queryKeys";
 

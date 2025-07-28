@@ -11,7 +11,7 @@ import {
   type UserCredential,
 } from "firebase/auth";
 
-import { useModal } from "@/app/providers/modal/ui/ModalProvider";
+import { useModal } from "@/app/providers/modal/ModalProvider";
 import { auth, database, FirebaseError, get, ref, set } from "@/shared/config/firebase";
 import { useUserFetchQuery } from "@/shared/hooks/use-user-fetch-query";
 import { getFirebaseErrorMessage } from "@/shared/utils/map-error-code-to-error-message";

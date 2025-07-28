@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 
 import { useUserFetchQuery } from "@/shared/hooks/use-user-fetch-query";
 
-import type { IUserContext, IUserContextProps } from "../model/types";
+import type { IUserContext, IUserContextProps } from "./types";
 
 export const UserProvider = createContext<IUserContext | null>(null);
 
