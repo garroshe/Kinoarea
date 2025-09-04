@@ -1,6 +1,6 @@
-import type { IIconsProps } from "@/shared/ui/SvgIcon/types";
+import type { IconsPropsType } from "@/shared/ui/SvgIcon/types";
 
-export const PrevArrow = ({ className }: IIconsProps) => {
+export const PrevArrow = ({ className }: IconsPropsType) => {
   return (
     <svg
       className={className}

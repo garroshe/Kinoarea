@@ -1,23 +1,12 @@
-import { lazy, Suspense } from "react";
-
-import { CenteredContentUI } from "@/shared/ui/CenteredContentUI/CenteredContentUI";
 import ErrorBoundary from "@/shared/ui/ErrorBoundaryUI/ErrorBoundaryUI";
-import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
-import { NowPlaying } from "@/widgets/nowPlaying/NowPlaying";
-
-const NewTrailer = lazy(() => import("@/widgets/newTrailer/NewTrailer"));
-const PopularMovie = lazy(() => import("@/widgets/popularMovie/ui/PopularMovie"));
-const MailingList = lazy(() => import("@/widgets/mailingList/MailingList"));
+import { MailingList } from "@/widgets/mailingList";
+import { NewTrailer } from "@/widgets/newTrailer";
+import { NowPlaying } from "@/widgets/nowPlaying";
+import { PopularMovie } from "@/widgets/popularMovie";
 
 const MainPage = () => {
   return (
-    <Suspense
-      fallback={
-        <CenteredContentUI>
-          <SpinnerUI />
-        </CenteredContentUI>
-      }
-    >
+    <>
       <ErrorBoundary>
         <NowPlaying />
       </ErrorBoundary>
@@ -33,7 +22,7 @@ const MainPage = () => {
       <ErrorBoundary>
         <MailingList />
       </ErrorBoundary>
-    </Suspense>
+    </>
   );
 };
 

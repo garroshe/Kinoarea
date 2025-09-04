@@ -1,7 +1,7 @@
-import { LoginModalContent } from "@/features/loginWithEmail/LoginModalContent";
-import { RegistrationModalContent } from "@/features/registerUser/RegistrationModalContent";
-import { ResetPassword } from "@/features/resetPassword/ResetPassword";
-import { MessageModalContent } from "@/features/showMessageModal/MessageModalContent";
+import { LoginModalContent } from "@/features/loginWithEmail";
+import { RegistrationModalContent } from "@/features/registerUser";
+import { ResetPassword } from "@/features/resetPassword";
+import { MessageModalContent } from "@/features/showMessageModal";
 
 import type { ModalMap } from "./types";
 

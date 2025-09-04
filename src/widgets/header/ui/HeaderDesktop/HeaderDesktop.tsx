@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-import { Search } from "@/features/search/Search";
+import { Search } from "@/features/search";
 import { routesBook } from "@/shared/routing/routesBook";
-import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
-import { SocialUI } from "@/shared/ui/SocialUI/Social";
-import { SpinnerUI } from "@/shared/ui/SpinnerUI/SpinnerUI";
-import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { ContainerUI } from "@/shared/ui/ContainerUI";
+import { SocialUI } from "@/shared/ui/SocialUI";
+import { SpinnerUI } from "@/shared/ui/SpinnerUI";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import type { HeaderDesktopProps } from "@/widgets/header/ui/HeaderDesktop/model/types";
 
 import { HeaderUser } from "../HeaderUser/HeaderUser";
@@ -18,7 +18,7 @@ export const HeaderDesktop = ({ user, isUserLoading, openModal }: HeaderDesktopP
       <StyledHeader>
         <StyledLeftBlock>
           <Link to={routesBook.main()}>
-            <SvgIcon icon="logotype" />
+            <SvgIcon icon={icons.logotype} />
           </Link>
           <SocialUI />
         </StyledLeftBlock>

@@ -4,7 +4,7 @@ import { useUserFetchQuery } from "@/shared/hooks/use-user-fetch-query";
 
 import type { IUserContext, IUserContextProps } from "../model/types";
 
-export const UserProvider = createContext<IUserContext | null>(null);
+const UserProvider = createContext<IUserContext | null>(null);
 
 export const UserContextProvider = ({ children }: IUserContextProps) => {
   const { userFetch, isUserLoading, logout } = useUserFetchQuery();

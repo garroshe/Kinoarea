@@ -1,4 +1,4 @@
-import type { ITitleUIProps } from "./types";
+import type { TitleUIPropsType } from "./types";
 import { StyledTittleUI } from "./styled";
 
 export const TitleUI = ({
@@ -8,7 +8,7 @@ export const TitleUI = ({
   fontWeight = 900,
   marginBottom = 0,
   marginTop = 0,
-}: ITitleUIProps) => {
+}: TitleUIPropsType) => {
   return (
     <StyledTittleUI
       $color={color}

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-import { Search } from "@/features/search/Search";
+import { Search } from "@/features/search";
 import { routesBook } from "@/shared/routing/routesBook";
-import { ContainerUI } from "@/shared/ui/ContainerUI/ContainerUI";
-import { SocialUI } from "@/shared/ui/SocialUI/Social";
-import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { ContainerUI } from "@/shared/ui/ContainerUI";
+import { SocialUI } from "@/shared/ui/SocialUI";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { HeaderUser } from "../HeaderUser/HeaderUser";
@@ -36,7 +36,7 @@ export const HeaderMobile = ({ isMobile, handleBurgerActive, burgerActive, user,
           </StyledLeftBlock>
           <StyledCenterBlock>
             <Link to={routesBook.main()}>
-              <SvgIcon className="mobile-logotype" icon="logotype" />
+              <SvgIcon className="mobile-logotype" icon={icons.logotype} />
             </Link>
             <SocialUI />
           </StyledCenterBlock>

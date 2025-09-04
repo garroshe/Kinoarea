@@ -1,6 +1,6 @@
-import type { IIconsProps } from "../types";
+import type { IconsPropsType } from "../types";
 
-export const Facebook = ({ className }: IIconsProps) => {
+export const Facebook = ({ className }: IconsPropsType) => {
   return (
     <svg
       className={className}

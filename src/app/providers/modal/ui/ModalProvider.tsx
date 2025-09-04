@@ -1,10 +1,10 @@
 import { createContext, useCallback, useContext, useState } from "react";
 
-import { Modal } from "@/widgets/Modal/Modal";
+import { Modal } from "@/widgets/Modal";
 
 import type { IModalContext, IModalContextProps, ModalName } from "../model/types";
 
-export const ModalProvider = createContext<IModalContext | null>(null);
+const ModalProvider = createContext<IModalContext | null>(null);
 
 export const ModalContextProvider = ({ children }: IModalContextProps) => {
   const [open, setOpen] = useState(false);

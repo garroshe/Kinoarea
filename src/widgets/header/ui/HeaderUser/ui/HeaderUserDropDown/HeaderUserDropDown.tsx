@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
 import { OPTION_DROPDOWN_LIST } from "./model/constants";
 import type { IHeaderUserDropDownProps } from "./model/types";
@@ -16,7 +16,7 @@ export const HeaderUserDropDown = forwardRef<HTMLDivElement, IHeaderUserDropDown
       </StyledDropdownList>
 
       <span data-testid="exit-test-id" onClick={logout}>
-        <SvgIcon icon="dagger" />
+        <SvgIcon icon={icons.dagger} />
         Вихід
       </span>
     </StyledHeaderUserDropdown>

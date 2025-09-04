@@ -1,6 +1,6 @@
-import type { IIconsProps } from "../types";
+import type { IconsPropsType } from "../types";
 
-export const Google = ({ className }: IIconsProps) => {
+export const Google = ({ className }: IconsPropsType) => {
   return (
     <svg
       className={className}

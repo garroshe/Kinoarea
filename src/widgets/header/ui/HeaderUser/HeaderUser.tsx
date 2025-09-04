@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { useUser } from "@/app/providers/user/ui/UserContextProvider";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
-import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
 import type { IHeaderUserProps } from "./model/types";
 import { HeaderUserDropDown } from "./ui/HeaderUserDropDown/HeaderUserDropDown";
@@ -50,7 +50,7 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
   return (
     <StyledHeaderUserContainer>
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
-        {!isTabletOrSmaller && <SvgIcon icon="collapseIcon" />}
+        {!isTabletOrSmaller && <SvgIcon icon={icons.collapseIcon} />}
         {!isTabletOrSmaller && <StyledHeaderUserName>{userName}</StyledHeaderUserName>}
         {avatar ? (
           <StyledAvatarWrapper>
@@ -59,7 +59,7 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
           </StyledAvatarWrapper>
         ) : (
           <StyledAvatarWrapper>
-            <SvgIcon icon="avatarMale" />
+            <SvgIcon icon={icons.avatarMale} />
             <StyledCircleDisturb />
           </StyledAvatarWrapper>
         )}

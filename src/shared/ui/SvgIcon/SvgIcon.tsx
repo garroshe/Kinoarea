@@ -16,9 +16,9 @@ import { PrevArrow } from "./icons/PrevArrow";
 import { SearchIcon } from "./icons/Search";
 import { Twitter } from "./icons/Twitter";
 import { YouTube } from "./icons/YouTube";
-import type { ISvgIconProps } from "./types";
+import type { SvgIconPropsType } from "./types";
 
-export const SvgIcon = ({ icon, className, onClick, color }: ISvgIconProps) => {
+export const SvgIcon = ({ icon, className, onClick, color }: SvgIconPropsType) => {
   const svgs = {
     [icons.arrow]: Arrow,
     [icons.collapseIcon]: CollapseIconUI,

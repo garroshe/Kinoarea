@@ -1,12 +1,12 @@
-import type { PrefixKeysWithDollar } from "../../types";
+import type { PrefixKeysWithDollarType } from "@/shared/types";
 
-export interface ITitleUIProps {
+export type TitleUIPropsType = {
   title?: string;
   fontSize?: number;
   fontWeight?: number;
   color?: string;
   marginBottom?: number;
   marginTop?: number;
-}
+};
 
-export type StyledTitleUIProps = PrefixKeysWithDollar<Omit<ITitleUIProps, "title">>;
+export type StyledTitleUIPropsType = PrefixKeysWithDollarType<Omit<TitleUIPropsType, "title">>;
