@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { movieService } from "@/bus/movie/api/movieService";
-import { movieQueryKeys } from "@/bus/movie/store/queryKeys";
+import { movieService } from "@/entities/movie/api/movieService";
+import { movieQueryKeys } from "@/entities/movie/store/queryKeys";
 
 export const useNewTrailersFetchQuery = () => {
   const {

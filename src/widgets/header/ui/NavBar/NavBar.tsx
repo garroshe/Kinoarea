@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import { colors } from "@/shared/constants/style";
 
-import { NAVBAR_PATH } from "./model/constants";
+import { NAVBAR_PATH } from "./constants";
 import { StyledNavBar } from "./styled";
 
 export const NavBar = () => {

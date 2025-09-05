@@ -1,4 +1,4 @@
-import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { SvgIcon } from "@/shared/ui/SvgIcon";
 
 import { SOCIAL_ICONS } from "./constatns";
 import { StyledSocial } from "./styled";

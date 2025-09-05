@@ -1,9 +1,9 @@
 import { Skeleton } from "antd";
 
 import { type } from "./constants";
-import type { ISkeletonUIProps } from "./types";
+import type { ISkeletonUIPropsType } from "./types";
 
-export const SkeletonUI = ({ types, active = true, size = "default" }: ISkeletonUIProps) => {
+export const SkeletonUI = ({ types, active = true, size = "default" }: ISkeletonUIPropsType) => {
   const skeleton = {
     [type.node]: Skeleton.Node,
     [type.avatar]: Skeleton.Avatar,

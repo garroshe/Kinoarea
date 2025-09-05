@@ -1,6 +1,6 @@
-import type { IIconsProps } from "../types";
+import type { IconsPropsType } from "../types";
 
-export const GitHub = ({ className }: IIconsProps) => {
+export const GitHub = ({ className }: IconsPropsType) => {
   return (
     <svg
       className={className}

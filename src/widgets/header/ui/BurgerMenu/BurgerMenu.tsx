@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 
-import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import { BURGER_MENU_PATH } from "./model/constants";
-import type { IBurgerMenuProps } from "./model/types";
+import { BURGER_MENU_PATH } from "./constants";
+import type { IBurgerMenuProps } from "./types";
 import { StyledBurgerMenu, StyledList } from "./styled";
 
 export const BurgerMenu = ({ onClose }: IBurgerMenuProps) => {
   return (
     <StyledBurgerMenu>
-      <SvgIcon icon="dagger" className="burger-dagger" onClick={onClose} />
+      <SvgIcon icon={icons.dagger} className="burger-dagger" onClick={onClose} />
       <StyledList>
-        <SvgIcon icon="logotype" className="burger-logotype" />
+        <SvgIcon icon={icons.logotype} className="burger-logotype" />
         {BURGER_MENU_PATH.map((link) => (
           <li key={link.to}>
             <Link onClick={onClose} to={link.to}>

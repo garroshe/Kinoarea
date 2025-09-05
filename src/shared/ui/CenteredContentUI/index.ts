@@ -1,0 +1,1 @@
+export { CenteredContentUI } from "./CenteredContentUI";

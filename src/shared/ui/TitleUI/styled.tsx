@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import type { StyledTitleUIProps } from "./types";
+import type { StyledTitleUIPropsType } from "./types";
 
-export const StyledTittleUI = styled.h2<StyledTitleUIProps>`
+export const StyledTittleUI = styled.h2<StyledTitleUIPropsType>`
   line-height: 100%;
 
   font-weight: ${({ $fontWeight }) => $fontWeight};
