@@ -1,6 +1,6 @@
 import { useEffect, useState, type ChangeEvent } from "react";
 
-import { useUser } from "@/app/providers/user/ui/UserContextProvider";
+import { useUser } from "@/app/providers/user";
 import { CheckBoxUI } from "@/shared/ui/CheckBoxUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";

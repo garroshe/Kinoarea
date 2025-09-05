@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import { BURGER_MENU_PATH } from "./model/constants";
-import type { IBurgerMenuProps } from "./model/types";
+import { BURGER_MENU_PATH } from "./constants";
+import type { IBurgerMenuProps } from "./types";
 import { StyledBurgerMenu, StyledList } from "./styled";
 
 export const BurgerMenu = ({ onClose }: IBurgerMenuProps) => {

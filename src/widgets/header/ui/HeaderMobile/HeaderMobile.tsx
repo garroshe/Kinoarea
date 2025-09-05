@@ -9,7 +9,7 @@ import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { HeaderUser } from "../HeaderUser/HeaderUser";
 import { NavBar } from "../NavBar/NavBar";
-import type { HeaderMobileProps } from "./model/types";
+import type { HeaderMobileProps } from "./types";
 import {
   StyledBurgerMenu,
   StyledButton,

@@ -1,4 +1,4 @@
-import { useModal } from "@/app/providers/modal/ui/ModalProvider";
+import { useModal } from "@/app/providers/modal";
 import { colors } from "@/shared/constants/style";
 import { TitleUI } from "@/shared/ui/TitleUI";
 

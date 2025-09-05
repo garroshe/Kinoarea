@@ -6,7 +6,7 @@ import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import type { HeaderDesktopProps } from "@/widgets/header/ui/HeaderDesktop/model/types";
+import type { HeaderDesktopProps } from "@/widgets/header/ui/HeaderDesktop/types";
 
 import { HeaderUser } from "../HeaderUser/HeaderUser";
 import { NavBar } from "../NavBar/NavBar";

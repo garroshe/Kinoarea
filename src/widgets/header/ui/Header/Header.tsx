@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { useModal } from "@/app/providers/modal/ui/ModalProvider";
-import { useUser } from "@/app/providers/user/ui/UserContextProvider";
+import { useModal } from "@/app/providers/modal";
+import { useUser } from "@/app/providers/user";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
-import { useModal } from "@/app/providers/modal/ui/ModalProvider";
+import { useModal } from "@/app/providers/modal";
 import type { ILoginFields } from "@/entities/user/model/types";
 import { colors } from "@/shared/constants/style";
 import { useAuth } from "@/shared/hooks/use-auth";

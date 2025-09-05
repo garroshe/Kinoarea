@@ -2,8 +2,8 @@ import { forwardRef } from "react";
 
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import { OPTION_DROPDOWN_LIST } from "./model/constants";
-import type { IHeaderUserDropDownProps } from "./model/types";
+import { OPTION_DROPDOWN_LIST } from "../model/constants";
+import type { IHeaderUserDropDownProps } from "../model/types";
 import { StyledDropdownList, StyledHeaderUserDropdown } from "./styled";
 
 export const HeaderUserDropDown = forwardRef<HTMLDivElement, IHeaderUserDropDownProps>(({ logout }, dropDownRef) => {

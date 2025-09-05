@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-import { useUser } from "@/app/providers/user/ui/UserContextProvider";
+import { useUser } from "@/app/providers/user";
+import { HeaderUserDropDown } from "@/features/headerUserDropDownList";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import type { IHeaderUserProps } from "./model/types";
-import { HeaderUserDropDown } from "./ui/HeaderUserDropDown/HeaderUserDropDown";
+import type { IHeaderUserProps } from "./types";
 import {
   StyledAvatar,
   StyledAvatarWrapper,

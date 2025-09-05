@@ -7,13 +7,13 @@ import * as useAuthModule from "@/shared/hooks/use-auth";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 
 import { MESSAGE_MODAL } from "../../loginWithEmail/model/constants";
-import { RegistrationModalContent } from "./RegistrationModalContent";
+import { RegistrationModalContent } from "../index";
 
 const mockUseAuth = useAuthModule.useAuth as unknown as jest.Mock;
 const mockUseModal = useModalModule.useModal as unknown as jest.Mock;
 
 vi.mock("@/shared/hooks/use-auth");
-vi.mock("@/app/providers/modal/MovieFilterByGenre/ModalProvider");
+vi.mock("@/app/providers/modal/ui/ModalProvider");
 
 const mockOpenModal = vi.fn();
 const mockSignUpWithEmail = vi.fn();
