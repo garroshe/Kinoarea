@@ -1,8 +1,13 @@
+type ProductionCountriesType = {
+  iso_3166_1: string;
+  name: string;
+};
+
 export interface IMovie {
+  id?: number;
   adult?: boolean;
   backdrop_path?: string;
   genre_ids?: number[];
-  id?: number;
   original_language?: string;
   original_title?: string;
   overview?: string;
@@ -15,6 +20,11 @@ export interface IMovie {
   vote_count?: number;
   total_pages?: number;
   total_results?: number;
+  production_countries?: ProductionCountriesType[];
+  tagline?: string;
+  budget?: string;
+  revenue?: number;
+  runtime?: number;
 }
 
 export interface IVideo {
@@ -40,12 +50,12 @@ export type VideoResponse = {
   error: unknown | null;
 };
 
-export interface IPayload {
+export type PayloadType = {
   page?: number;
   id?: number | string | null;
   date?: string;
   genre?: string;
-}
+};
 
 export type MovieResponse = {
   data: IMovie | null;

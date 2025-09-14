@@ -21,7 +21,7 @@ export const MovieFilterByGenre = () => {
         <li
           data-testid="genres-tab"
           className={classnames({
-            active: genreSelected === genre.id || DEFAULT_TAB === index,
+            active: genreSelected ? genreSelected === genre.id : DEFAULT_TAB === index,
           })}
           onClick={() => handleChangeMovies(genre.id)}
           key={index}

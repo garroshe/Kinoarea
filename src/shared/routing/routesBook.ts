@@ -2,8 +2,10 @@ export const routesBook = {
   main: () => "/",
   posters: () => "/posters",
   films: () => "/films",
+  film: () => "/films/:id",
   media: () => "/media",
   actors: () => "/actors",
+  actor: () => "/actor/:id",
   news: () => "/news",
   collections: () => "/collections",
   categories: () => "/categories",
@@ -11,4 +13,5 @@ export const routesBook = {
   dataDeletion: () => "/dataDeletion",
   ratings: () => "/ratings",
   reviews: () => "/reviews",
+  favorites: () => "/favorites",
 };

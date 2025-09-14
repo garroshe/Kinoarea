@@ -156,7 +156,7 @@ export const StyledActiveBlock = styled.div`
     height: 242px;
   }
 
-  a {
+  p {
     display: flex;
     justify-content: center;
     align-items: center;

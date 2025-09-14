@@ -16,4 +16,8 @@ export const icons = {
   youtube: "youtube",
   nextArrow: "nextArrow",
   prevArrow: "prevArrow",
+  angleBracket: "angleBracket",
+  heart: "heart",
+  camera: "camera",
+  lightLogotype: "lightLogotype",
 };

@@ -1,9 +1,10 @@
-import { API_KEY } from "@/entities/movie/model/constants";
-import type { IPayload, MovieResponse, MoviesResponse, VideoResponse } from "@/entities/movie/model/types";
 import { axiosInstance } from "@/shared/api/axiosInstance";
 
+import { API_KEY } from "../model/constants";
+import type { MovieResponse, MoviesResponse, PayloadType, VideoResponse } from "../model/types";
+
 export const movieService = Object.freeze({
-  moviesNowPlayingFetch: async (payload: IPayload): Promise<MoviesResponse> => {
+  moviesNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
     try {
       const { page } = payload;
 
@@ -17,7 +18,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  moviesUpComingFetch: async (payload: IPayload): Promise<MoviesResponse> => {
+  moviesUpComingFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
     try {
       const { page } = payload;
 
@@ -38,7 +39,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  trailerByIdFetch: async (payload: IPayload): Promise<VideoResponse> => {
+  trailerByIdFetch: async (payload: PayloadType): Promise<VideoResponse> => {
     try {
       const { id } = payload;
 
@@ -54,7 +55,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  movieByIdFetch: async (payload: IPayload): Promise<MovieResponse> => {
+  movieByIdFetch: async (payload: PayloadType): Promise<MovieResponse> => {
     try {
       const { id } = payload;
 
@@ -68,7 +69,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  movieByDataReleaseFetch: async (payload: IPayload): Promise<MoviesResponse> => {
+  movieByDataReleaseFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
     try {
       const { date } = payload;
 
@@ -87,7 +88,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  movieNowPlayingFetch: async (payload: IPayload): Promise<MoviesResponse> => {
+  movieNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
     try {
       const { genre } = payload;
 

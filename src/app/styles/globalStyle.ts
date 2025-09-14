@@ -76,9 +76,12 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         position: relative;
-        padding-top: 20px;
         background-color: ${colors.blue900};
         font-family: 'Poppins', sans-serif;
+    }
+    
+    html {
+        scroll-behavior: smooth;
     }
 
     .bg-main {
@@ -89,5 +92,9 @@ export const GlobalStyles = createGlobalStyle`
         height: 100%;
         background: url(${bgMain}) no-repeat;
         z-index: -5;
+    }
+
+    * {
+        transition: all 0.3s ease-in-out;
     }
 `;

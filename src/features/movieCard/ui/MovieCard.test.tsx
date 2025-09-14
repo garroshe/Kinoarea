@@ -7,7 +7,7 @@ import { MovieCard } from "./MovieCard";
 
 describe("MovieCard", () => {
   it("Movie card render", () => {
-    render(<MovieCard title="test" rating={5} img="http:test.com" genre={[18]} originalTitle="test" />);
+    render(<MovieCard title="test" rating={5} img="http:test.com" genre={[18]} originalTitle="test" id={34} />);
     expect(screen.getByText("test")).toBeInTheDocument();
     expect(screen.getByText("Драма")).toBeInTheDocument();
     expect(screen.getByText("5")).toHaveStyle({ backgroundColor: "#CB3F36" });
@@ -16,7 +16,7 @@ describe("MovieCard", () => {
   it("shows active block after click", async () => {
     render(
       <MemoryRouter>
-        <MovieCard title="test" rating={5} img="http:test.com" genre={[20]} originalTitle="test" />
+        <MovieCard title="test" rating={5} img="http:test.com" genre={[20]} originalTitle="test" id={34} />
       </MemoryRouter>,
     );
     await userEvent.click(screen.getByTestId("movie-card"));
@@ -26,7 +26,7 @@ describe("MovieCard", () => {
   it("shows active block after click and hide after second click", async () => {
     render(
       <MemoryRouter>
-        <MovieCard title="test" rating={5} img="http:test.com" genre={[20]} originalTitle="test" />
+        <MovieCard title="test" rating={5} img="http:test.com" genre={[20]} originalTitle="test" id={34} />
       </MemoryRouter>,
     );
     await userEvent.click(screen.getByTestId("movie-card"));

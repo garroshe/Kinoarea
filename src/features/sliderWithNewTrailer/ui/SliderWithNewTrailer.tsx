@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { colors } from "@/shared/constants/style";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI";
+import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { MovieNotFound } from "@/shared/ui/MovieNotFoundUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
@@ -40,51 +41,53 @@ export const SliderWithNewTrailer = () => {
   const swiperGapBetweenSlide = isLaptop ? 12 : isTablet ? 10 : 20;
 
   return (
-    <StyledSlider data-testid="sliderWithNewTrailer">
-      {!loadingFetchTrailers && dataFetchTrailers?.length === 0 && <MovieNotFound />}
+    <ContainerUI>
+      <StyledSlider data-testid="sliderWithNewTrailer">
+        {!loadingFetchTrailers && dataFetchTrailers?.length === 0 && <MovieNotFound />}
 
-      {loadingFetchTrailers ? (
-        <CenteredContentUI testId="slider-with-new-trailer-spinner">
-          <SpinnerUI />
-        </CenteredContentUI>
-      ) : (
-        <>
-          {!isMobile && (
-            <Progress percent={percent} showInfo={false} strokeColor={colors.blue500} style={progressStyle} />
-          )}
-          <Swiper
-            spaceBetween={swiperGapBetweenSlide}
-            slidesPerView={4}
-            speed={1200}
-            loop={true}
-            onSlideChange={(swiper) => setRealIndex(swiper.realIndex)}
-          >
-            {dataFetchTrailers?.map((trailer) => {
-              return (
-                <SwiperSlide
-                  data-cy={"slide-in-new-trailer-slide"}
-                  onClick={() => handleActionsSlider(trailer.id)}
-                  key={trailer.id}
-                >
-                  <StyledWrapper>
-                    <StyledPlay>
-                      <SvgIcon className="icon-play" icon={icons.play} />
-                    </StyledPlay>
-                    <div
-                      data-testid="slider-with-trailer-block"
-                      className={classnames("block", {
-                        active: activeSlide === trailer.id,
-                      })}
-                    />
-                    <img src={getPathToImg(trailer.backdrop_path, 400)} alt={trailer.original_title} loading="lazy" />
-                  </StyledWrapper>
-                  <StyledTitle>{trailer.title}</StyledTitle>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </>
-      )}
-    </StyledSlider>
+        {loadingFetchTrailers ? (
+          <CenteredContentUI testId="slider-with-new-trailer-spinner">
+            <SpinnerUI />
+          </CenteredContentUI>
+        ) : (
+          <>
+            {!isMobile && (
+              <Progress percent={percent} showInfo={false} strokeColor={colors.blue500} style={progressStyle} />
+            )}
+            <Swiper
+              spaceBetween={swiperGapBetweenSlide}
+              slidesPerView={4}
+              speed={1200}
+              loop={true}
+              onSlideChange={(swiper) => setRealIndex(swiper.realIndex)}
+            >
+              {dataFetchTrailers?.map((trailer) => {
+                return (
+                  <SwiperSlide
+                    data-cy={"slide-in-new-trailer-slide"}
+                    onClick={() => handleActionsSlider(trailer.id)}
+                    key={trailer.id}
+                  >
+                    <StyledWrapper>
+                      <StyledPlay>
+                        <SvgIcon className="icon-play" icon={icons.play} />
+                      </StyledPlay>
+                      <div
+                        data-testid="slider-with-trailer-block"
+                        className={classnames("block", {
+                          active: activeSlide === trailer.id,
+                        })}
+                      />
+                      <img src={getPathToImg(trailer.backdrop_path, 400)} alt={trailer.original_title} loading="lazy" />
+                    </StyledWrapper>
+                    <StyledTitle>{trailer.title}</StyledTitle>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </>
+        )}
+      </StyledSlider>
+    </ContainerUI>
   );
 };

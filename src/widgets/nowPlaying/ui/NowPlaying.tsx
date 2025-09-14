@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { MovieCard } from "@/features/movieCard";
 import { MovieFilterByGenre } from "@/features/movieFilterByGenre";
@@ -9,13 +10,12 @@ import { CenteredContentUI } from "@/shared/ui/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI";
 import { MovieNotFound } from "@/shared/ui/MovieNotFoundUI";
-import { NavigateButtonUI } from "@/shared/ui/NavigateButtonUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import { useMoviesNowPlayingFetch } from "../model/use-movies-now-playing-fetch";
-import { StyledCards, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
+import { StyledAllNewsButton, StyledCards, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
   const [activeFilters, setActiveFilters] = useState(false);
@@ -23,8 +23,14 @@ export const NowPlaying = () => {
   const isDesktop = useMediaQuery("(max-width: 1024px)");
   const isMobile = useMediaQuery("(max-width: 480px)");
 
+  const navigate = useNavigate();
+
   const handleActiveFiltersChange = () => {
     setActiveFilters(true);
+  };
+
+  const handleOpenAllNews = () => {
+    navigate(routesBook.posters());
   };
 
   return (
@@ -50,6 +56,7 @@ export const NowPlaying = () => {
             {movieDataFetch?.map((item) => {
               return (
                 <MovieCard
+                  id={item.id}
                   title={item.title}
                   genre={item.genre_ids}
                   img={getPathToImg(item.poster_path, 500)}
@@ -62,7 +69,7 @@ export const NowPlaying = () => {
           </StyledCards>
         )}
 
-        <NavigateButtonUI to={routesBook.posters()} title="Всі новинки" />
+        <StyledAllNewsButton onClick={handleOpenAllNews}>Всі новинки</StyledAllNewsButton>
       </ContainerUI>
     </StyledNowPlaying>
   );

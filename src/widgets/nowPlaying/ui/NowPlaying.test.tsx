@@ -6,7 +6,7 @@ import * as useInitNowPlayingMoviesModule from "@/widgets/nowPlaying/model/use-m
 
 import { NowPlaying } from "./NowPlaying";
 
-vi.mock("@/widgets/nowPlaying/model/use-movies-now-playing-fetch");
+vi.mock("@/widgets/nowPlaying/lib/use-movies-now-playing-fetch");
 
 const mockUseInitNowPlayingMovies = useInitNowPlayingMoviesModule.useMoviesNowPlayingFetch as unknown as jest.Mock;
 

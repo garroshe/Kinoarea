@@ -5,6 +5,7 @@ import { colors } from "@/shared/constants/style";
 export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
 `;
 
 export const StyledLeftBlock = styled.div`

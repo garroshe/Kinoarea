@@ -4,4 +4,5 @@ export interface IMovieCard {
   img?: string;
   genre?: number[];
   originalTitle?: string;
+  id?: number;
 }

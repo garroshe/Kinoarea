@@ -8,13 +8,15 @@ export const useMoviesNowPlayingFetch = () => {
   const [searchParams] = useSearchParams();
   const genre = searchParams.get("genre");
 
+  const genrePayload = genre && Number(genre) !== 0 ? genre : "";
+
   const {
     data: response,
     isFetching,
     isLoading,
   } = useQuery({
     queryFn: async () => {
-      return await movieService.movieNowPlayingFetch({ genre: genre ? genre : "" });
+      return await movieService.movieNowPlayingFetch({ genre: genrePayload });
     },
     queryKey: [movieQueryKeys.movieByGenreFetch, genre],
   });
