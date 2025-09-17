@@ -1,9 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { MovieCard } from "./MovieCard";
+
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
+    useSearchParams: () => [{ get: () => "test-id" }],
+    useNavigate: () => vi.fn(),
+  };
+});
 
 describe("MovieCard", () => {
   it("Movie card render", () => {
