@@ -5,9 +5,10 @@ import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { Header } from "@/widgets/header";
 import { MovieActors } from "@/widgets/movieActors";
 import { MovieDescription } from "@/widgets/movieDescription";
+import { MovieFrames } from "@/widgets/movieFrames";
 import { NewTrailer } from "@/widgets/newTrailer";
 
-import { useMovieFetchByIdQuery } from "../lib/use-movie-fetch-by-id-query";
+import { useMovieFetchByIdQuery } from "../model/hooks/use-movie-fetch-by-id-query";
 import { StyledCardMoviePage } from "./styled";
 
 const CardMoviePage = () => {
@@ -30,7 +31,12 @@ const CardMoviePage = () => {
         <MovieActors />
       </ErrorBoundary>
       <MovieTabs />
-      <NewTrailer title="Трейлери фильму" />
+      <ErrorBoundary>
+        <NewTrailer title="Трейлери фильму" />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <MovieFrames />
+      </ErrorBoundary>
     </div>
   );
 };

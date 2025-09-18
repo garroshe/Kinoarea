@@ -1,4 +1,3 @@
-import { useState } from "react";
 import classnames from "classnames";
 import { useSearchParams } from "react-router-dom";
 
@@ -7,13 +6,14 @@ import { StyledFilters } from "./styled";
 
 export const MovieFilterByRelease = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [activeFilter, setActiveFilter] = useState<number | null>(null);
 
   const handleAddUrlDate = (date: number | null) => {
     const currentParams = Object.fromEntries(searchParams.entries());
     setSearchParams({ ...currentParams, releaseDate: String(date) });
-    setActiveFilter(date);
   };
+
+  const filterFromUrl = searchParams.get("releaseDate");
+  const normalizedFilter = filterFromUrl === null || filterFromUrl === "null" ? null : Number(filterFromUrl);
 
   return (
     <StyledFilters data-testid="release-tabs">
@@ -21,7 +21,7 @@ export const MovieFilterByRelease = () => {
         <li
           data-testid="release-tab"
           className={classnames("filter", {
-            active: item.date === activeFilter,
+            active: normalizedFilter === item.date,
           })}
           key={item.key}
           onClick={() => handleAddUrlDate(item.date)}

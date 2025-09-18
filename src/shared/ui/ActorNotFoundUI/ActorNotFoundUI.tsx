@@ -10,7 +10,7 @@ export const ActorNotFoundUI = ({ size = "small" }: ActorNotFoundUIPropsType) =>
     return (
       <StyledLargeCard>
         <SvgIcon icon={icons.camera} />
-        <p>На жаль, фото відсутня</p>
+        <p>На жаль, фото відсутнє</p>
         <SvgIcon icon={icons.lightLogotype} />
       </StyledLargeCard>
     );
@@ -19,7 +19,7 @@ export const ActorNotFoundUI = ({ size = "small" }: ActorNotFoundUIPropsType) =>
   return (
     <StyledSmallCard>
       <SvgIcon icon={icons.camera} />
-      <p>На жаль, фото відсутня</p>
+      <p>На жаль, фото відсутнє</p>
       <SvgIcon icon={icons.lightLogotype} />
     </StyledSmallCard>
   );

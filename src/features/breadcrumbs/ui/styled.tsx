@@ -18,7 +18,7 @@ export const StyledBreadcrumbs = styled.ul`
     line-height: 169%;
     color: ${colors.white400};
 
-    &: hover {
+    &:hover {
       color: ${colors.grey400};
     }
   }

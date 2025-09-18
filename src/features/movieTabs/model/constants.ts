@@ -10,13 +10,18 @@ export const MOVIE_TABS = [
     id: "#movie-comments",
   },
   {
-    label: "Цитати",
+    label: "Постери",
     index: 2,
+    id: "#movie-posters",
+  },
+  {
+    label: "Цитати",
+    index: 3,
     id: "#movie-quotes",
   },
   {
     label: "Кадри",
-    index: 3,
+    index: 4,
     id: "#movie-frames",
   },
 ];

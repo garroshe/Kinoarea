@@ -17,6 +17,10 @@ export const StyledMovieTabs = styled.ul`
     font-size: 21px;
     line-height: 100%;
     color: ${colors.white400};
+
+    &:hover {
+      color: ${colors.white50};
+    }
   }
 
   .active {

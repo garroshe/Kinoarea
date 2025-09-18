@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AddToFavorites } from "@/features/addToFavorites";
 import { Breadcrumbs } from "@/features/breadcrumbs";
 import { LikeOrDislike } from "@/features/likeOrDislike";
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { RatingCircleUI } from "@/shared/ui/RatingCircleUI";
@@ -55,6 +56,8 @@ export const MovieDescription = () => {
 
   const navigate = useNavigate();
 
+  const isDesktop = useMediaQuery("(max-width: 1024px)");
+
   const ratingKinoarea = vote_average ? vote_average + 0.8 : undefined;
 
   const progressWidth = vote_count ? Math.min((vote_count / 2500) * 100, 100) : 0;
@@ -78,10 +81,10 @@ export const MovieDescription = () => {
               { to: "", label: title || "", isLast: true },
             ]}
           />
-          <TitleUI title={title} marginBottom={4} marginTop={4} />
+          <TitleUI title={title} fontSize={isDesktop ? 60 : 40} marginBottom={4} marginTop={4} />
           <StyledTitleAndFavoriteWrapper>
             <StyledSubTitle>{original_title}</StyledSubTitle>
-            <Link to={routesBook.favorites()}>У вибране</Link>
+            <Link to={routesBook.favorites()}>Перейти у вибране</Link>
           </StyledTitleAndFavoriteWrapper>
           <StyledRatingWrapper>
             <RatingCircleUI value={ratingKinoarea} label="Kinoarea" />

@@ -4,6 +4,7 @@ import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledPopularMovie = styled.div`
   margin-bottom: 65px;
+  margin-top: 75px;
 
   ${mapDeviceToMedia.laptopOnly} {
     margin-top: 34px;

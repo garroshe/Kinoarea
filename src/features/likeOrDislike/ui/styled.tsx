@@ -45,32 +45,32 @@ export const StyledBlock = styled.div`
   cursor: pointer;
 
   ${mapDeviceToMedia.laptopOnly} {
-    width: 40px;
-    height: 40px;
+    width: 52px;
+    height: 52px;
 
     svg {
-      width: 17px;
-      height: 17px;
+      width: 23px;
+      height: 23px;
     }
   }
 
   ${mapDeviceToMedia.tabletOnly} {
-    width: 30px;
-    height: 30px;
+    width: 52px;
+    height: 52px;
 
     svg {
-      width: 13px;
-      height: 13px;
+      width: 23px;
+      height: 23px;
     }
   }
 
   ${mapDeviceToMedia.mobileOnly} {
-    width: 30px;
-    height: 30px;
+    width: 52px;
+    height: 52px;
 
     svg {
-      width: 13px;
-      height: 13px;
+      width: 23px;
+      height: 23px;
     }
   }
 

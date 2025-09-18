@@ -3,7 +3,7 @@ type ProductionCountriesType = {
   name: string;
 };
 
-export interface IMovie {
+export type MovieType = {
   id?: number;
   adult?: boolean;
   backdrop_path?: string;
@@ -25,9 +25,9 @@ export interface IMovie {
   budget?: string;
   revenue?: number;
   runtime?: number;
-}
+};
 
-export interface IVideo {
+export type VideoType = {
   id?: string;
   iso_639_1?: string;
   iso_3166_1?: string;
@@ -38,15 +38,15 @@ export interface IVideo {
   type?: "Trailer" | "Teaser" | "Clip" | "Featurette" | "Behind the Scenes" | "Bloopers";
   official?: boolean;
   published_at?: string;
-}
+};
 
-export type MoviesResponse = {
-  data: IMovie[] | null;
+export type MoviesResponseType = {
+  data: MovieType[] | null;
   error: unknown | null;
 };
 
-export type VideoResponse = {
-  data: IVideo[] | null;
+export type VideoResponseType = {
+  data: VideoType[] | null;
   error: unknown | null;
 };
 
@@ -57,7 +57,29 @@ export type PayloadType = {
   genre?: string;
 };
 
-export type MovieResponse = {
-  data: IMovie | null;
+export type MovieResponseType = {
+  data: MovieType | null;
   error: unknown | null;
+};
+
+export type MovieImagesResponseType = {
+  data: MovieImagesType | null;
+  error: unknown | null;
+};
+
+export type MovieImagesType = {
+  id: number;
+  backdrops: MovieImageType[];
+  posters: MovieImageType[];
+  logos: MovieImageType[];
+};
+
+export type MovieImageType = {
+  aspect_ratio: number;
+  file_path: string;
+  height: number;
+  width: number;
+  iso_639_1: string | null;
+  vote_average: number;
+  vote_count: number;
 };

@@ -24,4 +24,4 @@ export const breakpoints = {
   laptop: "1024px",
   desktop: "1280px",
   wide: "1440px",
-};
+} as const;

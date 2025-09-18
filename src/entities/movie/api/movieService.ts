@@ -1,10 +1,16 @@
 import { axiosInstance } from "@/shared/api/axiosInstance";
 
 import { API_KEY } from "../model/constants";
-import type { MovieResponse, MoviesResponse, PayloadType, VideoResponse } from "../model/types";
+import type {
+  MovieImagesResponseType,
+  MovieResponseType,
+  MoviesResponseType,
+  PayloadType,
+  VideoResponseType,
+} from "../model/types";
 
 export const movieService = Object.freeze({
-  moviesNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
+  moviesNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponseType> => {
     try {
       const { page } = payload;
 
@@ -18,7 +24,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  moviesUpComingFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
+  moviesUpComingFetch: async (payload: PayloadType): Promise<MoviesResponseType> => {
     try {
       const { page } = payload;
 
@@ -39,7 +45,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  trailerByIdFetch: async (payload: PayloadType): Promise<VideoResponse> => {
+  trailerByIdFetch: async (payload: PayloadType): Promise<VideoResponseType> => {
     try {
       const { id } = payload;
 
@@ -55,7 +61,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  movieByIdFetch: async (payload: PayloadType): Promise<MovieResponse> => {
+  movieByIdFetch: async (payload: PayloadType): Promise<MovieResponseType> => {
     try {
       const { id } = payload;
 
@@ -69,7 +75,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  movieByDataReleaseFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
+  movieByDataReleaseFetch: async (payload: PayloadType): Promise<MoviesResponseType> => {
     try {
       const { date } = payload;
 
@@ -88,7 +94,7 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
-  movieNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponse> => {
+  movieNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponseType> => {
     try {
       const { genre } = payload;
 
@@ -103,6 +109,22 @@ export const movieService = Object.freeze({
       });
 
       return { error: null, data: res.data.results };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
+  },
+  movieFramesFetch: async (payload: PayloadType): Promise<MovieImagesResponseType> => {
+    try {
+      const { id } = payload;
+
+      const res = await axiosInstance.get(`/movie/${id}/images`, {
+        params: {
+          api_key: API_KEY,
+        },
+      });
+
+      return { error: null, data: res.data };
     } catch (error) {
       console.log(error);
       return { error, data: null };

@@ -13,8 +13,8 @@ export const MovieTabs = () => {
 
   return (
     <StyledMovieTabs>
-      {MOVIE_TABS.map((tab) => (
-        <li>
+      {MOVIE_TABS.map((tab, i) => (
+        <li key={i}>
           <a
             onClick={() => handleChangeTab(tab.index)}
             className={classnames("tab", {
