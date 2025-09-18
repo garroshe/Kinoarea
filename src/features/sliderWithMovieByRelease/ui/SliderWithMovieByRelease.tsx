@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperCore } from "swiper/types";
 
 import { MovieCard } from "@/features/movieCard";
+import { useMovieByReleaseFetchQuery } from "@/features/sliderWithMovieByRelease/lib/use-movie-by-release-fetch-query";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI";
 import { MovieNotFound } from "@/shared/ui/MovieNotFoundUI";
@@ -11,7 +12,6 @@ import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
-import { useMovieByReleaseFetchQuery } from "../model/use-movie-by-release-fetch-query";
 import { StyledNavigationBtns, StyledSlider, StyledSlidesCount } from "./styled";
 
 export const SliderWithMovieByRelease = () => {
@@ -51,6 +51,7 @@ export const SliderWithMovieByRelease = () => {
           {movieDataFetch.map((item) => (
             <SwiperSlide key={item.id}>
               <MovieCard
+                id={item.id}
                 title={item.title}
                 genre={item.genre_ids}
                 img={getPathToImg(item.poster_path, 500)}

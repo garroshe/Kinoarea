@@ -8,6 +8,7 @@ export const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-top: 20px;
 `;
 
 export const StyledTopBlock = styled.div`

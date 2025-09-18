@@ -1,13 +1,17 @@
 import { icons } from "./constants";
+import { AngleBracket } from "./icons/AngleBracket";
 import { Arrow } from "./icons/Arrow";
 import { AvatarMale } from "./icons/AvatarMale";
+import { Camera } from "./icons/Camera";
 import { Check } from "./icons/Check";
 import { CollapseIconUI } from "./icons/CollapseIcon";
 import { Dagger } from "./icons/Dagger";
 import { Facebook } from "./icons/Facebook";
 import { GitHub } from "./icons/GitHub";
 import { Google } from "./icons/Google";
+import { Heart } from "./icons/Heart";
 import { Instagram } from "./icons/Instagram";
+import { LightLogotype } from "./icons/LightLogotype";
 import { Like } from "./icons/Like";
 import { Logotype } from "./icons/Logotype";
 import { NextArrow } from "./icons/NextArrow";
@@ -37,6 +41,10 @@ export const SvgIcon = ({ icon, className, onClick, color }: SvgIconPropsType) =
     [icons.youtube]: YouTube,
     [icons.nextArrow]: NextArrow,
     [icons.prevArrow]: PrevArrow,
+    [icons.angleBracket]: AngleBracket,
+    [icons.heart]: Heart,
+    [icons.camera]: Camera,
+    [icons.lightLogotype]: LightLogotype,
   };
 
   const IconJSX = svgs[icon];

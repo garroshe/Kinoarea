@@ -1,18 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import * as useInitNowPlayingMoviesModule from "@/widgets/nowPlaying/model/use-movies-now-playing-fetch";
+import { useMoviesNowPlayingFetch } from "@/widgets/nowPlaying/model/use-movies-now-playing-fetch";
 
 import { NowPlaying } from "./NowPlaying";
 
-vi.mock("@/widgets/nowPlaying/model/use-movies-now-playing-fetch");
+vi.mock("@/widgets/nowPlaying/model/use-movies-now-playing-fetch", () => ({
+  useMoviesNowPlayingFetch: vi.fn(),
+}));
 
-const mockUseInitNowPlayingMovies = useInitNowPlayingMoviesModule.useMoviesNowPlayingFetch as unknown as jest.Mock;
+const mockedUseMoviesNowPlayingFetch = vi.mocked(useMoviesNowPlayingFetch);
 
 describe("Now playing", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("shows loading spinner", () => {
-    mockUseInitNowPlayingMovies.mockReturnValue({
+    mockedUseMoviesNowPlayingFetch.mockReturnValue({
       isMovieLoading: true,
       movieDataFetch: [],
     });
@@ -25,8 +31,9 @@ describe("Now playing", () => {
 
     expect(screen.getByTestId("now-playing-spinner")).toBeInTheDocument();
   });
+
   it("shows not found", () => {
-    mockUseInitNowPlayingMovies.mockReturnValue({
+    mockedUseMoviesNowPlayingFetch.mockReturnValue({
       isMovieLoading: false,
       movieDataFetch: [],
     });
@@ -39,8 +46,9 @@ describe("Now playing", () => {
 
     expect(screen.getByText(/Фільми не знайдено./i)).toBeInTheDocument();
   });
+
   it("render movies", () => {
-    mockUseInitNowPlayingMovies.mockReturnValue({
+    mockedUseMoviesNowPlayingFetch.mockReturnValue({
       isMovieLoading: false,
       movieDataFetch: [
         {

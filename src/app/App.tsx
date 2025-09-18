@@ -7,7 +7,6 @@ import { UserContextProvider } from "@/app/providers/user";
 import { GlobalStyles } from "@/app/styles/globalStyle";
 import { queryClient } from "@/shared/config/queryConfig";
 import { Footer } from "@/widgets/footer";
-import { Header } from "@/widgets/header";
 
 export function App() {
   return (
@@ -16,7 +15,6 @@ export function App() {
         <ModalContextProvider>
           <UserContextProvider>
             <GlobalStyles />
-            <Header />
             <Router />
             <Footer />
           </UserContextProvider>

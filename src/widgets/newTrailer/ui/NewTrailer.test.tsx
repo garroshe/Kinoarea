@@ -25,12 +25,12 @@ describe("newTrailer", () => {
     render(
       <MemoryRouter>
         <QueryClientProvider client={queryClient}>
-          <NewTrailer />
+          <NewTrailer title="test" />
         </QueryClientProvider>
       </MemoryRouter>,
     );
 
-    expect(screen.getByText(/Нові трейлери/i)).toBeInTheDocument();
+    expect(screen.getByText(/test/i)).toBeInTheDocument();
   });
 
   it("render loader", () => {
@@ -40,7 +40,7 @@ describe("newTrailer", () => {
     render(
       <MemoryRouter>
         <QueryClientProvider client={queryClient}>
-          <NewTrailer />
+          <NewTrailer title="test" />
         </QueryClientProvider>
       </MemoryRouter>,
     );
@@ -62,7 +62,7 @@ describe("newTrailer", () => {
     render(
       <MemoryRouter>
         <QueryClientProvider client={queryClient}>
-          <NewTrailer />
+          <NewTrailer title="test" />
         </QueryClientProvider>
       </MemoryRouter>,
     );
@@ -75,20 +75,20 @@ describe("newTrailer", () => {
 
   it("in rating correct value", async () => {
     vi.spyOn(movieQuery, "useMovieFetchQuery").mockReturnValue({
-      dataMovieFetch: { vote_count: 100 },
+      dataMovieFetch: { vote_count: 90 },
       loadingMovieFetch: false,
     });
 
     render(
       <MemoryRouter>
         <QueryClientProvider client={queryClient}>
-          <NewTrailer />
+          <NewTrailer title="test" />
         </QueryClientProvider>
       </MemoryRouter>,
     );
 
-    expect(await screen.findByText("100")).toBeInTheDocument();
-    expect(await screen.findByText("50")).toBeInTheDocument();
+    expect(await screen.findByText("90")).toBeInTheDocument();
+    expect(await screen.findByText("30")).toBeInTheDocument();
   });
 
   it("all correct work also when no trailerId", () => {
@@ -98,7 +98,7 @@ describe("newTrailer", () => {
     render(
       <MemoryRouter>
         <QueryClientProvider client={queryClient}>
-          <NewTrailer />
+          <NewTrailer title="test" />
         </QueryClientProvider>
       </MemoryRouter>,
     );

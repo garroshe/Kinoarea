@@ -9,6 +9,7 @@ const MainPage = lazy(() => import("@/pages/MainPage/MainPage"));
 const ErrorPage = lazy(() => import("@/pages/ErrorPage/ErrorPage"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy/PrivacyPolicy"));
 const DataDeletion = lazy(() => import("@/pages/DataDeletion/DataDeletion"));
+const CardMoviePage = lazy(() => import("@/pages/CardMoviePage/ui/CardMoviePage"));
 
 export const Router = () => {
   return (
@@ -21,6 +22,7 @@ export const Router = () => {
     >
       <Routes>
         <Route path={routesBook.main()} element={<MainPage />} />
+        <Route path={routesBook.film()} element={<CardMoviePage />} />
         <Route path={routesBook.privacyPolicy()} element={<PrivacyPolicy />} />
         <Route path={routesBook.dataDeletion()} element={<DataDeletion />} />
         <Route path="*" element={<ErrorPage />} />
