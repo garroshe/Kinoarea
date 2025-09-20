@@ -18,10 +18,12 @@ import { safeValue } from "@/widgets/movieDescription/lib/safeValue";
 
 import { useMovieFetchByIdQuery } from "../api/hooks/use-movie-fetch-by-id-query";
 import {
+  StyledActionBlock,
   StyledActionWrapper,
   StyledButtonAndSocialWrapper,
   StyledDescription,
   StyledImg,
+  StyledImgAndRatingWrapper,
   StyledInfoTable,
   StyledListKeys,
   StyledListValue,
@@ -57,6 +59,7 @@ export const MovieDescription = () => {
   const navigate = useNavigate();
 
   const isDesktop = useMediaQuery("(max-width: 1024px)");
+  const isMobile = useMediaQuery("(max-width: 480px)");
 
   const ratingKinoarea = vote_average ? vote_average + 0.8 : undefined;
 
@@ -72,24 +75,24 @@ export const MovieDescription = () => {
 
   return (
     <ContainerUI>
-      <StyledMainInfo data-testid="movie-info">
-        <StyledImg src={getPathToImg(poster_path, 500)} alt={original_title} />
-        <div>
+      {isMobile ? (
+        <StyledMainInfo data-testid="movie-info">
           <Breadcrumbs
             path={[
               { to: routesBook.films(), label: "Фільми", isLast: false },
               { to: "", label: title || "", isLast: true },
             ]}
           />
-          <TitleUI title={title} fontSize={isDesktop ? 60 : 40} marginBottom={4} marginTop={4} />
-          <StyledTitleAndFavoriteWrapper>
-            <StyledSubTitle>{original_title}</StyledSubTitle>
-            <Link to={routesBook.favorites()}>Перейти у вибране</Link>
-          </StyledTitleAndFavoriteWrapper>
-          <StyledRatingWrapper>
-            <RatingCircleUI value={ratingKinoarea} label="Kinoarea" />
-            <RatingCircleUI value={vote_average} label="IMDb" />
-          </StyledRatingWrapper>
+          <TitleUI title={title} fontSize={32} marginBottom={4} marginTop={4} />
+          <StyledSubTitle>{original_title}</StyledSubTitle>
+          <StyledImgAndRatingWrapper>
+            <StyledImg src={getPathToImg(poster_path, 500)} alt={original_title} />
+            <StyledRatingWrapper>
+              <RatingCircleUI value={ratingKinoarea} label="Kinoarea" />
+              <RatingCircleUI value={vote_average} label="IMDb" />
+              <Link to={routesBook.favorites()}>Перейти у вибране</Link>
+            </StyledRatingWrapper>
+          </StyledImgAndRatingWrapper>
           <StyledDescription>{overview}</StyledDescription>
           <StyledButtonAndSocialWrapper>
             <StyledWatchTrailerButton href="#movie-trailer">
@@ -98,18 +101,51 @@ export const MovieDescription = () => {
             </StyledWatchTrailerButton>
             <SocialUI />
           </StyledButtonAndSocialWrapper>
-        </div>
-      </StyledMainInfo>
+        </StyledMainInfo>
+      ) : (
+        <StyledMainInfo data-testid="movie-info">
+          <StyledImg src={getPathToImg(poster_path, 500)} alt={original_title} />
+          <div>
+            <Breadcrumbs
+              path={[
+                { to: routesBook.films(), label: "Фільми", isLast: false },
+                { to: "", label: title || "", isLast: true },
+              ]}
+            />
+            <TitleUI title={title} fontSize={isDesktop ? 60 : 40} marginBottom={4} marginTop={4} />
+            <StyledTitleAndFavoriteWrapper>
+              <StyledSubTitle>{original_title}</StyledSubTitle>
+              <Link to={routesBook.favorites()}>Перейти у вибране</Link>
+            </StyledTitleAndFavoriteWrapper>
+            <StyledRatingWrapper>
+              <RatingCircleUI value={ratingKinoarea} label="Kinoarea" />
+              <RatingCircleUI value={vote_average} label="IMDb" />
+            </StyledRatingWrapper>
+            <StyledDescription>{overview}</StyledDescription>
+            <StyledButtonAndSocialWrapper>
+              <StyledWatchTrailerButton href="#movie-trailer">
+                <SvgIcon icon={icons.play} />
+                Дивитися трейлер
+              </StyledWatchTrailerButton>
+              <SocialUI />
+            </StyledButtonAndSocialWrapper>
+          </div>
+        </StyledMainInfo>
+      )}
       <div>
         <StyledActionWrapper>
-          <LikeOrDislike type="like" />
-          <LikeOrDislike type="dislike" />
-          <StyledProgress $width={progressWidth}>
-            <div />
-            <p>Рейтинг очікувань {Math.floor(progressWidth)}%</p>
-          </StyledProgress>
-          <AddToFavorites />
-          <StyledSavedMovie>В обраному {vote_count} людей</StyledSavedMovie>
+          <StyledActionBlock>
+            <LikeOrDislike type="like" />
+            <LikeOrDislike type="dislike" />
+            <StyledProgress $width={progressWidth}>
+              <div />
+              <p>Рейтинг очікувань {Math.floor(progressWidth)}%</p>
+            </StyledProgress>
+          </StyledActionBlock>
+          <StyledActionBlock>
+            <AddToFavorites />
+            <StyledSavedMovie>В обраному {vote_count} людей</StyledSavedMovie>
+          </StyledActionBlock>
         </StyledActionWrapper>
       </div>
       <StyledInfoTable>

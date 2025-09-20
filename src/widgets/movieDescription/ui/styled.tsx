@@ -20,11 +20,18 @@ export const StyledMainInfo = styled.div`
     justify-content: center;
     padding: 30px 0;
   }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    flex-direction: column;
+    padding: 52px 0;
+    gap: 0;
+  }
 `;
 
 export const StyledImg = styled.img`
   width: 395px;
   height: 540px;
+  border-radius: 10px;
 
   ${mapDeviceToMedia.laptopOnly} {
     width: 290px;
@@ -35,12 +42,21 @@ export const StyledImg = styled.img`
     width: 260px;
     height: 387px;
   }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    width: 225px;
+    height: 300px;
+  }
 `;
 
 export const StyledSubTitle = styled.h3`
   font-weight: 500;
   font-size: 20px;
   color: ${colors.white50};
+
+  ${mapDeviceToMedia.mobileOnly} {
+    margin-bottom: 18px;
+  }
 `;
 
 export const StyledRatingWrapper = styled.div`
@@ -52,6 +68,32 @@ export const StyledRatingWrapper = styled.div`
   ${mapDeviceToMedia.tabletOnly} {
     margin-top: 12px;
   }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    margin-top: 0;
+
+    a {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 100%;
+      text-decoration: underline;
+      text-decoration-style: solid;
+      color: ${colors.white50};
+      cursor: pointer;
+
+      &:hover {
+        color: ${colors.white400};
+      }
+    }
+  }
+`;
+
+export const StyledImgAndRatingWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const StyledTitleAndFavoriteWrapper = styled.div`
@@ -95,6 +137,12 @@ export const StyledDescription = styled.p`
     margin-top: 16px;
     font-size: 15px;
     width: 300px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    margin-top: 22px;
+    font-size: 15px;
+    width: 100%;
   }
 `;
 
@@ -149,6 +197,13 @@ export const StyledButtonAndSocialWrapper = styled.div`
     gap: 20px;
     align-items: start;
   }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 46px;
+  }
 `;
 
 export const StyledProgress = styled.div<{ $width: number }>`
@@ -198,6 +253,22 @@ export const StyledActionWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
+
+  ${mapDeviceToMedia.tabletOnly} {
+    gap: 12px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+  }
+`;
+
+export const StyledActionBlock = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
 `;
 
 export const StyledSavedMovie = styled.p`
@@ -231,6 +302,28 @@ export const StyledInfoTable = styled.div`
       gap: 30px;
     }
   }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    gap: 0;
+    justify-content: space-between;
+    margin: 17px 0;
+
+    div {
+      gap: 15px;
+    }
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    gap: 0;
+    justify-content: start;
+    flex-direction: column;
+    margin: 17px 0;
+
+    div {
+      justify-content: space-between;
+      gap: 15px;
+    }
+  }
 `;
 
 export const StyledListKeys = styled.ul`
@@ -241,6 +334,14 @@ export const StyledListKeys = styled.ul`
 
   ${mapDeviceToMedia.laptopOnly} {
     font-size: 16px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 13px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 13px;
   }
 `;
 
@@ -254,5 +355,14 @@ export const StyledListValue = styled.ul`
 
   ${mapDeviceToMedia.laptopOnly} {
     font-size: 16px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 13px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 13px;
+    width: 220px;
   }
 `;
