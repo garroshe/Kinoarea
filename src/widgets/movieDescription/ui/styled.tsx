@@ -180,6 +180,57 @@ export const StyledWatchTrailerButton = styled.a`
     gap: 9px;
     font-size: 15px;
   }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    width: 215px;
+    height: 60px;
+    gap: 9px;
+    font-size: 15px;
+  }
+`;
+
+export const StyledWatchMovieButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 260px;
+  height: 70px;
+  border: 2px solid ${colors.white50};
+  background: ${colors.blue500};
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 167%;
+  letter-spacing: 0;
+  color: ${colors.white50};
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 ${colors.white50};
+    background: ${colors.blue400};
+  }
+
+  ${mapDeviceToMedia.laptopOnly} {
+    width: 215px;
+    height: 60px;
+    gap: 9px;
+    font-size: 15px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    width: 215px;
+    height: 60px;
+    gap: 9px;
+    font-size: 15px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    width: 215px;
+    height: 60px;
+    gap: 9px;
+    font-size: 15px;
+  }
 `;
 
 export const StyledButtonAndSocialWrapper = styled.div`
@@ -242,7 +293,7 @@ export const StyledProgress = styled.div<{ $width: number }>`
     font-weight: 500;
     font-size: 14px;
     line-height: 100%;
-    color: ${colors.green500};
+    color: ${colors.white50};
     text-align: center;
     width: 100%;
   }

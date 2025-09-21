@@ -33,6 +33,7 @@ import {
   StyledSavedMovie,
   StyledSubTitle,
   StyledTitleAndFavoriteWrapper,
+  StyledWatchMovieButton,
   StyledWatchTrailerButton,
 } from "./styled";
 
@@ -54,7 +55,10 @@ export const MovieDescription = () => {
     adult,
     revenue,
     runtime,
+    id,
   } = movieDataFetch || {};
+
+  console.log(movieDataFetch);
 
   const navigate = useNavigate();
 
@@ -66,6 +70,17 @@ export const MovieDescription = () => {
   const progressWidth = vote_count ? Math.min((vote_count / 2500) * 100, 100) : 0;
   const countries = production_countries?.[0].iso_3166_1;
   const genreString = genre_ids?.map(mapGenreCodeToGenre).join(", ");
+
+  const handleClickToWatchMovie = () => {
+    // window.open(
+    //   "https://www.google.com/search?q=%D0%B2%D0%B5%D0%BD%D1%81%D0%B4%D0%B5%D0%B9%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%BE%D1%8E%20uakino.club",
+    //   "_blank",
+    // );
+    if (!title) return;
+    const query = encodeURIComponent(`${title} українською site:uakino.club`);
+    const url = `https://www.google.com/search?q=${query}`;
+    window.open(url, "_blank");
+  };
 
   useEffect(() => {
     if (!movieLoading && !movieDataFetch) {
@@ -99,6 +114,10 @@ export const MovieDescription = () => {
               <SvgIcon icon={icons.play} />
               Дивитися трейлер
             </StyledWatchTrailerButton>
+            <StyledWatchMovieButton onClick={handleClickToWatchMovie}>
+              <SvgIcon icon={icons.play} />
+              Дивитися фільм
+            </StyledWatchMovieButton>
             <SocialUI />
           </StyledButtonAndSocialWrapper>
         </StyledMainInfo>
@@ -127,6 +146,10 @@ export const MovieDescription = () => {
                 <SvgIcon icon={icons.play} />
                 Дивитися трейлер
               </StyledWatchTrailerButton>
+              <StyledWatchMovieButton onClick={handleClickToWatchMovie}>
+                <SvgIcon icon={icons.play} />
+                Дивитися фільм
+              </StyledWatchMovieButton>
               <SocialUI />
             </StyledButtonAndSocialWrapper>
           </div>

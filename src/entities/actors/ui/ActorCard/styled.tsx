@@ -46,6 +46,8 @@ export const StyledImageActor = styled.div`
     background: ${colors.grey900};
     opacity: 0.5;
     cursor: pointer;
+    border-radius: 10px;
+    scale: 1.05;
   }
 `;
 
