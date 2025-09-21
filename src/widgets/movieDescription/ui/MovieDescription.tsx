@@ -55,7 +55,6 @@ export const MovieDescription = () => {
     adult,
     revenue,
     runtime,
-    id,
   } = movieDataFetch || {};
 
   console.log(movieDataFetch);
