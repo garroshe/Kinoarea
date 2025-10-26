@@ -5,6 +5,7 @@ import { colors } from "@/shared/constants/style";
 export const StyledBreadcrumbs = styled.ul`
   display: flex;
   gap: 10px;
+  align-items: center;
 
   div {
     display: flex;

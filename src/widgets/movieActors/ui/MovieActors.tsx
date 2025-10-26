@@ -1,4 +1,5 @@
 import { ActorCard } from "@/entities/actors/ui/ActorCard/ActorCard";
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
@@ -12,6 +13,8 @@ export const MovieActors = () => {
 
   const { cast } = movieActorsDataFetch || {};
 
+  const isTablet = useMediaQuery("(max-width: 1024px)");
+
   return (
     <ContainerUI>
       {isMovieActorsLoading ? (
@@ -19,7 +22,7 @@ export const MovieActors = () => {
       ) : (
         <StyledMovieActors>
           <StyledHeader>
-            <TitleUI fontSize={65} title="У головних ролях:" />
+            <TitleUI fontSize={isTablet ? 40 : 65} title="У головних ролях:" />
             <StyledAllActors>
               <span>Всі актори</span>
               <SvgIcon icon={icons.arrow} />

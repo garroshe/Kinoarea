@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { breakpoints, colors } from "@/shared/constants/style";
+import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledModalOverlay = styled.div`
   position: absolute;
@@ -13,7 +14,7 @@ export const StyledModalOverlay = styled.div`
 `;
 
 export const StyledModalContent = styled.div`
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   top: 50%;
@@ -26,11 +27,11 @@ export const StyledModalContent = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 15px 0 ${colors.blue400};
 
-  @media (max-width: ${breakpoints.tablet}) {
+  ${mapDeviceToMedia.tabletOnly} {
     width: 650px;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  ${mapDeviceToMedia.mobileOnly} {
     width: 350px;
     padding: 20px;
   }
@@ -41,7 +42,7 @@ export const StyledModalPosition = styled.div`
   top: 20px;
   right: 24px;
 
-  @media (max-width: ${breakpoints.tablet}) {
+  ${mapDeviceToMedia.tabletOnly} {
     .modal-dagger {
       width: 20px;
       height: 20px;

@@ -7,6 +7,9 @@ import { MovieActors } from "@/widgets/movieActors";
 import { MovieDescription } from "@/widgets/movieDescription";
 import { MovieFrames } from "@/widgets/movieFrames";
 import { NewTrailer } from "@/widgets/newTrailer";
+import { PopularMovie } from "@/widgets/popularMovie";
+import { ReviewsList } from "@/widgets/reviewsList";
+import { SequelsAndPrequels } from "@/widgets/SequelsAndPrequels";
 
 import { useMovieFetchByIdQuery } from "../model/hooks/use-movie-fetch-by-id-query";
 import { StyledCardMoviePage } from "./styled";
@@ -36,6 +39,10 @@ const CardMoviePage = () => {
       </ErrorBoundary>
       <ErrorBoundary>
         <MovieFrames />
+      </ErrorBoundary>
+      <ErrorBoundary>{movieDataFetch?.belongs_to_collection ? <SequelsAndPrequels /> : <PopularMovie />}</ErrorBoundary>
+      <ErrorBoundary>
+        <ReviewsList />
       </ErrorBoundary>
     </div>
   );

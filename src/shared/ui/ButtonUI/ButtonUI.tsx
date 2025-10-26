@@ -1,10 +1,19 @@
-import type { ButtonUIProps } from "./types";
+import type { ButtonUIPropsType } from "./types";
 import { StyledButtonUI } from "./styled";
 
-export const ButtonUI = ({ children, type = "button", onClick, disabled, width = 422, height = 55 }: ButtonUIProps) => {
+export const ButtonUI = ({
+  children,
+  type = "button",
+  onClick,
+  onSubmit,
+  disabled,
+  width = 422,
+  height = 55,
+}: ButtonUIPropsType) => {
   return (
     <StyledButtonUI
       onClick={onClick}
+      onSubmit={onSubmit}
       type={type}
       disabled={disabled}
       $disabled={disabled}

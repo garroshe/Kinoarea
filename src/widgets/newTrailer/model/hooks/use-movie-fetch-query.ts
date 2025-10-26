@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { movieService } from "@/entities/movie/api/movieService";
-import { movieQueryKeys } from "@/entities/movie/store/queryKeys";
+import { movieService } from "@/entities/movie/api/movie-service";
+import { movieQueryKeys } from "@/entities/movie/store/query-keys";
 
 import type { HooksProps } from "../../model/types";
 

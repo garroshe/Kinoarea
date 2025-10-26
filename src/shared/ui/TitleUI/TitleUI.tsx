@@ -8,6 +8,7 @@ export const TitleUI = ({
   fontWeight = 900,
   marginBottom = 0,
   marginTop = 0,
+  textAlign = "start",
 }: TitleUIPropsType) => {
   return (
     <StyledTittleUI
@@ -16,6 +17,7 @@ export const TitleUI = ({
       $fontWeight={fontWeight}
       $marginBottom={marginBottom}
       $marginTop={marginTop}
+      $textAlign={textAlign}
     >
       {title}
     </StyledTittleUI>

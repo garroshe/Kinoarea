@@ -6,6 +6,10 @@ import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 export const StyledSlider = styled.div`
   margin-top: 63px;
 
+  .swiper-slide {
+    width: auto !important;
+  }
+
   ${mapDeviceToMedia.laptopOnly} {
     margin-top: 30px;
   }

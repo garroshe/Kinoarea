@@ -8,6 +8,8 @@ import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import "react-photo-view/dist/react-photo-view.css";
 
+import { useMediaQuery } from "@/shared/hooks/use-media-query";
+
 import { useFramesFetchQueryById } from "../model/hooks/use-frames-fetch-query-by-id";
 import { useMovieFetchByIdQuery } from "../model/hooks/use-movie-fetch-by-id-query";
 import {
@@ -24,9 +26,12 @@ export const MovieFrames = () => {
   const { movieImagesFetch, isMovieImagesLoading } = useFramesFetchQueryById();
   const { movieDataFetch, isMovieLoading } = useMovieFetchByIdQuery();
 
+  const isTablet = useMediaQuery("(max-width: 1024px)");
+
   const { backdrops } = movieImagesFetch || {};
 
   const hiddenCount = backdrops ? backdrops.length - 4 : 0;
+  const visibleCountImage = isTablet ? 1 : 3;
 
   if (isMovieImagesLoading || isMovieLoading) {
     return <SpinnerUI />;
@@ -36,7 +41,7 @@ export const MovieFrames = () => {
     <StyledMovieFrames id="movie-frames">
       <ContainerUI>
         <StyledHeader>
-          <TitleUI title="Кадри з фільму" fontSize={65} />
+          <TitleUI title="Кадри з фільму" fontSize={isTablet ? 40 : 65} />
           <div>
             Усі постери
             <SvgIcon icon={icons.arrow} />
@@ -47,7 +52,7 @@ export const MovieFrames = () => {
           <StyledWrapperFrames>
             {backdrops?.map((image, i) => (
               <PhotoView key={i} src={getPathToImg(image.file_path)}>
-                <StyledImageWrapper style={{ display: i > 3 ? "none" : "block" }}>
+                <StyledImageWrapper style={{ display: i > visibleCountImage ? "none" : "block" }}>
                   <img src={getPathToImg(image.file_path)} alt={image.file_path} />
 
                   {i === 3 && hiddenCount > 0 && (

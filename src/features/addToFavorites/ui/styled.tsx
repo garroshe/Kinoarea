@@ -22,4 +22,24 @@ export const StyledAddToFavorites = styled.div`
       height: 19px;
     }
   }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    width: 52px;
+    height: 52px;
+
+    img {
+      width: 21px;
+      height: 19px;
+    }
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    width: 52px;
+    height: 52px;
+
+    img {
+      width: 21px;
+      height: 19px;
+    }
+  }
 `;

@@ -8,6 +8,10 @@ export const StyledMovieCard = styled.div`
   width: 340px;
   cursor: pointer;
 
+  &:hover {
+    scale: 1.05;
+  }
+
   img {
     width: 340px;
     height: 460px;
@@ -131,7 +135,7 @@ export const StyledDescription = styled.p`
   }
 `;
 
-export const StyledActiveBlock = styled.div`
+export const StyledActiveBlock = styled.div<{ $visible: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -143,6 +147,11 @@ export const StyledActiveBlock = styled.div`
   height: 460px;
   background: #3657cba6;
   border-radius: 10px;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  pointer-events: ${({ $visible }) => ($visible ? "auto" : "none")};
 
   ${mapDeviceToMedia.laptopOnly} {
     height: 275px;

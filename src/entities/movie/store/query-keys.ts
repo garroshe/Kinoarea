@@ -6,4 +6,7 @@ export const movieQueryKeys = {
   movieByReleaseDateFetch: "movieByReleaseDateFetch",
   movieByGenreFetch: "movieByGenreFetch",
   movieFramesFetch: "movieFramesFetch",
+  movieSequelsAndPrequelsFetch: "movieSequelsAndPrequelsFetch",
+  movieReviewsFetch: "movieReviewsFetch",
+  movieReviewsFetchMutation: "movieReviewsFetchMutation",
 };

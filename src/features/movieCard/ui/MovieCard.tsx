@@ -13,7 +13,11 @@ export const MovieCard = ({ title = "Фільм", genre, img, rating = 5, id }: 
   const navigate = useNavigate();
 
   const handleOpenBlock = () => {
-    setIsVisible((prev) => !prev);
+    setIsVisible(true);
+  };
+
+  const handleCloseBlock = () => {
+    setIsVisible(false);
   };
 
   const handleNavigateToMovie = () => {
@@ -21,14 +25,18 @@ export const MovieCard = ({ title = "Фільм", genre, img, rating = 5, id }: 
   };
 
   return (
-    <StyledMovieCard data-cy="movie-card" data-testid="movie-card" onClick={handleOpenBlock}>
+    <StyledMovieCard
+      data-cy="movie-card"
+      data-testid="movie-card"
+      onMouseEnter={handleOpenBlock}
+      onMouseLeave={handleCloseBlock}
+      onClick={handleNavigateToMovie}
+    >
       <StyledRating $bg={getRatingColor(rating)}>{rating}</StyledRating>
       <img src={img} alt={title} loading="lazy" />
-      {isVisible && (
-        <StyledActiveBlock data-testid="active-block" onClick={handleNavigateToMovie}>
-          <p data-cy="movie-card-btn">Картка фільма</p>
-        </StyledActiveBlock>
-      )}
+      <StyledActiveBlock $visible={isVisible} data-testid="active-block" onClick={handleNavigateToMovie}>
+        <p data-cy="movie-card-btn">Картка фільма</p>
+      </StyledActiveBlock>
       <div>
         <StyledTitle>{title}</StyledTitle>
         <StyledDescription>{genreString}</StyledDescription>

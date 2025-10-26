@@ -10,4 +10,5 @@ export const StyledTittleUI = styled.h2<StyledTitleUIPropsType>`
   color: ${({ $color }) => $color};
   margin-bottom: ${({ $marginBottom }) => $marginBottom}px;
   margin-top: ${({ $marginTop }) => $marginTop}px;
+  text-align: ${({ $textAlign }) => $textAlign};
 `;
