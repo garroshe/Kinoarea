@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 
-import { movieService } from "@/entities/movie/api/movieService";
-import { movieQueryKeys } from "@/entities/movie/store/queryKeys";
+import { movieService } from "@/entities/movie/api/movie-service";
+import { movieQueryKeys } from "@/entities/movie/store/query-keys";
 
 export const useMovieFetchByIdQuery = () => {
   const { id } = useParams();

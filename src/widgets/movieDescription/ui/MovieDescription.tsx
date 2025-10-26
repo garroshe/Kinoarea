@@ -13,8 +13,8 @@ import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
-import { formatRuntime } from "@/widgets/movieDescription/lib/formatRuntime";
-import { safeValue } from "@/widgets/movieDescription/lib/safeValue";
+import { formatRuntime } from "@/widgets/movieDescription/lib/format-runtime";
+import { safeValue } from "@/widgets/movieDescription/lib/safe-value";
 
 import { useMovieFetchByIdQuery } from "../api/hooks/use-movie-fetch-by-id-query";
 import {
@@ -57,8 +57,6 @@ export const MovieDescription = () => {
     runtime,
   } = movieDataFetch || {};
 
-  console.log(movieDataFetch);
-
   const navigate = useNavigate();
 
   const isDesktop = useMediaQuery("(max-width: 1024px)");
@@ -70,13 +68,9 @@ export const MovieDescription = () => {
   const countries = production_countries?.[0].iso_3166_1;
   const genreString = genre_ids?.map(mapGenreCodeToGenre).join(", ");
 
-  const handleClickToWatchMovie = () => {
-    // window.open(
-    //   "https://www.google.com/search?q=%D0%B2%D0%B5%D0%BD%D1%81%D0%B4%D0%B5%D0%B9%20%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%BE%D1%8E%20uakino.club",
-    //   "_blank",
-    // );
+  const handleClickToWatchMovie = async () => {
     if (!title) return;
-    const query = encodeURIComponent(`${title} українською site:uakino.club`);
+    const query = encodeURIComponent(`${title} українською site:uakino.best`);
     const url = `https://www.google.com/search?q=${query}`;
     window.open(url, "_blank");
   };

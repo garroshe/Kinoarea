@@ -7,6 +7,7 @@ export type TitleUIPropsType = {
   color?: string;
   marginBottom?: number;
   marginTop?: number;
+  textAlign?: string;
 };
 
 export type StyledTitleUIPropsType = PrefixKeysWithDollarType<Omit<TitleUIPropsType, "title">>;

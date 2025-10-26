@@ -1,11 +1,14 @@
-import { axiosInstance } from "@/shared/api/axiosInstance";
+import { axiosInstance, mockApiAxiosInstance } from "@/shared/api/axiosInstance";
 
 import { API_KEY } from "../model/constants";
 import type {
+  MovieCollectionsResponseType,
   MovieImagesResponseType,
   MovieResponseType,
+  MovieReviewsResponseType,
   MoviesResponseType,
   PayloadType,
+  ReviewType,
   VideoResponseType,
 } from "../model/types";
 
@@ -123,6 +126,44 @@ export const movieService = Object.freeze({
           api_key: API_KEY,
         },
       });
+
+      return { error: null, data: res.data };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
+  },
+  movieSequelsAndPrequelsFetch: async (payload: PayloadType): Promise<MovieCollectionsResponseType> => {
+    try {
+      const { id } = payload;
+
+      const res = await axiosInstance.get(`/collection/${id}`, {
+        params: {
+          api_key: API_KEY,
+        },
+      });
+
+      return { error: null, data: res.data };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
+  },
+  movieReviewsFetch: async (payload: PayloadType): Promise<MovieReviewsResponseType> => {
+    try {
+      const { id } = payload;
+
+      const res = await mockApiAxiosInstance.get(`rewievs?movieId=${id}`, {});
+
+      return { error: null, data: res.data };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
+  },
+  movieReviewsFetchMutation: async (data: Omit<ReviewType, "id">): Promise<MovieReviewsResponseType> => {
+    try {
+      const res = await mockApiAxiosInstance.post(`rewievs`, data);
 
       return { error: null, data: res.data };
     } catch (error) {

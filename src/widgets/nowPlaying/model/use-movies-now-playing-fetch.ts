@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 
-import { movieService } from "@/entities/movie/api/movieService";
-import { movieQueryKeys } from "@/entities/movie/store/queryKeys";
+import { movieService } from "@/entities/movie/api/movie-service";
+import { movieQueryKeys } from "@/entities/movie/store/query-keys";
 
 export const useMoviesNowPlayingFetch = () => {
   const [searchParams] = useSearchParams();

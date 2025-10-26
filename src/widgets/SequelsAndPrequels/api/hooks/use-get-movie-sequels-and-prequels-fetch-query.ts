@@ -1,21 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
 
 import { movieService } from "@/entities/movie/api/movie-service";
 import { movieQueryKeys } from "@/entities/movie/store/query-keys";
 
-export const useMovieFetchByIdQuery = () => {
-  const { id } = useParams();
-
+export const useGetMovieSequelsAndPrequels = ({ id }: { id?: number | null }) => {
   const {
     data: response,
     isFetching,
     isLoading,
   } = useQuery({
     queryFn: async () => {
-      return await movieService.movieByIdFetch({ id });
+      return await movieService.movieSequelsAndPrequelsFetch({ id });
     },
-    queryKey: [movieQueryKeys.movieByIdFetch, id],
+    queryKey: [movieQueryKeys.movieSequelsAndPrequelsFetch, id],
   });
 
   const { data, error } = response || {};
@@ -29,7 +26,7 @@ export const useMovieFetchByIdQuery = () => {
   }
 
   return {
-    isMovieLoading: isLoading || isFetching,
-    movieDataFetch: data,
+    movieSequelsAndPrequelsFetch: data,
+    movieSequelsAndPrequelsLoading: isLoading || isFetching,
   };
 };

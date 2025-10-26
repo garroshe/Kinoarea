@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 import { colors } from "@/shared/constants/style";
 
-import type { IStyledButtonProps } from "./types";
+import type { StyledButtonPropsType } from "./types";
 
-export const StyledButtonUI = styled.button<IStyledButtonProps>`
+export const StyledButtonUI = styled.button<StyledButtonPropsType>`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { movieService } from "@/entities/movie/api/movie-service";
 import { movieQueryKeys } from "@/entities/movie/store/query-keys";
 
-export const useMovieFetchByIdQuery = () => {
+export const useGetReviewsFetchQuery = () => {
   const { id } = useParams();
 
   const {
@@ -13,9 +13,9 @@ export const useMovieFetchByIdQuery = () => {
     isLoading,
   } = useQuery({
     queryFn: async () => {
-      return await movieService.movieByIdFetch({ id });
+      return await movieService.movieReviewsFetch({ id });
     },
-    queryKey: [movieQueryKeys.movieByIdFetch, id],
+    queryKey: [movieQueryKeys.movieReviewsFetch, id],
   });
 
   const { data, error } = response || {};
@@ -29,7 +29,7 @@ export const useMovieFetchByIdQuery = () => {
   }
 
   return {
-    isMovieLoading: isLoading || isFetching,
-    movieDataFetch: data,
+    isMovieReviewsLoading: isLoading || isFetching,
+    movieReviewsFetch: data || [],
   };
 };

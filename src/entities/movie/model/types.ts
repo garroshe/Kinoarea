@@ -3,6 +3,13 @@ type ProductionCountriesType = {
   name: string;
 };
 
+export type BelongsToCollectionType = {
+  id: number;
+  name: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+};
+
 export type MovieType = {
   id?: number;
   adult?: boolean;
@@ -25,6 +32,7 @@ export type MovieType = {
   budget?: string;
   revenue?: number;
   runtime?: number;
+  belongs_to_collection?: BelongsToCollectionType | null;
 };
 
 export type VideoType = {
@@ -82,4 +90,50 @@ export type MovieImageType = {
   iso_639_1: string | null;
   vote_average: number;
   vote_count: number;
+};
+
+export type CollectionPartType = {
+  id: number;
+  title: string;
+  original_title: string;
+  overview: string;
+  release_date: string | null;
+  adult: boolean;
+  backdrop_path: string | null;
+  genre_ids?: number[];
+  original_language: string;
+  popularity: number;
+  poster_path: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+};
+
+export type CollectionsType = {
+  id: number;
+  name: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  parts: CollectionPartType[];
+};
+
+export type MovieCollectionsResponseType = {
+  data: CollectionsType | null;
+  error: unknown | null;
+};
+
+export type ReviewType = {
+  id: number;
+  title: string;
+  content: string;
+  reviewType: string;
+  movieId: number;
+  name?: string;
+  avatar?: string;
+};
+
+export type MovieReviewsResponseType = {
+  data: ReviewType[] | null;
+  error: unknown | null;
 };

@@ -1,17 +1,20 @@
 import { useState } from "react";
 
 import { MovieFilterByRelease } from "@/features/movieFilterByRelease";
-import { SliderWithMovieByRelease } from "@/features/sliderWithMovieByRelease";
+import { SliderWithMovie } from "@/features/sliderWithMovieCard";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { BurgerFilterUI } from "@/shared/ui/BurgerFilterUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI";
 import { TitleUI } from "@/shared/ui/TitleUI";
 
+import { useMovieByReleaseFetchQuery } from "../lib/use-movie-by-release-fetch-query";
 import { StyledHeader, StyledPopularMovie } from "./styled";
 
 export const PopularMovie = () => {
   const [activeFilter, setActiveFilter] = useState(false);
+
+  const { movieDataFetch, isMovieLoading } = useMovieByReleaseFetchQuery();
 
   const isLaptop = useMediaQuery("(max-width: 1024px)");
   const isMobile = useMediaQuery("(max-width: 480px)");
@@ -30,7 +33,7 @@ export const PopularMovie = () => {
           {!isMobile && <MovieFilterByRelease />}
         </StyledHeader>
         {activeFilter && <MovieFilterByRelease />}
-        <SliderWithMovieByRelease />
+        <SliderWithMovie isMovieLoading={isMovieLoading} movieData={movieDataFetch} />
       </StyledPopularMovie>
     </ContainerUI>
   );
