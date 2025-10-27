@@ -97,7 +97,7 @@ export const ReviewsList = () => {
             )}
             <StyledSelfReviewsHeaderRight>
               <StyledSelfReviewsHeaderName onClick={handleNavigateProfile}>
-                {user?.userName || user.loginName || user.lastName}
+                {user?.userName || user?.loginName || user?.lastName}
               </StyledSelfReviewsHeaderName>
               <StyledSelfReviewsHeaderSubtitle onClick={handleNavigateProfile}>
                 Мій профіль
@@ -120,7 +120,7 @@ export const ReviewsList = () => {
                     <StyledReviewAvatar src={item.avatar} alt={item.name} />
                   )}
                   <StyledReviewNameAndReviewTypeWrapper>
-                    <StyledReviewName>{item.name || user.loginName || user.lastName}</StyledReviewName>
+                    <StyledReviewName>{item.name || user?.loginName || user?.lastName}</StyledReviewName>
                     <StyledReviewType $reviewType={item.reviewType}>
                       {getReviewContentByType[item.reviewType]}
                     </StyledReviewType>
