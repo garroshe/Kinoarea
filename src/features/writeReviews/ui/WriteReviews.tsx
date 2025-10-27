@@ -49,10 +49,14 @@ export const WriteReviews = () => {
   };
 
   return (
-    <StyledSelfReviewsWrapper onSubmit={handleSubmit(onSubmit)}>
+    <StyledSelfReviewsWrapper id="write-review-id" onSubmit={handleSubmit(onSubmit)}>
       <StyledTopBlock>
         <StyledElementAndErrorWrapper>
-          <StyledSelfReviewTitleInput placeholder="Заголовок Вашої рецензії" {...register("title")} />
+          <StyledSelfReviewTitleInput
+            id="write-review-title-id"
+            placeholder="Заголовок Вашої рецензії"
+            {...register("title")}
+          />
           {errors.title?.message && <ErrorsMessageUI error={errors.title.message} />}
         </StyledElementAndErrorWrapper>
         <StyledSelfReviewTypeSelector defaultValue="positive" {...register("reviewType")}>
