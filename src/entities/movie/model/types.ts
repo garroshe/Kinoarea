@@ -127,10 +127,11 @@ export type ReviewType = {
   id: number;
   title: string;
   content: string;
-  reviewType: string;
+  reviewType: "negative" | "positive" | "neutral";
   movieId: number;
   name?: string;
   avatar?: string;
+  date: string;
 };
 
 export type MovieReviewsResponseType = {

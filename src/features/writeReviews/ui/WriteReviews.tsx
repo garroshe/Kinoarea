@@ -3,12 +3,13 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 import { useUser } from "@/app/providers/user";
-import { useFetchReviewsMutation } from "@/features/writeReviews/api/use-fetch-reviews-mutation";
 import { ButtonUI } from "@/shared/ui/ButtonUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI";
 
+import { useFetchReviewsMutation } from "../api/use-fetch-reviews-mutation";
 import { schema } from "../model/schema";
 import type { WriteReviewsType } from "../model/types";
+import { getFormatedDate } from "../utils/get-formated-date";
 import {
   StyledContentTextArea,
   StyledElementAndErrorWrapper,
@@ -33,13 +34,16 @@ export const WriteReviews = () => {
   const { id } = useParams();
 
   const onSubmit: SubmitHandler<WriteReviewsType> = async (data) => {
+    const { formattedDate } = getFormatedDate();
+
     mutate({
       title: data.title,
       content: data.content,
-      reviewType: data.reviewType,
+      reviewType: data.reviewType as "negative" | "positive" | "neutral",
       movieId: Number(id),
-      avatar: user?.avatar,
+      avatar: user?.avatar || "none_avatar",
       name: user?.userName,
+      date: formattedDate,
     });
     reset();
   };
@@ -52,9 +56,9 @@ export const WriteReviews = () => {
           {errors.title?.message && <ErrorsMessageUI error={errors.title.message} />}
         </StyledElementAndErrorWrapper>
         <StyledSelfReviewTypeSelector defaultValue="positive" {...register("reviewType")}>
-          <option value="positive">Позитивні відгук</option>
+          <option value="positive">Позитивний відгук</option>
           <option value="negative">Негативний відгук</option>
-          <option value="netral">Нейтральний відгук</option>
+          <option value="neutral">Нейтральний відгук</option>
         </StyledSelfReviewTypeSelector>
       </StyledTopBlock>
       <StyledElementAndErrorWrapper>

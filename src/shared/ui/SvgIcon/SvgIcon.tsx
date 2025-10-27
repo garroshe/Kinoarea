@@ -1,4 +1,5 @@
 import { icons } from "./constants";
+import { Alert } from "./icons/Alert";
 import { AngleBracket } from "./icons/AngleBracket";
 import { Arrow } from "./icons/Arrow";
 import { AvatarMale } from "./icons/AvatarMale";
@@ -13,6 +14,7 @@ import { Heart } from "./icons/Heart";
 import { Instagram } from "./icons/Instagram";
 import { LightLogotype } from "./icons/LightLogotype";
 import { Like } from "./icons/Like";
+import { Link } from "./icons/Link";
 import { Logotype } from "./icons/Logotype";
 import { NextArrow } from "./icons/NextArrow";
 import { Play } from "./icons/Play";
@@ -45,6 +47,8 @@ export const SvgIcon = ({ icon, className, onClick, color }: SvgIconPropsType) =
     [icons.heart]: Heart,
     [icons.camera]: Camera,
     [icons.lightLogotype]: LightLogotype,
+    [icons.link]: Link,
+    [icons.alert]: Alert,
   };
 
   const IconJSX = svgs[icon];

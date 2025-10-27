@@ -20,4 +20,6 @@ export const icons = {
   heart: "heart",
   camera: "camera",
   lightLogotype: "lightLogotype",
+  link: "link",
+  alert: "alert",
 };

@@ -1,20 +1,35 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { useModal } from "@/app/providers/modal";
 import { useUser } from "@/app/providers/user";
+import { CopyReviewLink } from "@/features/copyReviewLink";
+import { ReportToReview } from "@/features/reportToReview";
 import { WriteReviews } from "@/features/writeReviews";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
+import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
+import { getReviewContentByType } from "@/widgets/reviewsList/utils/get-review-content-by-type";
 
 import { useGetReviewsFetchQuery } from "../api/hooks/use-get-reviews-fetch-query";
 import {
   StyledButton,
   StyledHeader,
   StyledReview,
+  StyledReviewAvatar,
+  StyledReviewContent,
+  StyledReviewFooter,
+  StyledReviewHeader,
+  StyledReviewLeftBlock,
+  StyledReviewName,
+  StyledReviewNameAndReviewTypeWrapper,
+  StyledReviewRightBlock,
   StyledReviewsWrapper,
+  StyledReviewTitleAndDateWrapper,
+  StyledReviewType,
   StyledSelfReviews,
   StyledSelfReviewsHeader,
   StyledSelfReviewsHeaderName,
@@ -25,6 +40,8 @@ import {
 
 export const ReviewsList = () => {
   const { movieReviewsFetch, isMovieReviewsLoading } = useGetReviewsFetchQuery();
+
+  const [searchParams] = useSearchParams();
 
   const { user } = useUser();
   const { openModal } = useModal();
@@ -40,27 +57,70 @@ export const ReviewsList = () => {
     navigate(routesBook.personalAccount());
   };
 
+  useEffect(() => {
+    const review = searchParams.get("reviewId");
+    if (review && movieReviewsFetch.length > 0) {
+      const element = document.getElementById(review);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  }, [searchParams, movieReviewsFetch]);
+
   if (isMovieReviewsLoading) {
     return <SpinnerUI size="large" />;
   }
 
   return (
     <ContainerUI>
-      <StyledHeader>
+      <StyledHeader id="movie-reviews">
         <TitleUI title="Рецензії до фільму" fontSize={65} />
         <StyledButton onClick={handleAddReviews}>Додати рецензію</StyledButton>
       </StyledHeader>
+
       {movieReviewsFetch.length > 0 && (
         <StyledReviewsWrapper>
           {movieReviewsFetch.map((item) => (
-            <StyledReview key={item.id}>{item.name}</StyledReview>
+            <StyledReview $border={item.reviewType} key={item.id} id={`review_id-${item.id}`}>
+              <StyledReviewHeader>
+                <StyledReviewLeftBlock>
+                  {item.avatar === "none_avatar" ? (
+                    <SvgIcon className="avatar" icon={icons.avatarMale} />
+                  ) : (
+                    <StyledReviewAvatar src={item.avatar} alt={item.name} />
+                  )}
+                  <StyledReviewNameAndReviewTypeWrapper>
+                    <StyledReviewName>{item.name}</StyledReviewName>
+                    <StyledReviewType $reviewType={item.reviewType}>
+                      {getReviewContentByType[item.reviewType]}
+                    </StyledReviewType>
+                  </StyledReviewNameAndReviewTypeWrapper>
+                </StyledReviewLeftBlock>
+                <StyledReviewRightBlock></StyledReviewRightBlock>
+              </StyledReviewHeader>
+              <StyledReviewTitleAndDateWrapper>
+                <TitleUI title={item.title} fontSize={30} fontWeight={700} />
+                <span>{item.date}</span>
+              </StyledReviewTitleAndDateWrapper>
+              <StyledReviewContent>{item.content}</StyledReviewContent>
+              <StyledReviewFooter>
+                <CopyReviewLink reviewId={`review_id-${item.id}`} />
+                <ReportToReview movieId={item.movieId} />
+              </StyledReviewFooter>
+            </StyledReview>
           ))}
         </StyledReviewsWrapper>
       )}
+
       {user && (
         <StyledSelfReviews>
           <StyledSelfReviewsHeader>
-            <StyledSelfReviewsImage onClick={handleNavigateProfile} src={user?.avatar} alt={user?.userName} />
+            {user.avatar ? (
+              <StyledSelfReviewsImage onClick={handleNavigateProfile} src={user?.avatar} alt={user?.userName} />
+            ) : (
+              <SvgIcon className="avatar" icon={icons.avatarMale} />
+            )}
             <StyledSelfReviewsHeaderRight>
               <StyledSelfReviewsHeaderName onClick={handleNavigateProfile}>
                 {user?.userName}
