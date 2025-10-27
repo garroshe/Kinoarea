@@ -26,7 +26,12 @@ export const HeaderDesktop = ({ user, isUserLoading, openModal }: HeaderDesktopP
         <StyledRightBlock>
           <Search />
           {user ? (
-            <HeaderUser userName={user?.userName} avatar={user?.avatar} />
+            <HeaderUser
+              userName={user?.userName}
+              loginName={user?.loginName}
+              lastName={user?.lastName}
+              avatar={user?.avatar}
+            />
           ) : isUserLoading ? (
             <SpinnerUI size="large" />
           ) : (

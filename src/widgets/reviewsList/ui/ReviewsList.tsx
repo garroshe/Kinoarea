@@ -51,14 +51,6 @@ export const ReviewsList = () => {
     if (!user) {
       openModal(mapModalName.login);
     }
-
-    const wrapper = document.getElementById("write-review-id");
-    const tittleInput = document.getElementById("write-review-title-id");
-
-    if (wrapper && tittleInput) {
-      wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
-      tittleInput.focus();
-    }
   };
 
   const handleNavigateProfile = () => {
