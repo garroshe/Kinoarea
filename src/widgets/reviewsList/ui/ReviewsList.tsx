@@ -51,6 +51,14 @@ export const ReviewsList = () => {
     if (!user) {
       openModal(mapModalName.login);
     }
+
+    const wrapper = document.getElementById("write-review-id");
+    const tittleInput = document.getElementById("write-review-title-id");
+
+    if (wrapper && tittleInput) {
+      wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+      tittleInput.focus();
+    }
   };
 
   const handleNavigateProfile = () => {
@@ -63,7 +71,7 @@ export const ReviewsList = () => {
       const element = document.getElementById(review);
 
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }, [searchParams, movieReviewsFetch]);
@@ -75,9 +83,30 @@ export const ReviewsList = () => {
   return (
     <ContainerUI>
       <StyledHeader id="movie-reviews">
-        <TitleUI title="Рецензії до фільму" fontSize={65} />
-        <StyledButton onClick={handleAddReviews}>Додати рецензію</StyledButton>
+        <TitleUI title="Коментарі до фільму" fontSize={65} />
+        <StyledButton onClick={handleAddReviews}>Додати коментар</StyledButton>
       </StyledHeader>
+
+      {user && (
+        <StyledSelfReviews>
+          <StyledSelfReviewsHeader>
+            {user.avatar ? (
+              <StyledSelfReviewsImage onClick={handleNavigateProfile} src={user?.avatar} alt={user?.userName} />
+            ) : (
+              <SvgIcon className="avatar" icon={icons.avatarMale} />
+            )}
+            <StyledSelfReviewsHeaderRight>
+              <StyledSelfReviewsHeaderName onClick={handleNavigateProfile}>
+                {user?.userName || user?.loginName || user?.lastName || "Анонім"}
+              </StyledSelfReviewsHeaderName>
+              <StyledSelfReviewsHeaderSubtitle onClick={handleNavigateProfile}>
+                Мій профіль
+              </StyledSelfReviewsHeaderSubtitle>
+            </StyledSelfReviewsHeaderRight>
+          </StyledSelfReviewsHeader>
+          <WriteReviews />
+        </StyledSelfReviews>
+      )}
 
       {movieReviewsFetch.length > 0 && (
         <StyledReviewsWrapper>
@@ -91,7 +120,7 @@ export const ReviewsList = () => {
                     <StyledReviewAvatar src={item.avatar} alt={item.name} />
                   )}
                   <StyledReviewNameAndReviewTypeWrapper>
-                    <StyledReviewName>{item.name}</StyledReviewName>
+                    <StyledReviewName>{item.name || user?.loginName || user?.lastName || "Анонім"}</StyledReviewName>
                     <StyledReviewType $reviewType={item.reviewType}>
                       {getReviewContentByType[item.reviewType]}
                     </StyledReviewType>
@@ -111,27 +140,6 @@ export const ReviewsList = () => {
             </StyledReview>
           ))}
         </StyledReviewsWrapper>
-      )}
-
-      {user && (
-        <StyledSelfReviews>
-          <StyledSelfReviewsHeader>
-            {user.avatar ? (
-              <StyledSelfReviewsImage onClick={handleNavigateProfile} src={user?.avatar} alt={user?.userName} />
-            ) : (
-              <SvgIcon className="avatar" icon={icons.avatarMale} />
-            )}
-            <StyledSelfReviewsHeaderRight>
-              <StyledSelfReviewsHeaderName onClick={handleNavigateProfile}>
-                {user?.userName}
-              </StyledSelfReviewsHeaderName>
-              <StyledSelfReviewsHeaderSubtitle onClick={handleNavigateProfile}>
-                Мій профіль
-              </StyledSelfReviewsHeaderSubtitle>
-            </StyledSelfReviewsHeaderRight>
-          </StyledSelfReviewsHeader>
-          <WriteReviews />
-        </StyledSelfReviews>
       )}
     </ContainerUI>
   );
