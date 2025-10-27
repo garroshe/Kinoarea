@@ -35,6 +35,13 @@ export const StyledSelfReviews = styled.div`
   background-color: ${colors.blue700};
   border-radius: 10px;
   margin-bottom: 70px;
+
+  .avatar {
+    width: 114px;
+    height: 114px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 `;
 
 export const StyledSelfReviewsHeader = styled.div`
@@ -78,13 +85,106 @@ export const StyledReviewsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
+  margin-bottom: 72px;
 `;
 
-export const StyledReview = styled.div`
+export const StyledReview = styled.div<{ $border: string }>`
   width: 100%;
   height: auto;
   background-color: ${colors.blue800};
-  border: 5px solid ${colors.green500};
+  border: 5px solid
+    ${({ $border }) =>
+      $border === "positive" ? colors.green500 : $border === "negative" ? colors.red500 : colors.yellow500};
   border-radius: 10px;
   padding: 47px 44px 73px 44px;
+`;
+
+export const StyledReviewHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const StyledReviewLeftBlock = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 26px;
+
+  .avatar {
+    width: 114px;
+    height: 114px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+`;
+
+export const StyledReviewAvatar = styled.img`
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+`;
+
+export const StyledReviewNameAndReviewTypeWrapper = styled.div`
+  display: flex;
+  gap: 28px;
+  align-items: center;
+`;
+
+export const StyledReviewName = styled.h2`
+  color: ${colors.white50};
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 100%;
+`;
+
+export const StyledReviewType = styled.div<{ $reviewType: string }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  border-radius: 5px;
+  padding: 0 8px;
+  background-color: ${({ $reviewType }) =>
+    $reviewType === "positive"
+      ? "rgba(87, 208, 67, 0.38)"
+      : $reviewType === "negative"
+        ? "rgba(224, 65, 65, 0.38)"
+        : "rgba(255, 240, 101, 0.38)"};
+  color: ${({ $reviewType }) =>
+    $reviewType === "positive" ? colors.green500 : $reviewType === "negative" ? colors.red500 : colors.yellow500};
+`;
+
+export const StyledReviewTitleAndDateWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 44px;
+
+  span {
+    color: ${colors.grey400};
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 100%;
+  }
+`;
+
+export const StyledReviewContent = styled.p`
+  color: ${colors.white50};
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+  margin-top: 20px;
+`;
+
+export const StyledReviewFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+`;
+
+export const StyledReviewRightBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;

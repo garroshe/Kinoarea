@@ -7,7 +7,7 @@ export const MOVIE_TABS = [
   {
     label: "Коментарі",
     index: 1,
-    id: "#movie-comments",
+    id: "#movie-reviews",
   },
   {
     label: "Постери",
