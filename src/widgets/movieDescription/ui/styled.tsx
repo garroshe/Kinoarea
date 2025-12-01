@@ -83,6 +83,7 @@ export const StyledRatingWrapper = styled.div`
       text-decoration-style: solid;
       color: ${colors.white50};
       cursor: pointer;
+      text-align: center;
 
       &:hover {
         color: ${colors.white400};

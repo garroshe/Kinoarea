@@ -6,6 +6,7 @@ import { useUser } from "@/app/providers/user";
 import { CopyReviewLink } from "@/features/copyReviewLink";
 import { ReportToReview } from "@/features/reportToReview";
 import { WriteReviews } from "@/features/writeReviews";
+import { useMediaQuery } from "@/shared/hooks/use-media-query.ts";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
@@ -46,6 +47,8 @@ export const ReviewsList = () => {
   const { user } = useUser();
   const { openModal } = useModal();
   const navigate = useNavigate();
+
+  const isMobile = useMediaQuery("(max-width: 480px)");
 
   const handleAddReviews = () => {
     if (!user) {
@@ -113,13 +116,18 @@ export const ReviewsList = () => {
                   )}
                   <StyledReviewNameAndReviewTypeWrapper>
                     <StyledReviewName>{item.name || user?.loginName || user?.lastName || "Анонім"}</StyledReviewName>
-                    <StyledReviewType $reviewType={item.reviewType}>
-                      {getReviewContentByType[item.reviewType]}
-                    </StyledReviewType>
+                    {!isMobile && (
+                      <StyledReviewType $reviewType={item.reviewType}>
+                        {getReviewContentByType[item.reviewType]}
+                      </StyledReviewType>
+                    )}
                   </StyledReviewNameAndReviewTypeWrapper>
                 </StyledReviewLeftBlock>
                 <StyledReviewRightBlock></StyledReviewRightBlock>
               </StyledReviewHeader>
+              <StyledReviewType $reviewType={item.reviewType}>
+                {getReviewContentByType[item.reviewType]}
+              </StyledReviewType>
               <StyledReviewTitleAndDateWrapper>
                 <TitleUI title={item.title} fontSize={30} fontWeight={700} />
                 <span>{item.date}</span>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media.tsx";
 
 export const StyledLink = styled.span`
   display: flex;
@@ -18,5 +19,17 @@ export const StyledLink = styled.span`
 
   .check {
     width: 14px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    gap: 6px;
+
+    p {
+      font-size: 13px;
+    }
+
+    .check {
+      width: 16px;
+    }
   }
 `;

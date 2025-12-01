@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media.tsx";
 
 export const StyledReportToReview = styled.div`
   display: flex;
@@ -14,5 +15,13 @@ export const StyledReportToReview = styled.div`
     font-weight: 600;
     line-height: 100%;
     text-decoration-line: underline;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    gap: 6px;
+    p {
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
 `;
