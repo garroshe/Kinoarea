@@ -41,7 +41,12 @@ export const HeaderMobile = ({ isMobile, handleBurgerActive, burgerActive, user,
             <SocialUI />
           </StyledCenterBlock>
           {user ? (
-            <HeaderUser userName={user?.userName} avatar={user?.avatar} />
+            <HeaderUser
+              userName={user?.userName}
+              avatar={user?.avatar}
+              lastName={user?.lastName}
+              loginName={user?.loginName}
+            />
           ) : (
             <StyledButton onClick={openModal}>Увійти</StyledButton>
           )}
