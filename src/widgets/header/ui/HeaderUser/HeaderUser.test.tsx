@@ -18,7 +18,7 @@ describe("HeaderUser", () => {
       logout: mockLogout,
     });
 
-    render(<HeaderUser userName="test" avatar="test" />);
+    render(<HeaderUser userName="test" avatar="test" loginName="test" lastName="test" />);
 
     expect(screen.queryByTestId("dropdown-test-id")).not.toBeInTheDocument();
 
