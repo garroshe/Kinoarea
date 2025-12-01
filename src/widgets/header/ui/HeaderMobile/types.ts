@@ -1,7 +1,4 @@
-export interface IUser {
-  userName?: string;
-  avatar?: string;
-}
+import type { IUser } from "@/app/providers/user/model/types";
 
 export interface HeaderMobileProps {
   user: IUser | null;

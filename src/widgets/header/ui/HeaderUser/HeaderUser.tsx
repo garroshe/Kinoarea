@@ -15,7 +15,7 @@ import {
   StyledHeaderUserName,
 } from "./styled";
 
-export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
+export const HeaderUser = ({ userName, loginName, lastName, avatar }: IHeaderUserProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement | null>(null);
   const headerUserRef = useRef<HTMLDivElement | null>(null);
@@ -51,7 +51,9 @@ export const HeaderUser = ({ userName, avatar }: IHeaderUserProps) => {
     <StyledHeaderUserContainer>
       <StyledHeaderUser ref={headerUserRef} onClick={handleOpenDropdown} data-testid="headerUser">
         {!isTabletOrSmaller && <SvgIcon icon={icons.collapseIcon} />}
-        {!isTabletOrSmaller && <StyledHeaderUserName>{userName}</StyledHeaderUserName>}
+        {!isTabletOrSmaller && (
+          <StyledHeaderUserName>{userName || loginName || lastName || "Анонім"}</StyledHeaderUserName>
+        )}
         {avatar ? (
           <StyledAvatarWrapper>
             <StyledAvatar src={avatar} alt="avatar" />
