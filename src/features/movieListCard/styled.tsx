@@ -21,6 +21,7 @@ export const StyledMovieListCard = styled.div`
   ${mapDeviceToMedia.mobileOnly} {
     padding: 18px 0 23px 0;
     gap: 10px;
+    justify-content: start;
   }
 `;
 
