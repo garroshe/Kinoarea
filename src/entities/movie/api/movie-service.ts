@@ -7,6 +7,7 @@ import type {
   MovieResponseType,
   MovieReviewsResponseType,
   MoviesResponseType,
+  MovieType,
   PayloadType,
   ReviewType,
   VideoResponseType,
@@ -170,5 +171,19 @@ export const movieService = Object.freeze({
       console.log(error);
       return { error, data: null };
     }
+  },
+  moviesFetch: async (payload: PayloadType): Promise<MovieType[]> => {
+    const { sortBy, page } = payload;
+
+    const res = await axiosInstance.get("discover/movie", {
+      params: {
+        api_key: API_KEY,
+        language: "uk-UA",
+        sort_by: sortBy,
+        page,
+      },
+    });
+
+    return res.data.results;
   },
 });

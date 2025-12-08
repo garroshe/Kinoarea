@@ -1,4 +1,5 @@
-import { mapRatingToColorCircle } from "./map-rating-to-color-circle";
+import { mapRatingToColorCircle } from "@/shared/utils/map-rating-to-color-circle";
+
 import { StyledLabel, StyledNoRatingCircle, StyledRatingCircleUI } from "./styled";
 
 type RatingCirclePropsType = {
