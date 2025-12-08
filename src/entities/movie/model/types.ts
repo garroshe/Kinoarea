@@ -63,6 +63,7 @@ export type PayloadType = {
   id?: number | string | null;
   date?: string;
   genre?: string;
+  sortBy?: string;
 };
 
 export type MovieResponseType = {

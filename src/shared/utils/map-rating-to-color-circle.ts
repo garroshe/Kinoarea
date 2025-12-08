@@ -10,6 +10,7 @@ export const mapRatingToColorCircle = (rating: number) => {
     3: "#DA3434",
     2: "#F13030",
     1: "#FF0000",
+    0: "#FF0000",
   };
 
   return color[rating];

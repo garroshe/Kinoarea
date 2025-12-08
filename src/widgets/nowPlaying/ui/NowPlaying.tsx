@@ -30,7 +30,7 @@ export const NowPlaying = () => {
   };
 
   const handleOpenAllNews = () => {
-    navigate(routesBook.posters());
+    navigate(routesBook.films());
   };
 
   return (

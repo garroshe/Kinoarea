@@ -9,4 +9,5 @@ export const movieQueryKeys = {
   movieSequelsAndPrequelsFetch: "movieSequelsAndPrequelsFetch",
   movieReviewsFetch: "movieReviewsFetch",
   movieReviewsFetchMutation: "movieReviewsFetchMutation",
+  moviesFetch: "movieFetch",
 };
