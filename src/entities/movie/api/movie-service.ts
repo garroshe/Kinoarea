@@ -1,7 +1,8 @@
 import { axiosInstance, mockApiAxiosInstance } from "@/shared/api/axiosInstance";
 
-import { API_KEY } from "../model/constants";
+import { API_KEY } from "../const";
 import type {
+  ActorMovieResponseType,
   MovieCollectionsResponseType,
   MovieImagesResponseType,
   MovieResponseType,
@@ -11,7 +12,7 @@ import type {
   PayloadType,
   ReviewType,
   VideoResponseType,
-} from "../model/types";
+} from "../types";
 
 export const movieService = Object.freeze({
   moviesNowPlayingFetch: async (payload: PayloadType): Promise<MoviesResponseType> => {
@@ -183,7 +184,22 @@ export const movieService = Object.freeze({
         page,
       },
     });
-
     return res.data.results;
+  },
+  actorMoviesFetch: async (payload: PayloadType): Promise<ActorMovieResponseType> => {
+    try {
+      const { id } = payload;
+      const res = await axiosInstance.get(`/person/${id}/combined_credits`, {
+        params: {
+          api_key: API_KEY,
+          language: "uk-UA",
+        },
+      });
+
+      return { error: null, data: res.data };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
   },
 });

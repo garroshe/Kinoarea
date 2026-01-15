@@ -10,6 +10,7 @@ export const SkeletonUI = ({ types, active = true, size = "default" }: ISkeleton
     [type.input]: Skeleton.Input,
     [type.image]: Skeleton.Image,
     [type.button]: Skeleton.Button,
+    [type.none]: Skeleton,
   };
 
   const SkeletonJSX = skeleton[types];

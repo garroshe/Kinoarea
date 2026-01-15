@@ -1,1 +1,1 @@
-export { SliderWithMovie } from "./ui/SliderWithMovie";
+export { SliderWithMovie } from "./SliderWithMovie";

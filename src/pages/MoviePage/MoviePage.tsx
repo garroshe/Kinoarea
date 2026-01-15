@@ -1,5 +1,5 @@
-import { Header } from "@/widgets/header";
-import { MoviePageList } from "@/widgets/moviePageList";
+import { Header } from "@/widgets/Header";
+import { MoviePageList } from "@/widgets/MoviePageList";
 
 const MoviePage = () => {
   return (
