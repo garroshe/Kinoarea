@@ -8,8 +8,8 @@ export const StyledLargeCard = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 176px 0 34px 0;
-  width: 395px;
-  height: 540px;
+  width: 350px;
+  height: 500px;
   border-radius: 10px;
   background: ${colors.blue800};
 

@@ -4,4 +4,5 @@ export const type = {
   image: "image",
   input: "input",
   button: "button",
+  none: "none",
 };

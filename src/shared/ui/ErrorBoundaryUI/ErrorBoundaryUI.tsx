@@ -1,21 +1,28 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
 
-import type { IErrorBoundaryProps, IErrorBoundaryState } from "./types";
-import { StyledErrorBoundary } from "./styled";
+import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 
-class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> {
-  state: IErrorBoundaryState = {
+export type ErrorBoundaryPropsType = {
+  children: ReactNode;
+};
+
+export type ErrorBoundaryStateType = {
+  error: boolean;
+};
+
+class ErrorBoundary extends Component<ErrorBoundaryPropsType, ErrorBoundaryStateType> {
+  state: ErrorBoundaryStateType = {
     error: false,
   };
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error("Caught by ErrorBoundary:", error, errorInfo);
     this.setState({ error: true });
   }
 
-  render(): ReactNode {
+  render() {
     if (this.state.error) {
-      return <StyledErrorBoundary>Щось пішло не так :(</StyledErrorBoundary>;
+      return <ErrorStateUI />;
     }
     return this.props.children;
   }

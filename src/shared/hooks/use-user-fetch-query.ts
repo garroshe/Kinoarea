@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import type { IUser } from "@/app/providers/user/model/types";
-import { userService } from "@/entities/user/api/userService";
+import { userService } from "@/entities/user/api/user-service";
 import { usersQueryKeys } from "@/entities/user/store/queryKeys";
 
 export const useUserFetchQuery = () => {

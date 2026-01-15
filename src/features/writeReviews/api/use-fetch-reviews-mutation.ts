@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 
 import { movieService } from "@/entities/movie/api/movie-service";
-import type { ReviewType } from "@/entities/movie/model/types";
 import { movieQueryKeys } from "@/entities/movie/store/query-keys";
+import type { ReviewType } from "@/entities/movie/types";
 
 export const useFetchReviewsMutation = () => {
   const { isPending, mutate } = useMutation({
