@@ -2,10 +2,15 @@ import { forwardRef } from "react";
 
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import type { ICheckBoxUIProps } from "./type";
 import { StyledCheckBoxContainer, StyledCheckBoxUI, StyledHideCheckBox, StyledLabel } from "./styled";
 
-export const CheckBoxUI = forwardRef<HTMLInputElement, ICheckBoxUIProps>(
+export type CheckBoxUIPropsType = {
+  checked: boolean;
+  onHandleChange: (value: boolean) => void;
+  label: string;
+};
+
+export const CheckBoxUI = forwardRef<HTMLInputElement, CheckBoxUIPropsType>(
   ({ checked, onHandleChange, label, ...props }, ref) => {
     const handleCheckedChange = () => {
       onHandleChange(!checked);

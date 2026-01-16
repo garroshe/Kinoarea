@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { AddToFavorites } from "@/features/addToFavorites";
-import { Breadcrumbs } from "@/features/breadcrumbs";
-import { LikeOrDislike } from "@/features/likeOrDislike";
+import { AddToFavorites } from "@/features/AddToFavorites";
+import { Breadcrumbs } from "@/features/Breadcrumbs";
+import { LikeOrDislike } from "@/features/LikeOrDislike";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
@@ -15,7 +15,7 @@ import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
 
 import { safeValue } from "../../../shared/utils/safe-value";
-import { useMovieFetchByIdQuery } from "../api/hooks/use-movie-fetch-by-id-query";
+import { useMovieFetchByIdQuery } from "../api/use-movie-fetch-by-id-query";
 import { formatRuntime } from "../lib/format-runtime";
 import {
   StyledActionBlock,

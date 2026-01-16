@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { MovieListCard } from "@/features/movieListCard";
+import { MovieListCard } from "@/features/MovieListCard";
 import { DEFAULT_SELECT_VALUE, SELECTOR_OPTIONS } from "@/shared/constants";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SelectorUI } from "@/shared/ui/SelectorUI";

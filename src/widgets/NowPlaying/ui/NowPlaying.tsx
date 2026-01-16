@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { MovieCard } from "@/features/movieCard";
-import { MovieFilterByGenre } from "@/features/movieFilterByGenre";
+import { MovieCard } from "@/features/MovieCard";
+import { MovieFilterByGenre } from "@/features/MovieFilterByGenre";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { routesBook } from "@/shared/routing/routesBook";
-import { BurgerFilterUI } from "@/shared/ui/BurgerFilterUI";
+import { BurgerButtonUI } from "@/shared/ui/BurgerButtonUI";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI";
-import { MovieNotFound } from "@/shared/ui/MovieNotFoundUI";
+import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
-import { useMoviesNowPlayingFetch } from "../model/use-movies-now-playing-fetch";
+import { useMoviesNowPlayingFetch } from "../api/use-movies-now-playing-fetch";
+import { ERROR_MESSAGE } from "../const";
 import { StyledAllNewsButton, StyledCards, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
 
 export const NowPlaying = () => {
@@ -40,12 +41,12 @@ export const NowPlaying = () => {
         <StyledNowPlayingWrapper>
           <TitleUI fontWeight={900} fontSize={65} title="Зараз у кіно" />
           {!isDesktop ? <DividerUI /> : null}
-          {isMobile && !activeFilters && <BurgerFilterUI onClick={handleActiveFiltersChange} />}
+          {isMobile && !activeFilters && <BurgerButtonUI onClick={handleActiveFiltersChange} />}
           {!isMobile && <MovieFilterByGenre />}
         </StyledNowPlayingWrapper>
         {activeFilters && <MovieFilterByGenre />}
 
-        {!isMovieLoading && movieDataFetch?.length === 0 && <MovieNotFound />}
+        {!isMovieLoading && movieDataFetch?.length === 0 && <ErrorStateUI content={ERROR_MESSAGE} />}
 
         {isMovieLoading ? (
           <CenteredContentUI testId="now-playing-spinner">

@@ -1,6 +1,6 @@
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import { SIZE_TYPE } from "./constatns";
+import { SIZE_TYPE } from "./constants";
 import { StyledLargeCard, StyledSmallCard } from "./styled";
 
 type ActorNotFoundUIPropsType = { size: "small" | "large" };

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { useUser } from "@/app/providers/user";
-import { HeaderUserDropDown } from "@/features/headerUserDropDownList";
+import { HeaderUserDropDown } from "@/features/HeaderUserDropDownList";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 

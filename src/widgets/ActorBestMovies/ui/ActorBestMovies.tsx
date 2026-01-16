@@ -1,13 +1,13 @@
-import { SliderWithMovie } from "@/features/sliderWithMovieCard";
+import { SliderWithMovie } from "@/features/SliderWithMovieCard";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 
 import { ERROR_MESSAGE } from "../const";
-import { formaterMovieData } from "../model";
+import { useMovieData } from "../model";
 import { StyledTitle, StyledWrapper } from "./styled";
 
 export const ActorBestMovies = () => {
-  const { movieError, isMovieLoading, formatedMovieData } = formaterMovieData();
+  const { movieError, isMovieLoading, bestMovies } = useMovieData();
 
   return (
     <ContainerUI>
@@ -16,7 +16,7 @@ export const ActorBestMovies = () => {
         {movieError ? (
           <ErrorStateUI content={ERROR_MESSAGE} />
         ) : (
-          <SliderWithMovie isMovieLoading={isMovieLoading} movieData={formatedMovieData} />
+          <SliderWithMovie isMovieLoading={isMovieLoading} movieData={bestMovies} />
         )}
       </StyledWrapper>
     </ContainerUI>

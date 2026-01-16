@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Breadcrumbs } from "@/features/breadcrumbs";
+import { Breadcrumbs } from "@/features/Breadcrumbs";
 import { colors } from "@/shared/constants/style";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { routesBook } from "@/shared/routing/routesBook";
@@ -10,7 +10,7 @@ import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { safeValue } from "@/shared/utils/safe-value";
 
 import { useFetchActorInfoQuery } from "../api/use-fetch-actor-info-query";
-import { ACTION_TYPE } from "../model/constants";
+import { ACTION_TYPE } from "../const";
 import {
   StyledActorInfo,
   StyledAlsoKnowsAs,

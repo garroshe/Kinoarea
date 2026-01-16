@@ -1,5 +1,16 @@
-import type { ButtonUIPropsType } from "./types";
+import type { ReactNode } from "react";
+
 import { StyledButtonUI } from "./styled";
+
+export type ButtonUIPropsType = {
+  children?: ReactNode;
+  type?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  width?: number;
+  height?: number;
+  onSubmit?: () => void;
+};
 
 export const ButtonUI = ({
   children,

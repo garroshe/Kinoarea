@@ -1,4 +1,4 @@
-import { MovieTabs } from "@/features/movieTabs";
+import { MovieTabs } from "@/features/MovieTabs";
 import ErrorBoundary from "@/shared/ui/ErrorBoundaryUI/ErrorBoundaryUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
@@ -11,7 +11,7 @@ import { PopularMovie } from "@/widgets/PopularMovie";
 import { ReviewsList } from "@/widgets/ReviewsList";
 import { SequelsAndPrequels } from "@/widgets/SequelsAndPrequels";
 
-import { useMovieFetchByIdQuery } from "../model/hooks/use-movie-fetch-by-id-query";
+import { useMovieFetchByIdQuery } from "../api/use-movie-fetch-by-id-query";
 import { StyledCardMoviePage } from "./styled";
 
 const CardMoviePage = () => {

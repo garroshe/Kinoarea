@@ -1,11 +1,11 @@
-import { LoginModalContent } from "@/features/loginWithEmail";
-import { RegistrationModalContent } from "@/features/registerUser";
-import { ResetPassword } from "@/features/resetPassword";
-import { MessageModalContent } from "@/features/showMessageModal";
+import { LoginModalContent } from "@/features/LoginWithEmail";
+import { RegistrationModalContent } from "@/features/RegisterUser";
+import { ResetPassword } from "@/features/ResetPassword";
+import { MessageModalContent } from "@/features/ShowMessageModal";
 
-import type { ModalMap } from "./types";
+import type { ModalMapType } from "./types";
 
-export const modalMap: ModalMap = {
+export const modalMap: ModalMapType = {
   login: LoginModalContent,
   register: RegistrationModalContent,
   message: MessageModalContent,

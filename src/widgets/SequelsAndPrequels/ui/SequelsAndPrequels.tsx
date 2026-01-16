@@ -1,10 +1,10 @@
-import { SliderWithMovie } from "@/features/sliderWithMovieCard";
+import { SliderWithMovie } from "@/features/SliderWithMovieCard";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { TitleUI } from "@/shared/ui/TitleUI";
 
-import { useGetMovieFetchQuery } from "../api/hooks/use-get-movie-fetch-query";
-import { useGetMovieSequelsAndPrequels } from "../api/hooks/use-get-movie-sequels-and-prequels-fetch-query";
+import { useGetMovieFetchQuery } from "../api/use-get-movie-fetch-query";
+import { useGetMovieSequelsAndPrequels } from "../api/use-get-movie-sequels-and-prequels-fetch-query";
 import { StyledSequelsAndPrequels } from "./styled";
 
 export const SequelsAndPrequels = () => {

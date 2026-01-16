@@ -10,6 +10,9 @@ type MediaSectionHeaderPropsType = {
   isLoading?: boolean;
 };
 
+// TO DO
+// Add to other widgets
+
 export const MediaSectionHeader = ({ title, actionLabel, onActionClick, subtitle }: MediaSectionHeaderPropsType) => {
   return (
     <>

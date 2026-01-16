@@ -1,6 +1,6 @@
 import { SvgIcon } from "@/shared/ui/SvgIcon";
 
-import { SOCIAL_ICONS } from "./constatns";
+import { SOCIAL_ICONS } from "./constants";
 import { StyledSocial } from "./styled";
 
 export const Social = () => {

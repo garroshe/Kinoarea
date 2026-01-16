@@ -3,9 +3,9 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { useModal } from "@/app/providers/modal";
 import { useUser } from "@/app/providers/user";
-import { CopyReviewLink } from "@/features/copyReviewLink";
-import { ReportToReview } from "@/features/reportToReview";
-import { WriteReviews } from "@/features/writeReviews";
+import { CopyReviewLink } from "@/features/CopyReviewLink";
+import { ReportToReview } from "@/features/ReportToReview";
+import { WriteReviews } from "@/features/WriteReviews";
 import { useMediaQuery } from "@/shared/hooks/use-media-query.ts";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
@@ -13,9 +13,9 @@ import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
-import { getReviewContentByType } from "@/widgets/ReviewsList/utils/get-review-content-by-type";
+import { getReviewContentByType } from "@/widgets/ReviewsList/lib/get-review-content-by-type";
 
-import { useGetReviewsFetchQuery } from "../api/hooks/use-get-reviews-fetch-query";
+import { useGetReviewsFetchQuery } from "../api/use-get-reviews-fetch-query";
 import {
   StyledButton,
   StyledHeader,

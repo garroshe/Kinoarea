@@ -13,7 +13,7 @@ describe("mapModalName", () => {
     expect(mapModalName.message).toBe("message");
   });
 
-  it("Return 'resetPassword' for resetPassword", () => {
+  it("Return 'ResetPassword' for ResetPassword", () => {
     expect(mapModalName.resetPassword).toBe("resetPassword");
   });
 });

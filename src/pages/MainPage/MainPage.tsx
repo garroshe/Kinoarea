@@ -1,4 +1,4 @@
-import { SliderWithNewTrailer } from "@/features/sliderWithNewTrailer";
+import { SliderWithNewTrailer } from "@/features/SliderWithNewTrailer";
 import ErrorBoundary from "@/shared/ui/ErrorBoundaryUI/ErrorBoundaryUI";
 import { Header } from "@/widgets/Header";
 import { MailingList } from "@/widgets/MailingList";
