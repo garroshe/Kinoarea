@@ -1,8 +1,16 @@
 import { ModalUI } from "@/shared/ui/ModalUI";
 import { modalMap } from "@/widgets/Modal/model/modal-map";
-import type { IModalProps } from "@/widgets/Modal/model/types";
+import type { ModalNameType } from "@/widgets/Modal/model/types";
 
-export const Modal = ({ modalName, open, onClose, title, message }: IModalProps) => {
+export type ModalPropsType = {
+  modalName: ModalNameType | null;
+  open: boolean;
+  onClose: () => void;
+  message?: string;
+  title?: string;
+};
+
+export const Modal = ({ modalName, open, onClose, title, message }: ModalPropsType) => {
   const ModalComponent = modalName ? modalMap[modalName] : null;
 
   if (!open) {

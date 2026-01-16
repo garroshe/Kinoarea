@@ -1,10 +1,10 @@
-import { GridImages } from "@/features/gridImages";
+import { GridImages } from "@/features/GridImages";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { MediaSectionHeader } from "@/shared/ui/MediaSectionHeader";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 
-import { useFramesFetchQueryById } from "../model/hooks/use-frames-fetch-query-by-id";
-import { useMovieFetchByIdQuery } from "../model/hooks/use-movie-fetch-by-id-query";
+import { useFramesFetchQueryById } from "../api/use-frames-fetch-query-by-id";
+import { useMovieFetchByIdQuery } from "../api/use-movie-fetch-by-id-query";
 import { StyledMovieFrames } from "./styled";
 
 export const MovieFrames = () => {

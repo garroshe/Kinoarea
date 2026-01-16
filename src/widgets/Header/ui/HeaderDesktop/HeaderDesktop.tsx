@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 
-import { Search } from "@/features/search";
+import { Search } from "@/features/Search";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import type { HeaderDesktopProps } from "@/widgets/Header/ui/HeaderDesktop/types";
 
 import { HeaderUser } from "../HeaderUser/HeaderUser";
 import { NavBar } from "../NavBar/NavBar";
+import type { HeaderDesktopProps } from "./types";
 import { StyledButton, StyledHeader, StyledLeftBlock, StyledRightBlock } from "./styled";
 
 export const HeaderDesktop = ({ user, isUserLoading, openModal }: HeaderDesktopProps) => {

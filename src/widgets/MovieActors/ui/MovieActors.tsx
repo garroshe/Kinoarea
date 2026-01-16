@@ -5,7 +5,7 @@ import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI";
 
-import { useFetchMovieActors } from "../api/hooks/use-fetch-movie-actors-query";
+import { useFetchMovieActors } from "../api/use-fetch-movie-actors-query";
 import { StyledAllActors, StyledGridItems, StyledHeader, StyledMovieActors } from "./styled";
 
 export const MovieActors = () => {

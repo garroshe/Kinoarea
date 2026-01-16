@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Search } from "@/features/search";
+import { Search } from "@/features/Search";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SocialUI } from "@/shared/ui/SocialUI";

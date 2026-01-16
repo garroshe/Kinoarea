@@ -3,7 +3,8 @@ import styled from "styled-components";
 import bg from "@/shared/assets/image/email-send-bg.jpg";
 import { colors } from "@/shared/constants/style";
 import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
-import type { IStyledBtnProps } from "@/widgets/MailingList/model/types";
+
+import type { StyledBtnPropsType } from "../model/types";
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -126,7 +127,7 @@ export const StyledInput = styled.input`
   }
 `;
 
-export const StyledBtn = styled.button<IStyledBtnProps>`
+export const StyledBtn = styled.button<StyledBtnPropsType>`
   display: flex;
   justify-content: center;
   align-items: center;

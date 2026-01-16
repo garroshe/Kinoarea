@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { MovieFilterByRelease } from "@/features/movieFilterByRelease";
-import { SliderWithMovie } from "@/features/sliderWithMovieCard";
+import { MovieFilterByRelease } from "@/features/MovieFilterByRelease";
+import { SliderWithMovie } from "@/features/SliderWithMovieCard";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
-import { BurgerFilterUI } from "@/shared/ui/BurgerFilterUI";
+import { BurgerButtonUI } from "@/shared/ui/BurgerButtonUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI";
 import { TitleUI } from "@/shared/ui/TitleUI";
@@ -29,7 +29,7 @@ export const PopularMovie = () => {
         <StyledHeader>
           <TitleUI title="Популярні фільми" fontSize={65} />
           {!isLaptop && <DividerUI />}
-          {isMobile && !activeFilter && <BurgerFilterUI onClick={handleActiveFiltersChange} />}
+          {isMobile && !activeFilter && <BurgerButtonUI onClick={handleActiveFiltersChange} />}
           {!isMobile && <MovieFilterByRelease />}
         </StyledHeader>
         {activeFilter && <MovieFilterByRelease />}

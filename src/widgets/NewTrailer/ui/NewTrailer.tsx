@@ -1,6 +1,6 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
-import { LikeOrDislike } from "@/features/likeOrDislike";
+import { LikeOrDislike } from "@/features/LikeOrDislike";
 import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
@@ -10,9 +10,9 @@ import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToYouTubeVideo } from "@/shared/utils/get-path-to-you-tube-video";
 
-import { DEFAULT_TRAILER_ID, IFRAME_ALLOW, VIDEO_TYPE } from "../model/constants";
-import { useMovieFetchQuery } from "../model/hooks/use-movie-fetch-query";
-import { useTrailerFetchQuery } from "../model/hooks/use-trailer-fetch-query";
+import { useMovieFetchQuery } from "../api/use-movie-fetch-query";
+import { useTrailerFetchQuery } from "../api/use-trailer-fetch-query";
+import { DEFAULT_TRAILER_ID, IFRAME_ALLOW, VIDEO_TYPE } from "../const";
 import {
   StyledHeader,
   StyledLeftBlock,

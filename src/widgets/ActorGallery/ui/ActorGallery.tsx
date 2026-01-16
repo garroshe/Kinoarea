@@ -1,4 +1,4 @@
-import { GridImages } from "@/features/gridImages";
+import { GridImages } from "@/features/GridImages";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 import { MediaSectionHeader } from "@/shared/ui/MediaSectionHeader";

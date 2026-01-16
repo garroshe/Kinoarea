@@ -1,3 +1,3 @@
-export interface IStyledBtnProps {
+export type StyledBtnPropsType = {
   $disabled: boolean;
-}
+};

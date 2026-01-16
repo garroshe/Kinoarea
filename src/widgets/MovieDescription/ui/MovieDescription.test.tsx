@@ -2,10 +2,10 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { useMovieFetchByIdQuery } from "../api/hooks/use-movie-fetch-by-id-query";
+import { useMovieFetchByIdQuery } from "../api/use-movie-fetch-by-id-query";
 import { MovieDescription } from "./MovieDescription";
 
-vi.mock("../api/hooks/use-movie-fetch-by-id-query", () => ({
+vi.mock("../api/use-movie-fetch-by-id-query", () => ({
   useMovieFetchByIdQuery: vi.fn(),
 }));
 

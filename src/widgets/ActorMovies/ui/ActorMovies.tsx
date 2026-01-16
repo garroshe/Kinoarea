@@ -1,4 +1,4 @@
-import { MovieListCard } from "@/features/movieListCard";
+import { MovieListCard } from "@/features/MovieListCard";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";

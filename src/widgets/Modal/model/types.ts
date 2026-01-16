@@ -1,18 +1,10 @@
 import { type FC } from "react";
 
-export interface IModalComponentProps {
+export type ModalComponentPropsType = {
   title?: string;
   message?: string;
-}
+};
 
-export type ModalName = "login" | "register" | "message" | "resetPassword";
+export type ModalNameType = "login" | "register" | "message" | "resetPassword";
 
-export type ModalMap = Record<ModalName, FC<IModalComponentProps>>;
-
-export interface IModalProps {
-  modalName: ModalName | null;
-  open: boolean;
-  onClose: () => void;
-  message?: string;
-  title?: string;
-}
+export type ModalMapType = Record<ModalNameType, FC<ModalComponentPropsType>>;

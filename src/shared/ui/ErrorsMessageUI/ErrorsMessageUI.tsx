@@ -1,6 +1,9 @@
-import type { IErrorsMessageProps } from "./types";
 import { StyledErrorMessage } from "./styled";
 
-export const ErrorsMessageUI = ({ error }: IErrorsMessageProps) => {
+export type ErrorsMessagePropsType = {
+  error: string;
+};
+
+export const ErrorsMessageUI = ({ error }: ErrorsMessagePropsType) => {
   return <StyledErrorMessage>{error}</StyledErrorMessage>;
 };

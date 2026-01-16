@@ -1,15 +1,13 @@
 import { useFetchActorMovieQuery } from "../api/use-fetch-actor-movie-query";
 
-export const formaterMovieData = () => {
+export const useMovieData = () => {
   const { movieDataFetch, isMovieLoading, movieError } = useFetchActorMovieQuery();
 
-  const formatedMovieData = movieDataFetch?.cast
-    ?.sort((a, b) => Number(b.popularity) - Number(a.popularity))
-    .slice(0, 15);
+  const bestMovies = movieDataFetch?.cast?.sort((a, b) => Number(b.popularity) - Number(a.popularity)).slice(0, 15);
 
   return {
     isMovieLoading,
     movieError,
-    formatedMovieData,
+    bestMovies,
   };
 };

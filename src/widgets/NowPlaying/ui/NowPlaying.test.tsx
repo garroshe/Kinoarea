@@ -2,11 +2,11 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { useMoviesNowPlayingFetch } from "@/widgets/NowPlaying/model/use-movies-now-playing-fetch";
+import { useMoviesNowPlayingFetch } from "@/widgets/NowPlaying/api/use-movies-now-playing-fetch";
 
 import { NowPlaying } from "./NowPlaying";
 
-vi.mock("@/widgets/NowPlaying/model/use-movies-now-playing-fetch", () => ({
+vi.mock("@/widgets/NowPlaying/api/use-movies-now-playing-fetch", () => ({
   useMoviesNowPlayingFetch: vi.fn(),
 }));
 
@@ -44,7 +44,7 @@ describe("Now playing", () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByText(/Фільми не знайдено./i)).toBeInTheDocument();
+    expect(screen.getByText(/Невдалося завантажити фільми, спробуйте будьласка пізніше/i)).toBeInTheDocument();
   });
 
   it("render movies", () => {

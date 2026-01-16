@@ -1,11 +1,16 @@
 import { useEffect, type MouseEvent } from "react";
+import type { ReactNode } from "react";
 
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import type { ModalProps } from "./types";
 import { StyledModalContent, StyledModalOverlay, StyledModalPosition } from "./styled";
 
-export const ModalUI = ({ onClose, children }: ModalProps) => {
+export type ModalPropsType = {
+  onClose: () => void;
+  children: ReactNode;
+};
+
+export const ModalUI = ({ onClose, children }: ModalPropsType) => {
   const handleCloseModal = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
