@@ -85,3 +85,9 @@ export const StyledMoreButton = styled.button`
     height: 55px;
   }
 `;
+
+export const StyledTitle = styled.h2`
+  font-size: 65px;
+  font-weight: 900;
+  color: ${colors.white50};
+`;

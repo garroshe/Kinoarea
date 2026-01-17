@@ -418,3 +418,27 @@ export const StyledListValue = styled.ul`
     width: 220px;
   }
 `;
+
+export const StyledMobileTitle = styled.h2`
+  font-size: 32px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  font-weight: 900;
+  color: ${colors.white50};
+`;
+
+export const StyledTitle = styled.h2`
+  font-size: 60px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  font-weight: 900;
+  color: ${colors.white50};
+
+  ${mapDeviceToMedia.laptopOnly} {
+    font-size: 40px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 40px;
+  }
+`;

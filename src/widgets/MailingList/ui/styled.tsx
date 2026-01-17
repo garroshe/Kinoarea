@@ -26,26 +26,14 @@ export const StyledMailingList = styled.div`
 
   ${mapDeviceToMedia.laptopOnly} {
     padding: 50px 0;
-
-    h2 {
-      font-size: 35px;
-    }
   }
 
   ${mapDeviceToMedia.tabletOnly} {
     padding: 32px 0 42px 0;
-
-    h2 {
-      font-size: 35px;
-    }
   }
 
   ${mapDeviceToMedia.mobileOnly} {
     padding: 25px 22px;
-
-    h2 {
-      font-size: 25px;
-    }
   }
 `;
 
@@ -163,5 +151,24 @@ export const StyledBtn = styled.button<StyledBtnPropsType>`
     height: 62px;
     font-size: 15px;
     padding: 18px 34px;
+  }
+`;
+
+export const StyledTitle = styled.h2`
+  font-size: 50px;
+  margin-top: 53px;
+  margin-bottom: 26px;
+  color: ${colors.white50};
+
+  ${mapDeviceToMedia.laptopOnly} {
+    font-size: 35px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 35px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 25px;
   }
 `;

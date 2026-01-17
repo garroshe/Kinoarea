@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 import { GridImages } from "@/features/GridImages";
+import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { MediaSectionHeader } from "@/shared/ui/MediaSectionHeader";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
@@ -10,6 +13,12 @@ import { StyledMovieFrames } from "./styled";
 export const MovieFrames = () => {
   const { movieImagesFetch, isMovieImagesLoading } = useFramesFetchQueryById();
   const { movieDataFetch, isMovieLoading } = useMovieFetchByIdQuery();
+
+  const navigate = useNavigate();
+
+  const handleRedirectToAllPosters = () => {
+    navigate(routesBook.posters());
+  };
 
   const { backdrops } = movieImagesFetch || {};
 
@@ -23,7 +32,7 @@ export const MovieFrames = () => {
         <MediaSectionHeader
           title="Кадри з фільму"
           actionLabel="Усі постери"
-          onActionClick={() => console.log("redirect to all posters")}
+          onActionClick={handleRedirectToAllPosters}
           subtitle={String(movieDataFetch?.title)}
         />
         <GridImages images={backdrops} />

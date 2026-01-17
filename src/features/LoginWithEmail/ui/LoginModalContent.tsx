@@ -4,19 +4,24 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 
 import { useModal } from "@/app/providers/modal";
 import type { LoginFieldsType } from "@/entities/user/types";
-import { colors } from "@/shared/constants/style";
 import { useAuth } from "@/shared/hooks/use-auth";
 import { ButtonUI } from "@/shared/ui/ButtonUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI";
 import { InputUI } from "@/shared/ui/InputUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { SvgIcon } from "@/shared/ui/SvgIcon/SvgIcon";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 
 import { INPUTS_PLACEHOLDER, MESSAGE_MODAL } from "../const";
 import { schema } from "../model/schema";
-import { StyledLoginForm, StyledRegisterButton, StyledResetPassword, StyledSocial, StyledSocialItems } from "./styled";
+import {
+  StyledLoginForm,
+  StyledRegisterButton,
+  StyledResetPassword,
+  StyledSocial,
+  StyledSocialItems,
+  StyledTitle,
+} from "./styled";
 
 export const LoginModalContent = () => {
   const {
@@ -53,7 +58,7 @@ export const LoginModalContent = () => {
 
   return (
     <StyledLoginForm onSubmit={handleSubmit(onSubmit)}>
-      <TitleUI title="Увійти" fontSize={40} fontWeight={800} color={colors.white50} marginBottom={34} />
+      <StyledTitle>Увійти</StyledTitle>
 
       <InputUI placeholder={INPUTS_PLACEHOLDER.email} {...register("email")} />
       {errors.email?.message && <ErrorsMessageUI error={errors.email.message} />}

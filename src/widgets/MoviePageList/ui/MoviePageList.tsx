@@ -4,11 +4,10 @@ import { MovieListCard } from "@/features/MovieListCard";
 import { DEFAULT_SELECT_VALUE, SELECTOR_OPTIONS } from "@/shared/constants";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SelectorUI } from "@/shared/ui/SelectorUI";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import { useFetchMoviesQuery } from "../api/use-fetch-movies-query";
-import { StyledHeader, StyledMoreButton, StyledMoviePageList } from "./styled";
+import { StyledHeader, StyledMoreButton, StyledMoviePageList, StyledTitle } from "./styled";
 
 export const MoviePageList = () => {
   const [sortBy, setSortBy] = useState(DEFAULT_SELECT_VALUE);
@@ -23,7 +22,7 @@ export const MoviePageList = () => {
     <ContainerUI>
       <StyledMoviePageList>
         <StyledHeader>
-          <TitleUI title="Фільми" fontSize={65} fontWeight={900} />
+          <StyledTitle>Фільми</StyledTitle>
           <SelectorUI options={SELECTOR_OPTIONS} onChange={setSortBy} />
         </StyledHeader>
         <div>

@@ -11,12 +11,11 @@ import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI";
 import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import { useMoviesNowPlayingFetch } from "../api/use-movies-now-playing-fetch";
 import { ERROR_MESSAGE } from "../const";
-import { StyledAllNewsButton, StyledCards, StyledNowPlaying, StyledNowPlayingWrapper } from "./styled";
+import { StyledAllNewsButton, StyledCards, StyledNowPlaying, StyledNowPlayingWrapper, StyledTitle } from "./styled";
 
 export const NowPlaying = () => {
   const [activeFilters, setActiveFilters] = useState(false);
@@ -39,7 +38,7 @@ export const NowPlaying = () => {
       <ContainerUI>
         <div className="bg-main" />
         <StyledNowPlayingWrapper>
-          <TitleUI fontWeight={900} fontSize={65} title="Зараз у кіно" />
+          <StyledTitle>Зараз у кіно</StyledTitle>
           {!isDesktop ? <DividerUI /> : null}
           {isMobile && !activeFilters && <BurgerButtonUI onClick={handleActiveFiltersChange} />}
           {!isMobile && <MovieFilterByGenre />}

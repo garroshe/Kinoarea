@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { breakpoints, colors } from "@/shared/constants/style";
+import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledSearch = styled.div`
   display: flex;
@@ -13,12 +14,12 @@ export const StyledSearch = styled.div`
   background: ${colors.white50};
   border-radius: 10px;
 
-  @media (max-width: ${breakpoints.tablet}) {
+  ${mapDeviceToMedia.tabletOnly} {
     width: 43px;
     height: 41px;
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     width: 28px;
     height: 27px;
     border-radius: 5px;

@@ -1,9 +1,7 @@
 import { useModal } from "@/app/providers/modal";
-import { colors } from "@/shared/constants/style";
-import { TitleUI } from "@/shared/ui/TitleUI";
 
 import { ERROR_MESSAGE } from "../const";
-import { StyledButton, StyledMessage, StyledMessageModal } from "./styled";
+import { StyledButton, StyledMessage, StyledMessageModal, StyledTitle } from "./styled";
 
 export type MessageModalPropsType = {
   message?: string;
@@ -15,7 +13,7 @@ export const MessageModalContent = ({ message, title }: MessageModalPropsType) =
 
   return (
     <StyledMessageModal>
-      <TitleUI title={title} fontSize={40} fontWeight={800} color={colors.white50} />
+      <StyledTitle>{title}</StyledTitle>
 
       <StyledMessage>{message ? message : ERROR_MESSAGE}</StyledMessage>
 

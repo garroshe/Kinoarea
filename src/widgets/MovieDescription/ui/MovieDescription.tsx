@@ -10,11 +10,10 @@ import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { RatingCircleUI } from "@/shared/ui/RatingCircleUI";
 import { SocialUI } from "@/shared/ui/SocialUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
+import { safeValue } from "@/shared/utils/safe-value";
 
-import { safeValue } from "../../../shared/utils/safe-value";
 import { useMovieFetchByIdQuery } from "../api/use-movie-fetch-by-id-query";
 import { formatRuntime } from "../lib/format-runtime";
 import {
@@ -28,10 +27,12 @@ import {
   StyledListKeys,
   StyledListValue,
   StyledMainInfo,
+  StyledMobileTitle,
   StyledProgress,
   StyledRatingWrapper,
   StyledSavedMovie,
   StyledSubTitle,
+  StyledTitle,
   StyledTitleAndFavoriteWrapper,
   StyledWatchMovieButton,
   StyledWatchTrailerButton,
@@ -59,7 +60,6 @@ export const MovieDescription = () => {
 
   const navigate = useNavigate();
 
-  const isDesktop = useMediaQuery("(max-width: 1024px)");
   const isMobile = useMediaQuery("(max-width: 480px)");
 
   const ratingKinoarea = vote_average ? vote_average + 0.8 : undefined;
@@ -91,7 +91,7 @@ export const MovieDescription = () => {
               { to: "", label: title || "", isLast: true },
             ]}
           />
-          <TitleUI title={title} fontSize={32} marginBottom={4} marginTop={4} />
+          <StyledMobileTitle>{title}</StyledMobileTitle>
           <StyledSubTitle>{original_title}</StyledSubTitle>
           <StyledImgAndRatingWrapper>
             <StyledImg src={getPathToImg(poster_path, 500)} alt={original_title} />
@@ -124,7 +124,7 @@ export const MovieDescription = () => {
                 { to: "", label: title || "", isLast: true },
               ]}
             />
-            <TitleUI title={title} fontSize={isDesktop ? 60 : 40} marginBottom={4} marginTop={4} />
+            <StyledTitle>{title}</StyledTitle>
             <StyledTitleAndFavoriteWrapper>
               <StyledSubTitle>{original_title}</StyledSubTitle>
               <Link to={routesBook.favorites()}>Перейти у вибране</Link>

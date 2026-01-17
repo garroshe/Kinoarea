@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
-import { breakpoints } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledSocial = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
 
-  @media (max-width: ${breakpoints.tablet}) {
+  ${mapDeviceToMedia.tabletOnly} {
     gap: 5px;
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     gap: 5px;
 
     a {

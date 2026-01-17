@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { breakpoints } from "@/shared/constants/style";
+import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledRegisterForm = styled.form`
   display: flex;
@@ -8,7 +9,7 @@ export const StyledRegisterForm = styled.form`
   align-items: center;
   width: 422px;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     width: 300px;
 
     input {
@@ -22,10 +23,6 @@ export const StyledRegisterForm = styled.form`
       font-size: 14px;
     }
 
-    h2 {
-      font-size: 26px;
-    }
-
     label {
       font-size: 12px;
     }
@@ -37,4 +34,17 @@ export const StyledCheckBoxWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   margin-bottom: 14px;
+`;
+
+export const StyledTitle = styled.h2`
+  color: ${colors.white50};
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 48px;
+  margin-bottom: 34px;
+
+  ${mapDeviceToMedia.mobileOnly} {
+    margin-bottom: 25px;
+    font-size: 26px;
+  }
 `;

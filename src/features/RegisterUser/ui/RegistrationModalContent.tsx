@@ -3,20 +3,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import { useModal } from "@/app/providers/modal";
-import { colors } from "@/shared/constants/style";
 import { useAuth } from "@/shared/hooks/use-auth";
 import { ButtonUI } from "@/shared/ui/ButtonUI";
 import { CheckBoxUI } from "@/shared/ui/CheckBoxUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI";
 import { InputUI } from "@/shared/ui/InputUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 
 import { MESSAGE_MODAL } from "../const";
 import { schema } from "../model/schema";
 import type { RegisterFieldsType } from "../model/types";
-import { StyledCheckBoxWrapper, StyledRegisterForm } from "./styled";
+import { StyledCheckBoxWrapper, StyledRegisterForm, StyledTitle } from "./styled";
 
 export const RegistrationModalContent = () => {
   const [privacy, setPrivacy] = useState(false);
@@ -47,7 +45,7 @@ export const RegistrationModalContent = () => {
 
   return (
     <StyledRegisterForm onSubmit={handleSubmit(onSubmit)}>
-      <TitleUI title="Зареєструватись" fontSize={40} fontWeight={800} color={colors.white50} marginBottom={34} />
+      <StyledTitle>Зареєструватись</StyledTitle>
 
       <InputUI placeholder="Ім'я" {...register("name")} />
       {errors.name?.message && <ErrorsMessageUI error={errors.name.message} />}

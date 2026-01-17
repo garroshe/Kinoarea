@@ -1,20 +1,18 @@
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import { LikeOrDislike } from "@/features/LikeOrDislike";
 import { routesBook } from "@/shared/routing/routesBook";
 import { CenteredContentUI } from "@/shared/ui/CenteredContentUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
+import { MediaSectionHeader } from "@/shared/ui/MediaSectionHeader";
 import { SocialUI } from "@/shared/ui/SocialUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { getPathToYouTubeVideo } from "@/shared/utils/get-path-to-you-tube-video";
 
 import { useMovieFetchQuery } from "../api/use-movie-fetch-query";
 import { useTrailerFetchQuery } from "../api/use-trailer-fetch-query";
 import { DEFAULT_TRAILER_ID, IFRAME_ALLOW, VIDEO_TYPE } from "../const";
 import {
-  StyledHeader,
   StyledLeftBlock,
   StyledMarks,
   StyledNewTrailer,
@@ -30,6 +28,8 @@ type NewTrailerPropsType = {
 export const NewTrailer = ({ title }: NewTrailerPropsType) => {
   const [searchParams] = useSearchParams();
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const rawTrailerId = searchParams.get("trailerId");
 
@@ -48,16 +48,14 @@ export const NewTrailer = ({ title }: NewTrailerPropsType) => {
 
   const firstTrailer = trailers[0];
 
+  const handleNavigateToNews = () => {
+    navigate(routesBook.news());
+  };
+
   return (
     <StyledNewTrailer id="movie-trailer">
       <ContainerUI>
-        <StyledHeader>
-          <TitleUI fontWeight={900} fontSize={65} title={title} />
-          <Link to={routesBook.news()}>
-            <span>Усі трейлери</span>
-            <SvgIcon icon={icons.arrow} />
-          </Link>
-        </StyledHeader>
+        <MediaSectionHeader title={title} onActionClick={handleNavigateToNews} actionLabel="Усі трейлери" />
 
         <StyledTrailer>
           {loading ? (

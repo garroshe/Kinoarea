@@ -4,14 +4,11 @@ import { StyledActionLabel, StyledHeader, StyledSubTitle, StyledTitle } from "./
 
 type MediaSectionHeaderPropsType = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   actionLabel: string;
   onActionClick: () => void;
   isLoading?: boolean;
 };
-
-// TO DO
-// Add to other widgets
 
 export const MediaSectionHeader = ({ title, actionLabel, onActionClick, subtitle }: MediaSectionHeaderPropsType) => {
   return (
@@ -23,7 +20,7 @@ export const MediaSectionHeader = ({ title, actionLabel, onActionClick, subtitle
           <SvgIcon icon={icons.arrow} />
         </StyledActionLabel>
       </StyledHeader>
-      <StyledSubTitle>{subtitle}</StyledSubTitle>
+      {subtitle && <StyledSubTitle>{subtitle}</StyledSubTitle>}
     </>
   );
 };
