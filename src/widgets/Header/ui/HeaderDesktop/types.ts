@@ -1,12 +1,6 @@
-export interface IUser {
+export type UserType = {
   userName?: string;
   avatar?: string;
   lastName?: string;
   loginName?: string;
-}
-
-export interface HeaderDesktopProps {
-  user: IUser | null;
-  isUserLoading: boolean;
-  openModal: () => void;
-}
+};

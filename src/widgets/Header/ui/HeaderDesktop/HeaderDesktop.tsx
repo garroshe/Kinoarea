@@ -9,10 +9,16 @@ import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
 import { HeaderUser } from "../HeaderUser/HeaderUser";
 import { NavBar } from "../NavBar/NavBar";
-import type { HeaderDesktopProps } from "./types";
+import type { UserType } from "./types";
 import { StyledButton, StyledHeader, StyledLeftBlock, StyledRightBlock } from "./styled";
 
-export const HeaderDesktop = ({ user, isUserLoading, openModal }: HeaderDesktopProps) => {
+export type HeaderDesktopPropsType = {
+  user: UserType | null;
+  isUserLoading: boolean;
+  openModal: () => void;
+};
+
+export const HeaderDesktop = ({ user, isUserLoading, openModal }: HeaderDesktopPropsType) => {
   return (
     <ContainerUI>
       <StyledHeader>

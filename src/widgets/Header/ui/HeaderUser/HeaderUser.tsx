@@ -5,7 +5,6 @@ import { HeaderUserDropDown } from "@/features/HeaderUserDropDownList";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
-import type { IHeaderUserProps } from "./types";
 import {
   StyledAvatar,
   StyledAvatarWrapper,
@@ -15,7 +14,14 @@ import {
   StyledHeaderUserName,
 } from "./styled";
 
-export const HeaderUser = ({ userName, loginName, lastName, avatar }: IHeaderUserProps) => {
+export type HeaderUserPropsType = {
+  userName: string | undefined;
+  avatar: string | undefined;
+  lastName: string | undefined;
+  loginName: string | undefined;
+};
+
+export const HeaderUser = ({ userName, loginName, lastName, avatar }: HeaderUserPropsType) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement | null>(null);
   const headerUserRef = useRef<HTMLDivElement | null>(null);
