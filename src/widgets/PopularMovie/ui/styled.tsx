@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { colors } from "@/shared/constants/style";
 import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledPopularMovie = styled.div`
@@ -28,30 +29,35 @@ export const StyledHeader = styled.div`
     flex-direction: column;
     align-items: start;
     gap: 8px;
-
-    h2 {
-      font-size: 40px;
-    }
   }
 
   ${mapDeviceToMedia.tabletOnly} {
     flex-direction: column;
     align-items: start;
     gap: 8px;
-
-    h2 {
-      font-size: 40px;
-    }
   }
 
   ${mapDeviceToMedia.mobileOnly} {
     justify-content: center;
     gap: 10px;
     align-items: center;
+  }
+`;
 
-    h2 {
-      font-size: 32px;
-      gap: 0;
-    }
+export const StyledTitle = styled.h2`
+  font-size: 65px;
+  font-weight: 900;
+  color: ${colors.white50};
+
+  ${mapDeviceToMedia.laptopOnly} {
+    font-size: 40px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 40px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 32px;
   }
 `;

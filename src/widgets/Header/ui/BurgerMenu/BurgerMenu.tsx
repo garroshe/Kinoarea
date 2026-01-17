@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 
 import { BURGER_MENU_PATH } from "./constants";
-import type { IBurgerMenuProps } from "./types";
 import { StyledBurgerMenu, StyledList } from "./styled";
 
-export const BurgerMenu = ({ onClose }: IBurgerMenuProps) => {
+export type BurgerMenuPropsType = {
+  onClose: () => void;
+};
+
+export const BurgerMenu = ({ onClose }: BurgerMenuPropsType) => {
   return (
     <StyledBurgerMenu>
       <SvgIcon icon={icons.dagger} className="burger-dagger" onClick={onClose} />

@@ -50,41 +50,6 @@ export const StyledNewTrailer = styled.section`
   }
 `;
 
-export const StyledHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 80px;
-
-  ${mapDeviceToMedia.laptopOnly} {
-    margin-bottom: 32px;
-
-    h2 {
-      font-size: 40px;
-    }
-  }
-
-  ${mapDeviceToMedia.tabletOnly} {
-    margin-bottom: 20px;
-
-    h2 {
-      font-size: 40px;
-    }
-  }
-
-  ${mapDeviceToMedia.mobileOnly} {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-
-    h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-  }
-`;
-
 export const StyledMarks = styled.div`
   display: flex;
   gap: 8px;
@@ -165,6 +130,7 @@ export const StyledTrailer = styled.div`
   position: relative;
   margin-bottom: 26px;
   height: 765px;
+  margin-top: 20px;
 
   ${mapDeviceToMedia.laptopOnly} {
     margin-bottom: 4px;

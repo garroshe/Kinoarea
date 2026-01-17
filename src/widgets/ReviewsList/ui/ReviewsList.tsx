@@ -11,7 +11,6 @@ import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 import { getReviewContentByType } from "@/widgets/ReviewsList/lib/get-review-content-by-type";
 
@@ -29,6 +28,7 @@ import {
   StyledReviewNameAndReviewTypeWrapper,
   StyledReviewRightBlock,
   StyledReviewsWrapper,
+  StyledReviewTitle,
   StyledReviewTitleAndDateWrapper,
   StyledReviewType,
   StyledSelfReviews,
@@ -37,6 +37,7 @@ import {
   StyledSelfReviewsHeaderRight,
   StyledSelfReviewsHeaderSubtitle,
   StyledSelfReviewsImage,
+  StyledTitle,
 } from "./styled";
 
 export const ReviewsList = () => {
@@ -78,7 +79,7 @@ export const ReviewsList = () => {
   return (
     <ContainerUI>
       <StyledHeader id="movie-reviews">
-        <TitleUI title="Коментарі до фільму" fontSize={65} />
+        <StyledTitle>Коментарі до фільму</StyledTitle>
         <StyledButton onClick={handleAddReviews}>Додати коментар</StyledButton>
       </StyledHeader>
 
@@ -131,7 +132,7 @@ export const ReviewsList = () => {
                 </StyledReviewType>
               )}
               <StyledReviewTitleAndDateWrapper>
-                <TitleUI title={item.title} fontSize={30} fontWeight={700} />
+                <StyledReviewTitle>{item.title}</StyledReviewTitle>
                 <span>{item.date}</span>
               </StyledReviewTitleAndDateWrapper>
               <StyledReviewContent>{item.content}</StyledReviewContent>

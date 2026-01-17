@@ -6,10 +6,9 @@ import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { BurgerButtonUI } from "@/shared/ui/BurgerButtonUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI";
-import { TitleUI } from "@/shared/ui/TitleUI";
-import { useMovieByReleaseFetchQuery } from "@/widgets/PopularMovie/api/use-movie-by-release-fetch-query";
 
-import { StyledHeader, StyledPopularMovie } from "./styled";
+import { useMovieByReleaseFetchQuery } from "../api/use-movie-by-release-fetch-query";
+import { StyledHeader, StyledPopularMovie, StyledTitle } from "./styled";
 
 export const PopularMovie = () => {
   const [activeFilter, setActiveFilter] = useState(false);
@@ -27,7 +26,7 @@ export const PopularMovie = () => {
     <ContainerUI>
       <StyledPopularMovie>
         <StyledHeader>
-          <TitleUI title="Популярні фільми" fontSize={65} />
+          <StyledTitle>Популярні фільми</StyledTitle>
           {!isLaptop && <DividerUI />}
           {isMobile && !activeFilter && <BurgerButtonUI onClick={handleActiveFiltersChange} />}
           {!isMobile && <MovieFilterByRelease />}

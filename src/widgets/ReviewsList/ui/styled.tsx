@@ -10,27 +10,10 @@ export const StyledHeader = styled.div`
   margin-top: 73px;
   margin-bottom: 63px;
 
-  ${mapDeviceToMedia.laptopOnly} {
-    h2 {
-      font-size: 40px;
-    }
-  }
-
-  ${mapDeviceToMedia.tabletOnly} {
-    h2 {
-      font-size: 40px;
-    }
-  }
-
   ${mapDeviceToMedia.mobileOnly} {
     flex-direction: column;
     margin-bottom: 20px;
     gap: 20px;
-
-    h2 {
-      text-align: center;
-      font-size: 32px;
-    }
   }
 `;
 
@@ -270,10 +253,6 @@ export const StyledReviewTitleAndDateWrapper = styled.div`
     gap: 18px;
     margin-top: 21px;
 
-    h2 {
-      font-size: 25px;
-    }
-
     span {
       font-size: 14px;
     }
@@ -284,10 +263,6 @@ export const StyledReviewTitleAndDateWrapper = styled.div`
     align-items: start;
     gap: 8px;
     margin-top: 12px;
-
-    h2 {
-      font-size: 20px;
-    }
 
     span {
       font-size: 12px;
@@ -330,4 +305,37 @@ export const StyledReviewRightBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const StyledTitle = styled.h2`
+  font-size: 65px;
+  font-weight: 900;
+  color: ${colors.white50};
+
+  ${mapDeviceToMedia.laptopOnly} {
+    font-size: 40px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 40px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    text-align: center;
+    font-size: 32px;
+  }
+`;
+
+export const StyledReviewTitle = styled.h2`
+  font-size: 30px;
+  font-weight: 700;
+  color: ${colors.white50};
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 25px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 20px;
+  }
 `;

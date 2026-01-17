@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import type { UserType } from "@/app/providers/user/model/types";
 import { Search } from "@/features/Search";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
@@ -9,7 +10,6 @@ import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import { HeaderUser } from "../HeaderUser/HeaderUser";
 import { NavBar } from "../NavBar/NavBar";
-import type { HeaderMobileProps } from "./types";
 import {
   StyledBurgerMenu,
   StyledButton,
@@ -19,7 +19,21 @@ import {
   StyledTopBlock,
 } from "./styled";
 
-export const HeaderMobile = ({ isMobile, handleBurgerActive, burgerActive, user, openModal }: HeaderMobileProps) => {
+export type HeaderMobilePropsType = {
+  user: UserType | null;
+  isMobile: boolean;
+  openModal: () => void;
+  handleBurgerActive: () => void;
+  burgerActive: boolean;
+};
+
+export const HeaderMobile = ({
+  isMobile,
+  handleBurgerActive,
+  burgerActive,
+  user,
+  openModal,
+}: HeaderMobilePropsType) => {
   return (
     <ContainerUI>
       <StyledHeader>

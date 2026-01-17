@@ -3,17 +3,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 import { useModal } from "@/app/providers/modal";
-import { colors } from "@/shared/constants/style";
 import { useAuth } from "@/shared/hooks/use-auth";
 import { ButtonUI } from "@/shared/ui/ButtonUI";
 import { ErrorsMessageUI } from "@/shared/ui/ErrorsMessageUI";
 import { InputUI } from "@/shared/ui/InputUI";
-import { TitleUI } from "@/shared/ui/TitleUI";
 import { mapModalName } from "@/shared/utils/map-modal-name";
 
 import { schema } from "../model/schema";
 import type { ResetPasswordFieldsType } from "../model/types";
-import { StyledForm, StyledMessage } from "./styled";
+import { StyledForm, StyledMessage, StyledTitle } from "./styled";
 
 export const ResetPassword = () => {
   const [showMessage, setShowMessage] = useState(false);
@@ -51,7 +49,7 @@ export const ResetPassword = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)} data-testid="reset-password-form">
-      <TitleUI title="Відновити пароль" fontSize={40} fontWeight={800} color={colors.white50} marginBottom={34} />
+      <StyledTitle>Відновити пароль</StyledTitle>
 
       <InputUI placeholder="Пошта" {...register("email")} data-testid="reset-password-input" />
       {errors.email?.message && <ErrorsMessageUI error={errors.email.message} />}

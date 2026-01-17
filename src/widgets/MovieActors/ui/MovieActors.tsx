@@ -1,19 +1,24 @@
+import { useNavigate } from "react-router-dom";
+
 import { ActorCard } from "@/entities/actors/ui/ActorCard/ActorCard";
-import { useMediaQuery } from "@/shared/hooks/use-media-query";
+import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
+import { MediaSectionHeader } from "@/shared/ui/MediaSectionHeader";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import { TitleUI } from "@/shared/ui/TitleUI";
 
 import { useFetchMovieActors } from "../api/use-fetch-movie-actors-query";
-import { StyledAllActors, StyledGridItems, StyledHeader, StyledMovieActors } from "./styled";
+import { StyledGridItems, StyledMovieActors } from "./styled";
 
 export const MovieActors = () => {
   const { isMovieActorsLoading, movieActorsDataFetch } = useFetchMovieActors();
 
   const { cast } = movieActorsDataFetch || {};
 
-  const isTablet = useMediaQuery("(max-width: 1024px)");
+  const navigate = useNavigate();
+
+  const handleNavigateToActors = () => {
+    navigate(routesBook.actors());
+  };
 
   return (
     <ContainerUI>
@@ -21,13 +26,11 @@ export const MovieActors = () => {
         <SpinnerUI />
       ) : (
         <StyledMovieActors>
-          <StyledHeader>
-            <TitleUI fontSize={isTablet ? 40 : 65} title="У головних ролях:" />
-            <StyledAllActors>
-              <span>Всі актори</span>
-              <SvgIcon icon={icons.arrow} />
-            </StyledAllActors>
-          </StyledHeader>
+          <MediaSectionHeader
+            title="У головних ролях:"
+            onActionClick={handleNavigateToActors}
+            actionLabel="Всі актори"
+          />
           <StyledGridItems>
             {cast?.slice(0, 15)?.map((actor) => {
               return (

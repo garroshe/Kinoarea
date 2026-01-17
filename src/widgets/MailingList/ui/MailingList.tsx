@@ -4,13 +4,13 @@ import { useUser } from "@/app/providers/user";
 import { CheckBoxUI } from "@/shared/ui/CheckBoxUI";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import { TitleUI } from "@/shared/ui/TitleUI";
 
 import {
   StyledBtn,
   StyledDescribe,
   StyledInput,
   StyledMailingList,
+  StyledTitle,
   StyledWrapper,
   StyledWrapperInputAndBtn,
 } from "./styled";
@@ -44,7 +44,7 @@ export const MailingList = () => {
       <ContainerUI>
         <StyledMailingList>
           <SvgIcon icon={icons.logotype} />
-          <TitleUI title="Підпишіться на E-mail розсилку" fontSize={50} marginTop={53} marginBottom={26} />
+          <StyledTitle>Підпишіться на E-mail розсилку</StyledTitle>
           <StyledDescribe>
             Якщо хоче бути в курсі останніх новин та новинок кіно - заповніть форму нижче та оформіть безкоштовну E-mail
             розсилку!

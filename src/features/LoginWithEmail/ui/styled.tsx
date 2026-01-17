@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { breakpoints, colors } from "@/shared/constants/style";
+import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledLoginForm = styled.form`
   display: flex;
@@ -8,7 +9,7 @@ export const StyledLoginForm = styled.form`
   align-items: center;
   width: 422px;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     width: 300px;
 
     input {
@@ -20,10 +21,6 @@ export const StyledLoginForm = styled.form`
       width: 300px;
       height: 55px;
       font-size: 14px;
-    }
-
-    h2 {
-      font-size: 26px;
     }
   }
 `;
@@ -61,7 +58,7 @@ export const StyledResetPassword = styled.a`
   margin-bottom: 20px;
   cursor: pointer;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     font-size: 14px;
   }
 `;
@@ -88,8 +85,19 @@ export const StyledSocialItems = styled.div`
     background: ${colors.blue500};
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     width: 38px;
     height: 38px;
+  }
+`;
+
+export const StyledTitle = styled.h2`
+  font-size: 40px;
+  font-weight: 800;
+  color: ${colors.white50};
+  margin-bottom: 34px;
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 26px;
   }
 `;

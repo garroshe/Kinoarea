@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 
-export interface IModalContextProps {
+export type ModalContextPropsType = {
   children: ReactNode;
-}
+};
 
-export interface IModalContext {
-  openModal: (modalName: ModalName, message?: string, title?: string) => void;
+export type ModalContextType = {
+  openModal: (modalName: ModalNameType, message?: string, title?: string) => void;
   closeModal: () => void;
-}
+};
 
-export type ModalName = "message" | "login" | "register" | "resetPassword";
+export type ModalNameType = "message" | "login" | "register" | "resetPassword";

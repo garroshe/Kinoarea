@@ -1,24 +1,25 @@
 import styled from "styled-components";
 
+import { colors } from "@/shared/constants/style";
 import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
-export const StyledSequelsAndPrequels = styled.div`
+export const StyledTitle = styled.h2`
+  text-align: center;
+  font-size: 65px;
+  margin-top: 73px;
+  margin-bottom: 63px;
+  color: ${colors.white50};
+
   ${mapDeviceToMedia.laptopOnly} {
-    h2 {
-      font-size: 40px;
-    }
+    font-size: 40px;
   }
 
   ${mapDeviceToMedia.tabletOnly} {
-    h2 {
-      font-size: 40px;
-    }
+    font-size: 40px;
   }
 
   ${mapDeviceToMedia.mobileOnly} {
-    h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+    font-size: 32px;
+    margin-bottom: 10px;
   }
 `;

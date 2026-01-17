@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { breakpoints, colors } from "@/shared/constants/style";
+import { colors } from "@/shared/constants/style";
+import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledForm = styled.form`
   display: flex;
@@ -8,7 +9,7 @@ export const StyledForm = styled.form`
   align-items: center;
   width: 400px;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     width: 300px;
 
     input {
@@ -21,10 +22,6 @@ export const StyledForm = styled.form`
       height: 55px;
       font-size: 14px;
     }
-
-    h2 {
-      font-size: 24px;
-    }
   }
 `;
 
@@ -36,8 +33,19 @@ export const StyledMessage = styled.p`
   color: ${colors.white50};
   margin: 20px 0;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     font-size: 14px;
     margin: 10px 0;
+  }
+`;
+
+export const StyledTitle = styled.h2`
+  font-size: 40px;
+  font-weight: 800;
+  color: ${colors.white50};
+  margin-bottom: 34px;
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 24px;
   }
 `;

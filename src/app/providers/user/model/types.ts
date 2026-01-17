@@ -1,20 +1,20 @@
 import type { ReactNode } from "react";
 
-export interface IUserContextProps {
+export type UserContextPropsType = {
   children: ReactNode;
-}
+};
 
-export interface IUser {
+export type UserType = {
   uid: string;
   email: string;
   loginName?: string;
   lastName?: string;
   userName?: string;
   avatar?: string;
-}
+};
 
-export interface IUserContext {
+export type UserContextType = {
   logout: () => void;
-  user: IUser | null;
+  user: UserType | null;
   isUserLoading: boolean;
-}
+};

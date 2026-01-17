@@ -2,13 +2,13 @@ import { createContext, useCallback, useContext, useState } from "react";
 
 import { Modal } from "@/widgets/Modal";
 
-import type { IModalContext, IModalContextProps, ModalName } from "../types";
+import type { ModalContextPropsType, ModalContextType, ModalNameType } from "../types";
 
-const ModalProvider = createContext<IModalContext | null>(null);
+const ModalProvider = createContext<ModalContextType | null>(null);
 
-export const ModalContextProvider = ({ children }: IModalContextProps) => {
+export const ModalContextProvider = ({ children }: ModalContextPropsType) => {
   const [open, setOpen] = useState(false);
-  const [modalName, setModalName] = useState<ModalName | null>(null);
+  const [modalName, setModalName] = useState<ModalNameType | null>(null);
   const [title, setTitle] = useState<string | undefined>("");
   const [message, setMessage] = useState<string | undefined>("");
 
@@ -17,7 +17,7 @@ export const ModalContextProvider = ({ children }: IModalContextProps) => {
     setModalName(null);
   }, []);
 
-  const openModal = useCallback((modalName: ModalName, message?: string, title?: string) => {
+  const openModal = useCallback((modalName: ModalNameType, message?: string, title?: string) => {
     setModalName(modalName);
     setOpen(true);
     setTitle(title);
@@ -32,7 +32,7 @@ export const ModalContextProvider = ({ children }: IModalContextProps) => {
   );
 };
 
-export const useModal = (): IModalContext => {
+export const useModal = (): ModalContextType => {
   const context = useContext(ModalProvider);
 
   if (!context) {

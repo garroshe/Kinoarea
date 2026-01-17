@@ -1,11 +1,10 @@
 import { SliderWithMovie } from "@/features/SliderWithMovieCard";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { TitleUI } from "@/shared/ui/TitleUI";
 
 import { useGetMovieFetchQuery } from "../api/use-get-movie-fetch-query";
 import { useGetMovieSequelsAndPrequels } from "../api/use-get-movie-sequels-and-prequels-fetch-query";
-import { StyledSequelsAndPrequels } from "./styled";
+import { StyledTitle } from "./styled";
 
 export const SequelsAndPrequels = () => {
   const { movieDataFetch, movieLoading } = useGetMovieFetchQuery();
@@ -25,10 +24,10 @@ export const SequelsAndPrequels = () => {
 
   return (
     <ContainerUI>
-      <StyledSequelsAndPrequels>
-        <TitleUI textAlign="center" title="Сіквели та приквели" fontSize={65} marginTop={73} marginBottom={63} />
+      <div>
+        <StyledTitle>Сіквели та приквели</StyledTitle>
         <SliderWithMovie isMovieLoading={isLoading} movieData={movieSequelsAndPrequelsFetch?.parts} />
-      </StyledSequelsAndPrequels>
+      </div>
     </ContainerUI>
   );
 };

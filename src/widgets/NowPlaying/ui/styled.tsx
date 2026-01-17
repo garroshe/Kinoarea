@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { breakpoints, colors } from "@/shared/constants/style";
+import { colors } from "@/shared/constants/style";
 import { mapDeviceToMedia } from "@/shared/utils/map-device-to-media";
 
 export const StyledNowPlaying = styled.section`
@@ -69,30 +69,18 @@ export const StyledNowPlayingWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: ${breakpoints.laptop}) {
+  ${mapDeviceToMedia.laptopOnly} {
     display: block;
-
-    h2 {
-      font-size: 40px;
-    }
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
+  ${mapDeviceToMedia.tabletOnly} {
     display: block;
-
-    h2 {
-      font-size: 40px;
-    }
   }
 
-  @media (max-width: ${breakpoints.mobile}) {
+  ${mapDeviceToMedia.mobileOnly} {
     display: flex;
     gap: 10px;
     justify-content: center;
-
-    h2 {
-      font-size: 32px;
-    }
   }
 `;
 
@@ -114,4 +102,22 @@ export const StyledAllNewsButton = styled.button`
 
   &:hover {
     box-shadow: 0 0 10px 0 ${colors.white50};
+`;
+
+export const StyledTitle = styled.h2`
+  font-weight: 900;
+  font-size: 65px;
+  color: ${colors.white50};
+
+  ${mapDeviceToMedia.laptopOnly} {
+    font-size: 40px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    font-size: 40px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    font-size: 32px;
+  }
 `;
