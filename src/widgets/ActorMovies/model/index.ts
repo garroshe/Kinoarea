@@ -12,10 +12,13 @@ export const formatedData = () => {
     setMovieCount((prev) => prev + 10);
   };
 
+  const isNotMoreMovies = Number(actorMoviesData?.cast?.length) <= movieCount;
+
   return {
     isLoading,
     movies,
     error,
     handleLoadMore,
+    isNotMoreMovies,
   };
 };

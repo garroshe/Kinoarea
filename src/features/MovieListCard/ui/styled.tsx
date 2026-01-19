@@ -25,7 +25,7 @@ export const StyledMovieListCard = styled.div`
   }
 `;
 
-export const StyledImg = styled.img`
+export const StyledPoster = styled.div`
   width: 200px;
   height: 285px;
   cursor: pointer;
@@ -48,6 +48,11 @@ export const StyledImg = styled.img`
   ${mapDeviceToMedia.mobileOnly} {
     width: 134px;
     height: 200px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 `;
 

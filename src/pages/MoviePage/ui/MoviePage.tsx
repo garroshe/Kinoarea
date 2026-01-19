@@ -1,7 +1,6 @@
 import { MovieTabs } from "@/features/MovieTabs";
 import ErrorBoundary from "@/shared/ui/ErrorBoundaryUI/ErrorBoundaryUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { Header } from "@/widgets/Header";
 import { MovieActors } from "@/widgets/MovieActors";
 import { MovieDescription } from "@/widgets/MovieDescription";
@@ -14,16 +13,14 @@ import { SequelsAndPrequels } from "@/widgets/SequelsAndPrequels";
 import { useMovieFetchByIdQuery } from "../api/use-movie-fetch-by-id-query";
 import { StyledCardMoviePage } from "./styled";
 
-const CardMoviePage = () => {
+const MoviePage = () => {
   const { movieDataFetch, isMovieLoading } = useMovieFetchByIdQuery();
-
-  const backgroundImg = getPathToImg(movieDataFetch?.backdrop_path);
 
   return isMovieLoading ? (
     <SpinnerUI />
   ) : (
     <div>
-      <StyledCardMoviePage $backgroundImg={backgroundImg}>
+      <StyledCardMoviePage $backgroundImg={movieDataFetch?.backdrop_path}>
         <Header />
 
         <ErrorBoundary>
@@ -48,4 +45,4 @@ const CardMoviePage = () => {
   );
 };
 
-export default CardMoviePage;
+export default MoviePage;
