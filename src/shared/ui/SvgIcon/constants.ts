@@ -22,4 +22,5 @@ export const icons = {
   lightLogotype: "lightLogotype",
   link: "link",
   alert: "alert",
+  poster: "poster",
 };

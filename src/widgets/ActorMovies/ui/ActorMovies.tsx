@@ -2,14 +2,13 @@ import { MovieListCard } from "@/features/MovieListCard";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import { ERROR_MESSAGE } from "../const";
 import { formatedData } from "../model";
 import { StyledActorMovies, StyledMoreButton, StyledTitle } from "./styled";
 
 export const ActorMovies = () => {
-  const { isLoading, movies, handleLoadMore, error } = formatedData();
+  const { isLoading, movies, handleLoadMore, error, isNotMoreMovies } = formatedData();
 
   return (
     <StyledActorMovies>
@@ -25,7 +24,7 @@ export const ActorMovies = () => {
               return (
                 <MovieListCard
                   key={actorMovie.id}
-                  poster={getPathToImg(actorMovie.poster_path)}
+                  poster={actorMovie.poster_path}
                   releaseDate={actorMovie.release_date}
                   id={actorMovie.id}
                   title={actorMovie.title}
@@ -36,7 +35,7 @@ export const ActorMovies = () => {
             })}
           </div>
         )}
-        <StyledMoreButton onClick={handleLoadMore}>Показати більше</StyledMoreButton>
+        {!isNotMoreMovies && <StyledMoreButton onClick={handleLoadMore}>Показати більше</StyledMoreButton>}
       </ContainerUI>
     </StyledActorMovies>
   );

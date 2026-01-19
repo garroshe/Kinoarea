@@ -1,7 +1,7 @@
 import { Header } from "@/widgets/Header";
 import { MoviePageList } from "@/widgets/MoviePageList";
 
-const MoviePage = () => {
+const MoviesPage = () => {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ const MoviePage = () => {
   );
 };
 
-export default MoviePage;
+export default MoviesPage;

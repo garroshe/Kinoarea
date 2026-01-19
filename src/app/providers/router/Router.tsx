@@ -9,8 +9,8 @@ const MainPage = lazy(() => import("@/pages/MainPage/MainPage"));
 const ErrorPage = lazy(() => import("@/pages/ErrorPage/ErrorPage"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy/PrivacyPolicy"));
 const DataDeletion = lazy(() => import("@/pages/DataDeletion/DataDeletion"));
-const CardMoviePage = lazy(() => import("@/pages/CardMoviePage/ui/CardMoviePage"));
-const MoviePage = lazy(() => import("@/pages/MoviePage/MoviePage"));
+const CardMoviePage = lazy(() => import("@/pages/MoviePage/ui/MoviePage"));
+const MoviePage = lazy(() => import("@/pages/MoviesPage/MoviesPage"));
 const ActorPage = lazy(() => import("@/pages/ActorPage/ActorPage"));
 
 export const Router = () => {

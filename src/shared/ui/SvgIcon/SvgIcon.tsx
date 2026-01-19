@@ -18,6 +18,7 @@ import { Link } from "./icons/Link";
 import { Logotype } from "./icons/Logotype";
 import { NextArrow } from "./icons/NextArrow";
 import { Play } from "./icons/Play";
+import { Poster } from "./icons/Poster";
 import { PrevArrow } from "./icons/PrevArrow";
 import { SearchIcon } from "./icons/Search";
 import { Twitter } from "./icons/Twitter";
@@ -49,6 +50,7 @@ export const SvgIcon = ({ icon, className, onClick, color }: SvgIconPropsType) =
     [icons.lightLogotype]: LightLogotype,
     [icons.link]: Link,
     [icons.alert]: Alert,
+    [icons.poster]: Poster,
   };
 
   const IconJSX = svgs[icon];

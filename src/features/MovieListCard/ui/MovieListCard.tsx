@@ -2,15 +2,17 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
+import { MovieCardPlaceholderUI } from "@/shared/ui/MovieCardPlaceholderUI";
+import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
 import { mapRatingToColorCircle } from "@/shared/utils/map-rating-to-color-circle";
 
 import {
   StyledButton,
   StyledGenre,
-  StyledImg,
   StyledInfo,
   StyledMovieListCard,
+  StyledPoster,
   StyledRating,
   StyledRatingsWrapper,
   StyledRatingTitle,
@@ -43,11 +45,13 @@ export const MovieListCard = ({ title, releaseDate, poster, genre, id, vote_aver
 
   return (
     <StyledMovieListCard>
-      <StyledImg src={poster} alt={title} onClick={handleNavigateToMovie} />
+      <StyledPoster onClick={handleNavigateToMovie}>
+        {poster ? <img src={getPathToImg(poster)} alt={title} /> : <MovieCardPlaceholderUI size="small" />}
+      </StyledPoster>
       <StyledWrapper>
         <StyledInfo>
-          <StyledTitle onClick={handleNavigateToMovie}>{title}</StyledTitle>
-          <StyledReleaseDate>{releaseDate}</StyledReleaseDate>
+          <StyledTitle onClick={handleNavigateToMovie}>{title ? title : "Немає назви в цього фільму"}</StyledTitle>
+          <StyledReleaseDate>{releaseDate ? releaseDate : "Немає дати виходу у цього фільму"}</StyledReleaseDate>
           <StyledGenre>{!isDesktop ? genreString : genreString?.slice(0, 20) + "..."}</StyledGenre>
         </StyledInfo>
         <StyledRatingsWrapper>

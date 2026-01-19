@@ -7,6 +7,7 @@ import { LikeOrDislike } from "@/features/LikeOrDislike";
 import { useMediaQuery } from "@/shared/hooks/use-media-query";
 import { routesBook } from "@/shared/routing/routesBook";
 import { ContainerUI } from "@/shared/ui/ContainerUI";
+import { MovieCardPlaceholderUI } from "@/shared/ui/MovieCardPlaceholderUI";
 import { RatingCircleUI } from "@/shared/ui/RatingCircleUI";
 import { SocialUI } from "@/shared/ui/SocialUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
@@ -21,13 +22,13 @@ import {
   StyledActionWrapper,
   StyledButtonAndSocialWrapper,
   StyledDescription,
-  StyledImg,
   StyledImgAndRatingWrapper,
   StyledInfoTable,
   StyledListKeys,
   StyledListValue,
   StyledMainInfo,
   StyledMobileTitle,
+  StyledPoster,
   StyledProgress,
   StyledRatingWrapper,
   StyledSavedMovie,
@@ -94,7 +95,13 @@ export const MovieDescription = () => {
           <StyledMobileTitle>{title}</StyledMobileTitle>
           <StyledSubTitle>{original_title}</StyledSubTitle>
           <StyledImgAndRatingWrapper>
-            <StyledImg src={getPathToImg(poster_path, 500)} alt={original_title} />
+            <StyledPoster>
+              {poster_path ? (
+                <img src={getPathToImg(poster_path, 500)} alt={original_title} />
+              ) : (
+                <MovieCardPlaceholderUI size="small" />
+              )}
+            </StyledPoster>
             <StyledRatingWrapper>
               <RatingCircleUI value={ratingKinoarea} label="Kinoarea" />
               <RatingCircleUI value={vote_average} label="IMDb" />
@@ -116,7 +123,13 @@ export const MovieDescription = () => {
         </StyledMainInfo>
       ) : (
         <StyledMainInfo data-testid="movie-info">
-          <StyledImg src={getPathToImg(poster_path, 500)} alt={original_title} />
+          <StyledPoster>
+            {poster_path ? (
+              <img src={getPathToImg(poster_path, 500)} alt={original_title} />
+            ) : (
+              <MovieCardPlaceholderUI size="large" />
+            )}
+          </StyledPoster>
           <div>
             <Breadcrumbs
               path={[

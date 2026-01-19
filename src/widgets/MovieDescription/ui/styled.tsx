@@ -28,7 +28,7 @@ export const StyledMainInfo = styled.div`
   }
 `;
 
-export const StyledImg = styled.img`
+export const StyledPoster = styled.div`
   width: 395px;
   height: 540px;
   border-radius: 10px;
@@ -46,6 +46,12 @@ export const StyledImg = styled.img`
   ${mapDeviceToMedia.mobileOnly} {
     width: 225px;
     height: 300px;
+  }
+
+  img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
