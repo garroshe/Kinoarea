@@ -15,4 +15,5 @@ export const routesBook = {
   reviews: () => "/reviews",
   favorites: () => "/favorites",
   personalAccount: () => "/personalAccount",
+  premiereMovies: () => "/premiereMovies",
 };

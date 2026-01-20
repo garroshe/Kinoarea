@@ -11,7 +11,6 @@ import { ContainerUI } from "@/shared/ui/ContainerUI";
 import { DividerUI } from "@/shared/ui/DividerUI";
 import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
-import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import { useMoviesNowPlayingFetch } from "../api/use-movies-now-playing-fetch";
 import { ERROR_MESSAGE } from "../const";
@@ -30,7 +29,7 @@ export const NowPlaying = () => {
   };
 
   const handleOpenAllNews = () => {
-    navigate(routesBook.films());
+    navigate(routesBook.premiereMovies());
   };
 
   return (
@@ -59,8 +58,8 @@ export const NowPlaying = () => {
                   id={item.id}
                   title={item.title}
                   genre={item.genre_ids}
-                  img={getPathToImg(item.poster_path, 500)}
-                  rating={Number(item.vote_average?.toFixed(1))}
+                  img={item.poster_path}
+                  rating={item.vote_average}
                   key={item.id}
                   originalTitle={item.original_title}
                 />

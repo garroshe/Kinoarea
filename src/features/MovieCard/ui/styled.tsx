@@ -12,6 +12,23 @@ export const StyledMovieCard = styled.div`
     scale: 1.05;
   }
 
+  ${mapDeviceToMedia.laptopOnly} {
+    width: 202px;
+  }
+
+  ${mapDeviceToMedia.tabletOnly} {
+    width: 210px;
+  }
+
+  ${mapDeviceToMedia.mobileOnly} {
+    width: 170px;
+  }
+`;
+
+export const StyledPoster = styled.div`
+  width: 340px;
+  height: 460px;
+
   img {
     width: 340px;
     height: 460px;
@@ -20,6 +37,7 @@ export const StyledMovieCard = styled.div`
 
   ${mapDeviceToMedia.laptopOnly} {
     width: 202px;
+    height: auto;
 
     img {
       width: 202px;
@@ -29,6 +47,7 @@ export const StyledMovieCard = styled.div`
 
   ${mapDeviceToMedia.tabletOnly} {
     width: 210px;
+    height: auto;
 
     img {
       width: 210px;
@@ -38,6 +57,7 @@ export const StyledMovieCard = styled.div`
 
   ${mapDeviceToMedia.mobileOnly} {
     width: 170px;
+    height: auto;
 
     img {
       width: 170px;
