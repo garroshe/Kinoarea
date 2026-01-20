@@ -27,6 +27,8 @@ export const StyledImageActor = styled.div`
   height: 375px;
 
   img {
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
   }
 

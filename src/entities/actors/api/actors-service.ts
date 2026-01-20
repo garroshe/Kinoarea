@@ -1,7 +1,13 @@
 import { axiosInstance } from "@/shared/api/axiosInstance";
 
 import { API_KEY } from "../const";
-import type { ActorImagesResponseType, ActorResponseType, ActorsMovieResponseType, PayloadType } from "../types";
+import type {
+  ActorImagesResponseType,
+  ActorResponseType,
+  ActorsMovieResponseType,
+  PayloadType,
+  PopularActorsResponseType,
+} from "../types";
 
 export const actorsService = Object.freeze({
   movieActorsFetch: async (payload: PayloadType): Promise<ActorsMovieResponseType> => {
@@ -49,6 +55,22 @@ export const actorsService = Object.freeze({
         },
       });
 
+      return { error: null, data: res.data };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
+  },
+  popularActorsFetch: async (payload: PayloadType): Promise<PopularActorsResponseType> => {
+    try {
+      const { page } = payload;
+      const res = await axiosInstance.get(`/person/popular`, {
+        params: {
+          api_key: API_KEY,
+          language: "uk-UA",
+          page: page,
+        },
+      });
       return { error: null, data: res.data };
     } catch (error) {
       console.log(error);

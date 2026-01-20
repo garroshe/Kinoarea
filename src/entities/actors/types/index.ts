@@ -78,3 +78,59 @@ export type ActorImagesResponseType = {
   data: ActorImagesType | null;
   error: unknown | null;
 };
+
+export type MediaType = "movie" | "tv";
+
+export type KnownForBaseType = {
+  adult: boolean;
+  backdrop_path: string | null;
+  id: number;
+  overview: string;
+  poster_path: string | null;
+  media_type: MediaType;
+  original_language: string;
+  genre_ids: number[];
+  popularity: number;
+  vote_average: number;
+  vote_count: number;
+};
+
+export type KnownForMovieType = {
+  media_type: "movie";
+  title: string;
+  original_title: string;
+  release_date: string;
+  video: boolean;
+} & KnownForBaseType;
+
+export type KnownForTVType = {
+  media_type: "tv";
+  name: string;
+  original_name: string;
+  first_air_date: string;
+  origin_country: string[];
+} & KnownForBaseType;
+
+export type KnownForType = KnownForMovieType | KnownForTVType;
+
+export type PopularActorType = {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  known_for: KnownForType[];
+};
+
+export type PopularActorsResponseType = {
+  data: {
+    page: number;
+    results: PopularActorType[];
+    total_pages: number;
+    total_results: number;
+  } | null;
+  error: unknown | null;
+};

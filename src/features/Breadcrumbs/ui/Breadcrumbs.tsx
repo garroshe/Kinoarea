@@ -24,12 +24,12 @@ export const Breadcrumbs = ({ path }: BreadcrumbsPropsType) => {
       </li>
       {path.map((item, i) => {
         return (
-          <div key={i}>
+          <li key={i}>
             <SvgIcon icon={icons.angleBracket} />
-            <li style={{ color: `${item.isLast ? colors.white50 : ""}` }}>
+            <div style={{ color: `${item.isLast ? colors.white50 : ""}` }}>
               <Link to={item.to}>{item.label}</Link>
-            </li>
-          </div>
+            </div>
+          </li>
         );
       })}
     </StyledBreadcrumbs>

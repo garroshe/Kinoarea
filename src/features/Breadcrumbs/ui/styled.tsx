@@ -7,13 +7,10 @@ export const StyledBreadcrumbs = styled.ul`
   gap: 10px;
   align-items: center;
 
-  div {
+  li {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  li {
     font-weight: 500;
     font-size: 16px;
     line-height: 169%;
