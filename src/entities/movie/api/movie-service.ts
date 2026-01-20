@@ -1,6 +1,7 @@
 import { axiosInstance, mockApiAxiosInstance } from "@/shared/api/axiosInstance";
 
-import { API_KEY } from "../const";
+import { API_KEY, startDate, today } from "../const";
+import { formatDate } from "../lib/formate-date";
 import type {
   ActorMovieResponseType,
   MovieCollectionsResponseType,
@@ -39,8 +40,8 @@ export const movieService = Object.freeze({
           page,
           region: "UA",
           language: "uk-UA",
-          "primary_release_date.lte": "2025-07-01",
-          "primary_release_date.gte": "2025-05-01",
+          "primary_release_date.gte": formatDate(startDate),
+          "primary_release_date.lte": formatDate(today),
         },
       });
 
@@ -107,8 +108,8 @@ export const movieService = Object.freeze({
         params: {
           api_key: API_KEY,
           language: "uk-UA",
-          "primary_release_date.lte": "2025-07-01",
-          "primary_release_date.gte": "2025-05-01",
+          "primary_release_date.lte": formatDate(today),
+          "primary_release_date.gte": formatDate(startDate),
           with_genres: genre,
         },
       });
