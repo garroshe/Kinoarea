@@ -2,9 +2,18 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { getRatingColor } from "@/features/MovieCard/lib/getRatingColor";
+import { MovieCardPlaceholderUI } from "@/shared/ui/MovieCardPlaceholderUI";
+import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { mapGenreCodeToGenre } from "@/shared/utils/map-genre-code-to-genre";
 
-import { StyledActiveBlock, StyledDescription, StyledMovieCard, StyledRating, StyledTitle } from "./styled";
+import {
+  StyledActiveBlock,
+  StyledDescription,
+  StyledMovieCard,
+  StyledPoster,
+  StyledRating,
+  StyledTitle,
+} from "./styled";
 
 export type MovieCardType = {
   title?: string;
@@ -40,8 +49,14 @@ export const MovieCard = ({ title = "Фільм", genre, img, rating = 5, id }: 
       onMouseLeave={handleCloseBlock}
       onClick={handleNavigateToMovie}
     >
-      <StyledRating $bg={getRatingColor(rating)}>{rating}</StyledRating>
-      <img src={img} alt={title} loading="lazy" />
+      <StyledRating $bg={getRatingColor(Number(rating?.toFixed(1)))}>{Number(rating?.toFixed(1))}</StyledRating>
+      <StyledPoster>
+        {img ? (
+          <img src={getPathToImg(img, 500)} alt={title} loading="lazy" />
+        ) : (
+          <MovieCardPlaceholderUI size="large" />
+        )}
+      </StyledPoster>
       <StyledActiveBlock $visible={isVisible} data-testid="active-block" onClick={handleNavigateToMovie}>
         <p data-cy="movie-card-btn">Картка фільма</p>
       </StyledActiveBlock>

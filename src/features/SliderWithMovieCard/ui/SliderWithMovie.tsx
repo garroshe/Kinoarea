@@ -11,7 +11,6 @@ import { CenteredContentUI } from "@/shared/ui/CenteredContentUI";
 import { ErrorStateUI } from "@/shared/ui/ErrorStateUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { icons, SvgIcon } from "@/shared/ui/SvgIcon";
-import { getPathToImg } from "@/shared/utils/get-path-to-img";
 
 import { StyledNavigationBtns, StyledSlider, StyledSlidesCount } from "./styled";
 
@@ -60,8 +59,8 @@ export const SliderWithMovie = ({ movieData, isMovieLoading }: SliderWithMoviePr
                 id={item.id}
                 title={item.title}
                 genre={item.genre_ids}
-                img={getPathToImg(item.poster_path, 500)}
-                rating={Number(item.vote_average?.toFixed(1))}
+                img={item.poster_path}
+                rating={item.vote_average}
                 key={item.id}
                 originalTitle={item.original_title}
               />
