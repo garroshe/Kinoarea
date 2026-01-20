@@ -9,7 +9,7 @@ import { getPathToImg } from "@/shared/utils/get-path-to-img";
 import { useFetchMoviesQuery } from "../api/use-fetch-movies-query";
 import { StyledHeader, StyledMoreButton, StyledMoviePageList, StyledTitle } from "./styled";
 
-export const MoviePageList = () => {
+export const MovieList = () => {
   const [sortBy, setSortBy] = useState(DEFAULT_SELECT_VALUE);
 
   const { movies, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useFetchMoviesQuery({ sortBy });

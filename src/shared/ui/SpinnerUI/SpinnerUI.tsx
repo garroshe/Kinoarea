@@ -6,7 +6,7 @@ export type SpinnerUiPropsType = {
 };
 
 export const SpinnerUI = ({ size = "small" }: SpinnerUiPropsType) => {
-  const fontSize = size === "small" ? 14 : size === "large" ? 32 : 20;
+  const fontSize = size === "small" ? 14 : size === "large" ? 48 : 20;
 
   const indicator = <LoadingOutlined style={{ fontSize }} spin />;
 

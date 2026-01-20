@@ -1,11 +1,11 @@
 import { Header } from "@/widgets/Header";
-import { MoviePageList } from "@/widgets/MoviePageList";
+import { MovieList } from "@/widgets/MoviesList";
 
 const MoviesPage = () => {
   return (
     <>
       <Header />
-      <MoviePageList />
+      <MovieList />
     </>
   );
 };
