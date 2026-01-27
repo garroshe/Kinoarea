@@ -14,6 +14,8 @@ const MoviePage = lazy(() => import("@/pages/MoviesPage/MoviesPage"));
 const ActorPage = lazy(() => import("@/pages/ActorPage/ActorPage"));
 const ActorsPage = lazy(() => import("@/pages/ActorsPage/ActorsPage"));
 const PremiereMoviesPage = lazy(() => import("@/pages/PremiereMoviesPage/PremiereMoviesPage"));
+const CollectionsPage = lazy(() => import("@/pages/CollectionsPage/ui/CollectionsPage"));
+const CollectionPage = lazy(() => import("@/pages/CollectionPage/CollectionPage"));
 
 export const Router = () => {
   return (
@@ -33,6 +35,8 @@ export const Router = () => {
         <Route path={routesBook.actor()} element={<ActorPage />} />
         <Route path={routesBook.actors()} element={<ActorsPage />} />
         <Route path={routesBook.premiereMovies()} element={<PremiereMoviesPage />} />
+        <Route path={routesBook.collections()} element={<CollectionsPage />} />
+        <Route path={routesBook.collection()} element={<CollectionPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Suspense>
