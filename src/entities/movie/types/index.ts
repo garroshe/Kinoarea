@@ -64,6 +64,9 @@ export type PayloadType = {
   date?: string;
   genre?: string;
   sortBy?: string;
+  isUserCollection?: boolean;
+  endpoint?: string;
+  params?: Record<string, string | number>;
 };
 
 export type MovieResponseType = {

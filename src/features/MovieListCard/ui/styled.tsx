@@ -7,7 +7,7 @@ export const StyledMovieListCard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #3b486b;
+  border-bottom: 1px solid ${colors.grey400};
   padding: 28px 0 48px 0;
 
   ${mapDeviceToMedia.laptopOnly} {

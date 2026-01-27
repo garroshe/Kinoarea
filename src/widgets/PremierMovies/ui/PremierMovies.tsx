@@ -15,10 +15,6 @@ export const PremierMovies = () => {
 
   const { isLoading, moviesData, error } = useNowPlayingMoviesFetchQuery({ page });
 
-  const handlePageChange = (page: number) => {
-    setPage(page);
-  };
-
   return (
     <StyledPremierMovies>
       <ContainerUI>
@@ -49,7 +45,7 @@ export const PremierMovies = () => {
         <Pagination
           disabled={isLoading}
           align="center"
-          onChange={handlePageChange}
+          onChange={setPage}
           total={500}
           pageSize={20}
           current={page}

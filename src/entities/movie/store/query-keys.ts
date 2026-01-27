@@ -11,4 +11,5 @@ export const movieQueryKeys = {
   movieReviewsFetchMutation: "movieReviewsFetchMutation",
   moviesFetch: "movieFetch",
   actorMoviesFetch: "actorMoviesFetch",
+  collectionMoviesFetch: "collectionMoviesFetch",
 };

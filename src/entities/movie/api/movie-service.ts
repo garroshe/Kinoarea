@@ -203,4 +203,21 @@ export const movieService = Object.freeze({
       return { error, data: null };
     }
   },
+  collectionMoviesFetch: async (payload: PayloadType): Promise<MoviesResponseType> => {
+    try {
+      const { endpoint, isUserCollection, params, page } = payload;
+      console.log(isUserCollection);
+      const res = await axiosInstance.get(`${endpoint}`, {
+        params: {
+          api_key: API_KEY,
+          ...params,
+          page,
+        },
+      });
+      return { error: null, data: res.data.results };
+    } catch (error) {
+      console.log(error);
+      return { error, data: null };
+    }
+  },
 });
