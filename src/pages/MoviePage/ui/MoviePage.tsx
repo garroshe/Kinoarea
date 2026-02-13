@@ -1,4 +1,4 @@
-import { MovieTabs } from "@/features/MovieTabs";
+import { NavigateTabs } from "@/features/NavigateTabs";
 import ErrorBoundary from "@/shared/ui/ErrorBoundaryUI/ErrorBoundaryUI";
 import { SpinnerUI } from "@/shared/ui/SpinnerUI";
 import { Header } from "@/widgets/Header";
@@ -11,6 +11,7 @@ import { ReviewsList } from "@/widgets/ReviewsList";
 import { SequelsAndPrequels } from "@/widgets/SequelsAndPrequels";
 
 import { useMovieFetchByIdQuery } from "../api/use-movie-fetch-by-id-query";
+import { MOVIE_TABS } from "../const";
 import { StyledCardMoviePage } from "./styled";
 
 const MoviePage = () => {
@@ -30,7 +31,7 @@ const MoviePage = () => {
       <ErrorBoundary>
         <MovieActors />
       </ErrorBoundary>
-      <MovieTabs />
+      <NavigateTabs tabs={MOVIE_TABS} />
       <ErrorBoundary>
         <NewTrailer title="Трейлери фильму" />
       </ErrorBoundary>

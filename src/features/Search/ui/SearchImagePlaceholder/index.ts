@@ -1,0 +1,1 @@
+export { SearchImagePlaceholder } from "./SearchImagePlaceholder";

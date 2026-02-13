@@ -6,5 +6,4 @@ export const NAV_BAR_LINK = [
   { title: "Рейтинги", to: routesBook.ratings() },
   { title: "Рецензії", to: routesBook.reviews() },
   { title: "Каталог фільмів", to: routesBook.films() },
-  { title: "Пошук", to: routesBook.search() },
 ];

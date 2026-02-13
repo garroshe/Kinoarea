@@ -46,6 +46,7 @@ export const StyledPoster = styled.div`
   }
 
   ${mapDeviceToMedia.mobileOnly} {
+    min-width: 134px;
     width: 134px;
     height: 200px;
   }

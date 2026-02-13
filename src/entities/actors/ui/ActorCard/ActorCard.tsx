@@ -22,7 +22,7 @@ export const ActorCard = ({ name, character, imgUrl, id }: ActorCardPropsType) =
   return (
     <StyledActorCard data-testid="actor-card" onClick={handleClick}>
       <StyledImageActor>
-        {imgUrl ? <img src={getPathToImg(imgUrl, 300)} alt={name} /> : <ActorNotFoundUI size="small" />}
+        {imgUrl ? <img src={getPathToImg(imgUrl, 300)} alt={name} loading="lazy" /> : <ActorNotFoundUI size="small" />}
       </StyledImageActor>
       <h3>{name}</h3>
       <StyledCharacterName>{character}</StyledCharacterName>

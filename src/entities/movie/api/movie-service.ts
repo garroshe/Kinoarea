@@ -210,6 +210,7 @@ export const movieService = Object.freeze({
       const res = await axiosInstance.get(`${endpoint}`, {
         params: {
           api_key: API_KEY,
+          language: "uk-UA",
           ...params,
           page,
         },
