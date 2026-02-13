@@ -1,0 +1,1 @@
+export { SearchPersonCard } from "./SearchPersonCard";

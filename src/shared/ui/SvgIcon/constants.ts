@@ -23,4 +23,5 @@ export const icons = {
   link: "link",
   alert: "alert",
   poster: "poster",
+  filters: "filters",
 };

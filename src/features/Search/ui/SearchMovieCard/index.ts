@@ -1,0 +1,1 @@
+export { SearchMovieCard } from "./SearchMovieCard";

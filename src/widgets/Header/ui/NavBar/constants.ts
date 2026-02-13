@@ -6,5 +6,4 @@ export const NAVBAR_PATH = [
   { to: routesBook.actors(), label: "Актори" },
   { to: routesBook.collections(), label: "Добірки" },
   { to: routesBook.categories(), label: "Категорії" },
-  { to: routesBook.search(), label: "Пошук" },
 ];

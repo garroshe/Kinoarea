@@ -1,22 +1,30 @@
 import { useState } from "react";
 import classnames from "classnames";
 
-import { MOVIE_TABS } from "../const";
+import type { TabType } from "../model/types";
 import { StyledMovieTabs } from "./styled";
 
-export const MovieTabs = () => {
+type NavigateTabsPropsType = {
+  tabs: TabType[];
+  onChangeTab?: (tab: TabType) => void;
+};
+
+export const NavigateTabs = ({ tabs, onChangeTab }: NavigateTabsPropsType) => {
   const [currentTab, setCurrentTab] = useState(0);
 
-  const handleChangeTab = (newTab: number) => {
-    setCurrentTab(newTab);
+  const handleChangeTab = (newTab: TabType) => {
+    setCurrentTab(newTab.index);
+    if (onChangeTab) {
+      onChangeTab(newTab);
+    }
   };
 
   return (
     <StyledMovieTabs>
-      {MOVIE_TABS.map((tab, i) => (
+      {tabs.map((tab, i) => (
         <li key={i}>
           <a
-            onClick={() => handleChangeTab(tab.index)}
+            onClick={() => handleChangeTab(tab)}
             className={classnames("tab", {
               active: currentTab === tab.index,
             })}

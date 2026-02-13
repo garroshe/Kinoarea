@@ -11,7 +11,7 @@ export const MOVIE_TABS = [
   },
   {
     label: "Кадри",
-    index: 4,
+    index: 2,
     id: "#movie-frames",
   },
 ];

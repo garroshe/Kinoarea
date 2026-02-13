@@ -8,6 +8,7 @@ import { Check } from "./icons/Check";
 import { CollapseIconUI } from "./icons/CollapseIcon";
 import { Dagger } from "./icons/Dagger";
 import { Facebook } from "./icons/Facebook";
+import { Filters } from "./icons/Filters";
 import { GitHub } from "./icons/GitHub";
 import { Google } from "./icons/Google";
 import { Heart } from "./icons/Heart";
@@ -51,6 +52,7 @@ export const SvgIcon = ({ icon, className, onClick, color }: SvgIconPropsType) =
     [icons.link]: Link,
     [icons.alert]: Alert,
     [icons.poster]: Poster,
+    [icons.filters]: Filters,
   };
 
   const IconJSX = svgs[icon];
